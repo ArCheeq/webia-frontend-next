@@ -1,0 +1,12 @@
+.topPageBar {
+    background: #e4e2df;
+    color: #161616;
+    padding: 4px 12px;
+    margin-bottom: 16px;
+    height: 40px;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

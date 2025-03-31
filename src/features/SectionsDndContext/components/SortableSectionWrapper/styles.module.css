@@ -1,0 +1,6 @@
+.reorderControl {
+    position: absolute;
+    top: 50%;
+    left: -60px;
+    transform: translateY(-50%);
+}
