@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
-import Gallery from "@/features/AddSectionMenu/components/SpecificSectionList/Gallery";
 import Empty from "@/features/AddSectionMenu/components/SpecificSectionList/Empty";
+import Gallery from "@/features/AddSectionMenu/components/SpecificSectionList/Gallery";
 
 import { useStore } from "@/store";
 

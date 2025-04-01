@@ -29,7 +29,7 @@ export default function DropdownHeader() {
             <Group>
                 <TextInput leftSection={<SearchIcon />} placeholder={'Search...'} w={'100%'} />
             </Group>
-            <Menu.Divider mt={12} />
+            <Menu.Divider my={12} />
         </Stack>
     );
 }

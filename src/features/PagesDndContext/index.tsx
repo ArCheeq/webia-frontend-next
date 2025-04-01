@@ -40,9 +40,9 @@ export default function PagesDndContext() {
     return (
         <DndContext id={contextId} sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
             <SortableContext items={layout} strategy={horizontalListSortingStrategy}>
-                {layout.map((page) => (
+                {layout.map((page, idx) => (
                     <SortablePageWrapper key={page.id} element={page}>
-                        <SectionsDndContext page={page} />
+                        <SectionsDndContext page={page} pageIndex={idx} />
                     </SortablePageWrapper>
                 ))}
             </SortableContext>

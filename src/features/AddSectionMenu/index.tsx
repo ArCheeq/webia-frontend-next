@@ -38,7 +38,7 @@ export default function AddSectionMenu() {
 
             <Menu.Dropdown p={12} className={styles.dropdown}>
                 <DropdownHeader />
-                {activeSection ? <SpecificSectionList /> :<SectionList /> }
+                {activeSection ? <SpecificSectionList /> : <SectionList /> }
             </Menu.Dropdown>
         </Menu>
     );

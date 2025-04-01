@@ -23,6 +23,7 @@ import { useLandingContext } from "@/store/landing-ctx";
 
 interface SectionsDndContextProps {
     page: IDynamicElement;
+    pageIndex: number;
 }
 
 export default function SectionsDndContext(props: SectionsDndContextProps) {
@@ -52,8 +53,8 @@ export default function SectionsDndContext(props: SectionsDndContextProps) {
     return (
         <DndContext id={contextId} sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
             <SortableContext items={sections} strategy={verticalListSortingStrategy}>
-                {sections.map((section) => (
-                    <SortableSectionWrapper key={section.id} element={section}>
+                {sections.map((section, idx) => (
+                    <SortableSectionWrapper key={section.id} element={section} pageIndex={props.pageIndex} sectionIndex={idx}>
                         <DynamicReactElementEdit element={section} />
                     </SortableSectionWrapper>
                 ))}

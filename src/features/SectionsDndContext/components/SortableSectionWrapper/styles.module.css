@@ -4,3 +4,19 @@
     left: -60px;
     transform: translateY(-50%);
 }
+
+.addSectionTop {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    z-index: 100;
+}
+
+.addSectionBottom {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    z-index: 100;
+}

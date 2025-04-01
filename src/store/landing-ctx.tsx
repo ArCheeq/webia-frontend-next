@@ -13,6 +13,7 @@ interface ILandingContextProps {
     copyElement: (keyToCopy: string) => void;
     addElement: (parentKey: string, newElement: IDynamicElement) => void;
     updateElement: (keyToUpdate: string, updates: Partial<IDynamicElement>) => void;
+    addSection: (parentIndex: number, indexToAdd: number, newSection: IDynamicElement) => void;
 }
 
 const LandingCtx = React.createContext<ILandingContextProps | null>(null);
@@ -133,6 +134,24 @@ export const LandingContextProvider = ({ children }: PropsWithChildren) => {
         });
     };
 
+    const addSection = (parentIndex: number, indexToAdd: number, newSection: IDynamicElement) => {
+        const newLayout =  layout.map((page, pageIdx) => {
+            if (pageIdx === parentIndex) {
+                return {
+                    ...page,
+                    children: [
+                        ...page.children.slice(0, indexToAdd),
+                        newSection,
+                        ...page.children.slice(indexToAdd)
+                    ]
+                };
+            }
+            return page;
+        });
+
+        setLayout(newLayout);
+    };
+
     return (
         <LandingCtx.Provider
             value={{
@@ -143,6 +162,7 @@ export const LandingContextProvider = ({ children }: PropsWithChildren) => {
                 copyElement,
                 addElement,
                 updateElement,
+                addSection,
             }}
         >
             {children}

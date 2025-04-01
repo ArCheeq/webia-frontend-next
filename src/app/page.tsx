@@ -6,7 +6,7 @@ import PagesDndContext from "@/features/PagesDndContext";
 export default function LandingPage() {
   return (
       <CanvasWrapper>
-        <PagesDndContext />
+          <PagesDndContext />
       </CanvasWrapper>
   );
 }
