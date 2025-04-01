@@ -15,6 +15,9 @@ export default function EditSectionMenu() {
     const open = useStore((state) => state.EditSectionMenu.open);
     const activeElement = useStore((state) => state.EditSectionMenu.element);
 
+    const isAddSectionMenuOpened = useStore((state) => state.AddSectionMenu.opened);
+    const closeAddSectionMenu = useStore((state) => state.AddSectionMenu.close);
+
     return (
         <Menu opened={opened} shadow="md" width={300} position={"right-start"} closeOnClickOutside={true}>
             <Menu.Target>
@@ -24,7 +27,10 @@ export default function EditSectionMenu() {
                     color={"#fff"}
                     size={"xl"}
                     aria-label="edit-section"
-                    onClick={() => open()}
+                    onClick={() => {
+                        open();
+                        if (isAddSectionMenuOpened) closeAddSectionMenu();
+                    }}
                 >
                     <EditIcon />
                 </ActionIcon>
