@@ -19,7 +19,7 @@ export default function ExportTemplateButton() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(layout),
             });
-            router.push(`/landing-parser/${layout[0].pageLink}`);
+            router.replace(`/landing-parser/homepage`);
         } catch (error) {
             console.error(error);
         } finally {

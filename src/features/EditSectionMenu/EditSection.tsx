@@ -14,7 +14,7 @@ export default function EditSection() {
             <TextContentForm />
             <ImageForm />
             <LinkForm />
-            <StylesForm />
+            {/*<StylesForm />*/}
         </Fragment>
     );
 }

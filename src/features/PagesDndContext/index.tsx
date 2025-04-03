@@ -13,8 +13,10 @@ import SortablePageWrapper from "@/features/PagesDndContext/components/SortableP
 import { useLandingContext } from "@/store/landing-ctx";
 import SectionsDndContext from "@/features/SectionsDndContext";
 import { KeyboardSensor, MouseSensor } from "@/features/PagesDndContext/SmartPointerSensor";
+import {mockLayout} from "@/mock/mock-layout";
 
 export default function PagesDndContext() {
+    console.log(JSON.stringify(mockLayout));
     const contextId = useId();
     const { layout, reorderPages } = useLandingContext();
 

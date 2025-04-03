@@ -2,14 +2,17 @@ import { IStateSlice } from "@/store/store";
 
 export interface IEditSectionMenuState {
     opened: boolean;
+    isRegenerating: boolean;
     element: IDynamicElement | null;
 
     open: (element?: IDynamicElement) => void;
     close: () => void;
+    setRegenerating: (status: boolean) => void;
 }
 
 export const createEditSectionMenuStore: IStateSlice<IEditSectionMenuState> = (set, get) => ({
     opened: false,
+    isRegenerating: false,
     element: null,
 
     open: (element) =>
@@ -34,4 +37,8 @@ export const createEditSectionMenuStore: IStateSlice<IEditSectionMenuState> = (s
             state.EditSectionMenu.opened = false;
             state.EditSectionMenu.element = null;
         }),
+    setRegenerating: (status) =>
+        set((state) => {
+            state.EditSectionMenu.isRegenerating = status;
+        })
 });

@@ -1,6 +1,7 @@
 import { numberid } from "@/utils/numberid";
 import { chartPreset } from "@/mock/charts";
 import { buttonsPreset } from "@/mock/buttons";
+import { headerPreset } from "@/mock/headers";
 
 export const mockLayout: IDynamicElement[] = [
     {
@@ -240,6 +241,7 @@ export const mockLayout: IDynamicElement[] = [
                     },
                 ],
             },
+            { ...headerPreset },
             {
                 id: numberid(),
                 key: "hero-001",
@@ -1895,12 +1897,12 @@ export const mockLayout: IDynamicElement[] = [
                     },
                 },
                 code: `({ children, className }) => {
-        return (
-            <section className={className}>
-                {children}
-            </section>
-        );
-    }`,
+                    return (
+                        <section className={className}>
+                            {children}
+                        </section>
+                    );
+                }`,
                 children: [
                     {
                         id: numberid(),

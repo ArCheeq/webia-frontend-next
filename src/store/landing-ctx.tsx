@@ -14,12 +14,15 @@ interface ILandingContextProps {
     addElement: (parentKey: string, newElement: IDynamicElement) => void;
     updateElement: (keyToUpdate: string, updates: Partial<IDynamicElement>) => void;
     addSection: (parentIndex: number, indexToAdd: number, newSection: IDynamicElement) => void;
+    isRegenerating: boolean;
+    setIsRegenerating:  React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const LandingCtx = React.createContext<ILandingContextProps | null>(null);
 
 export const LandingContextProvider = ({ children }: PropsWithChildren) => {
     const [layout, setLayout] = useState<Array<IDynamicElement>>(mockLayout);
+    const [isRegenerating, setIsRegenerating] = useState(false);
 
     const deleteElement = (keyToDelete: string) => {
         if (!layout) return;
@@ -163,6 +166,8 @@ export const LandingContextProvider = ({ children }: PropsWithChildren) => {
                 addElement,
                 updateElement,
                 addSection,
+                isRegenerating,
+                setIsRegenerating,
             }}
         >
             {children}

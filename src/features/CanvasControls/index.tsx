@@ -16,9 +16,9 @@ export default function CanvasControls() {
                 <Tooltip label="Edit" withArrow position={"right"}>
                     <EditSectionMenu />
                 </Tooltip>
-                <Tooltip label={"Add Section"} withArrow position={"right"}>
-                    <AddSectionMenu />
-                </Tooltip>
+                {/*<Tooltip label={"Add Section"} withArrow position={"right"}>*/}
+                {/*    <AddSectionMenu />*/}
+                {/*</Tooltip>*/}
             </Box>
             <Box className={styles.topRight}>
                 <Avatar variant="filled" radius="xl" color="orange" src="" />

@@ -5,6 +5,12 @@
     transform: translateY(-50%);
 }
 
+.regenerateControl {
+    position: absolute;
+    top: 0;
+    left: -60px;
+}
+
 .addSectionTop {
     position: absolute;
     top: -20px;
@@ -19,4 +25,10 @@
     left: 50%;
     transform: translateX(-50%) !important;
     z-index: 100;
+}
+
+.skeleton {
+    position: absolute;
+    inset: 0;
+    z-index: 10000;
 }

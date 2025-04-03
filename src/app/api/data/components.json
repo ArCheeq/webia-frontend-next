@@ -1,6 +1,6 @@
 [
   {
-    "id": 17,
+    "id": 25,
     "key": "root-001",
     "type": "div",
     "pageName": "Main Page",
@@ -24,7 +24,7 @@
     "code": "({ children, className }) => {\n            return (\n                <div className={className}>\n                    {children}\n                </div>\n            );\n        }",
     "children": [
       {
-        "id": 18,
+        "id": 26,
         "key": "header-001",
         "type": "header",
         "props": {
@@ -53,7 +53,7 @@
         "code": "({ children, className }) => {\n                return (\n                    <header className={className}>\n                        {children}\n                    </header>\n                );\n            }",
         "children": [
           {
-            "id": 19,
+            "id": 27,
             "key": "header-logo-001",
             "type": "div",
             "props": {
@@ -67,7 +67,7 @@
             "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
             "children": [
               {
-                "id": 20,
+                "id": 28,
                 "key": "logo-img-001",
                 "type": "img",
                 "props": {
@@ -85,7 +85,7 @@
                 "children": []
               },
               {
-                "id": 21,
+                "id": 29,
                 "key": "logo-text-001",
                 "type": "span",
                 "props": {
@@ -107,7 +107,7 @@
             ]
           },
           {
-            "id": 22,
+            "id": 30,
             "key": "header-nav-001",
             "type": "nav",
             "props": {
@@ -123,7 +123,7 @@
             "code": "({ children, className }) => {\n                        return (\n                            <nav className={className}>\n                                {children}\n                            </nav>\n                        );\n                    }",
             "children": [
               {
-                "id": 23,
+                "id": 31,
                 "key": "nav-link-001",
                 "type": "a",
                 "props": {
@@ -145,7 +145,7 @@
                 "children": []
               },
               {
-                "id": 24,
+                "id": 32,
                 "key": "nav-link-002",
                 "type": "a",
                 "props": {
@@ -167,7 +167,7 @@
                 "children": []
               },
               {
-                "id": 25,
+                "id": 33,
                 "key": "nav-link-003",
                 "type": "a",
                 "props": {
@@ -193,7 +193,188 @@
         ]
       },
       {
-        "id": 26,
+        "id": 17,
+        "key": "header-001",
+        "type": "header",
+        "props": {
+          "className": ""
+        },
+        "styles": {
+          "width": "100%",
+          "boxShadow": "0 1px 0 rgba(0, 255, 255, 0.2)",
+          "position": "sticky",
+          "top": 0,
+          "zIndex": 1000,
+          "padding": "15px 5%",
+          "display": "flex",
+          "justifyContent": "space-between",
+          "alignItems": "center",
+          "borderBottom": "1px solid #00ffff",
+          "backdropFilter": "blur(10px)",
+          "WebkitBackdropFilter": "blur(10px)",
+          "backgroundColor": "rgba(17, 24, 39, 0.8)",
+          "@media (max-width: 1024px)": {
+            "padding": "15px 3%"
+          },
+          "@media (max-width: 768px)": {
+            "padding": "10px 3%",
+            "flexDirection": "column",
+            "alignItems": "flex-start"
+          }
+        },
+        "code": "({ children, className }) => {\n                return (\n                    <header className={className}>\n                        {children}\n                    </header>\n                );\n            }",
+        "children": [
+          {
+            "id": 18,
+            "key": "header-logo-001",
+            "type": "div",
+            "props": {
+              "className": ""
+            },
+            "styles": {
+              "display": "flex",
+              "alignItems": "center",
+              "gap": "12px",
+              "@media (max-width: 768px)": {
+                "marginBottom": "10px",
+                "width": "100%"
+              }
+            },
+            "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
+            "children": [
+              {
+                "id": 19,
+                "key": "logo-img-001",
+                "type": "img",
+                "props": {
+                  "className": "",
+                  "src": "https://static.vecteezy.com/system/resources/previews/019/637/202/non_2x/blue-tape-circle-logo-icon-free-png.png",
+                  "alt": "Logo"
+                },
+                "styles": {
+                  "width": "40px",
+                  "height": "40px",
+                  "borderRadius": "50%",
+                  "objectFit": "cover",
+                  "border": "1px solid #00ffff"
+                },
+                "code": "({ className, src, alt }) => {\n                                return (\n                                    <img className={className} src={src} alt={alt} />\n                                );\n                            }",
+                "children": []
+              },
+              {
+                "id": 20,
+                "key": "logo-text-001",
+                "type": "span",
+                "props": {
+                  "textContent": "BrandName",
+                  "className": ""
+                },
+                "styles": {
+                  "fontSize": "24px",
+                  "fontWeight": 700,
+                  "color": "#00ffff",
+                  "letterSpacing": "-0.5px",
+                  "textShadow": "0 0 8px rgba(0, 255, 255, 0.7)",
+                  "@media (max-width: 768px)": {
+                    "fontSize": "20px"
+                  }
+                },
+                "code": "({ className, textContent }) => {\n                                return (\n                                    <span className={className}>\n                                        {textContent}\n                                    </span>\n                                );\n                            }",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": 21,
+            "key": "header-nav-001",
+            "type": "nav",
+            "props": {
+              "className": ""
+            },
+            "styles": {
+              "display": "flex",
+              "gap": "35px",
+              "@media (max-width: 768px)": {
+                "display": "none"
+              }
+            },
+            "code": "({ children, className }) => {\n                        return (\n                            <nav className={className}>\n                                {children}\n                            </nav>\n                        );\n                    }",
+            "children": [
+              {
+                "id": 22,
+                "key": "nav-link-001",
+                "type": "a",
+                "props": {
+                  "textContent": "Home",
+                  "className": "",
+                  "href": "/landing-parser/homepage"
+                },
+                "styles": {
+                  "textDecoration": "none",
+                  "color": "#e5e7eb",
+                  "fontSize": "16px",
+                  "fontWeight": 500,
+                  "transition": "color 0.3s ease, text-shadow 0.3s ease",
+                  "&:hover": {
+                    "color": "#39ff14",
+                    "textShadow": "0 0 10px rgba(57, 255, 20, 0.8)"
+                  }
+                },
+                "code": "({ className, textContent, href }) => {\n                                return (\n                                    <a className={className} href={href}>\n                                        {textContent}\n                                    </a>\n                                );\n                            }",
+                "children": []
+              },
+              {
+                "id": 23,
+                "key": "nav-link-002",
+                "type": "a",
+                "props": {
+                  "textContent": "About",
+                  "className": "",
+                  "href": "#about"
+                },
+                "styles": {
+                  "textDecoration": "none",
+                  "color": "#e5e7eb",
+                  "fontSize": "16px",
+                  "fontWeight": 500,
+                  "transition": "color 0.3s ease, text-shadow 0.3s ease",
+                  "&:hover": {
+                    "color": "#39ff14",
+                    "textShadow": "0 0 10px rgba(57, 255, 20, 0.8)"
+                  }
+                },
+                "code": "({ className, textContent, href }) => {\n                                return (\n                                    <a className={className} href={href}>\n                                        {textContent}\n                                    </a>\n                                );\n                            }",
+                "children": []
+              },
+              {
+                "id": 24,
+                "key": "nav-link-003",
+                "type": "a",
+                "props": {
+                  "textContent": "Contact",
+                  "className": "",
+                  "href": "/landing-parser/contacts"
+                },
+                "styles": {
+                  "textDecoration": "none",
+                  "color": "#e5e7eb",
+                  "fontSize": "16px",
+                  "fontWeight": 500,
+                  "transition": "color 0.3s ease, text-shadow 0.3s ease",
+                  "&:hover": {
+                    "color": "#39ff14",
+                    "textShadow": "0 0 10px rgba(57, 255, 20, 0.8)"
+                  }
+                },
+                "code": "({ className, textContent, href }) => {\n                                return (\n                                    <a className={className} href={href}>\n                                        {textContent}\n                                    </a>\n                                );\n                            }",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 34,
         "key": "hero-001",
         "type": "section",
         "props": {
@@ -232,7 +413,7 @@
         "code": "({ children, className }) => {\n                return (\n                    <section className={className}>\n                        {children}\n                    </section>\n                );\n            }",
         "children": [
           {
-            "id": 27,
+            "id": 35,
             "key": "hero-content-001",
             "type": "div",
             "props": {
@@ -258,7 +439,7 @@
             "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
             "children": [
               {
-                "id": 28,
+                "id": 36,
                 "key": "hero-title-001",
                 "type": "h1",
                 "props": {
@@ -286,7 +467,7 @@
                 "children": []
               },
               {
-                "id": 29,
+                "id": 37,
                 "key": "hero-subtitle-001",
                 "type": "p",
                 "props": {
@@ -310,7 +491,7 @@
                 "children": []
               },
               {
-                "id": 30,
+                "id": 38,
                 "key": "hero-cta-001",
                 "type": "button",
                 "props": {
@@ -349,67 +530,7 @@
         ]
       },
       {
-        "id": 270,
-        "key": "f4wrmdgDYDbAqpK_-lt-y",
-        "type": "section",
-        "props": {
-          "className": ""
-        },
-        "styles": {
-          "width": "100%",
-          "height": "80vh",
-          "display": "flex",
-          "justifyContent": "center",
-          "alignItems": "center",
-          "backgroundColor": "#f3f4f6",
-          "position": "relative",
-          "overflow": "hidden",
-          "@media (max-width: 1024px)": {
-            "height": "70vh"
-          },
-          "@media (max-width: 768px)": {
-            "height": "60vh"
-          },
-          "@media (max-width: 480px)": {
-            "height": "50vh"
-          }
-        },
-        "code": "({ children, className }) => {\n        return (\n            <section className={className}>\n                {children}\n            </section>\n        );\n    }",
-        "children": [
-          {
-            "id": 271,
-            "key": "-APii7SvEfHj9u1oav9Jz",
-            "type": "img",
-            "props": {
-              "className": "",
-              "src": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
-              "alt": "Modern Center Image"
-            },
-            "styles": {
-              "width": "80%",
-              "height": "auto",
-              "maxHeight": "100%",
-              "objectFit": "cover",
-              "borderRadius": "20px",
-              "boxShadow": "0 10px 30px rgba(0, 0, 0, 0.2)",
-              "transition": "transform 0.3s ease-in-out",
-              "&:hover": {
-                "transform": "scale(1.05)"
-              },
-              "@media (max-width: 768px)": {
-                "width": "90%"
-              },
-              "@media (max-width: 480px)": {
-                "width": "100%"
-              }
-            },
-            "code": "({ className, src, alt }) => {\n                return (\n                    <img className={className} src={src} alt={alt} />\n                );\n            }",
-            "children": []
-          }
-        ]
-      },
-      {
-        "id": 31,
+        "id": 39,
         "key": "chart-section-wrapper-001",
         "type": "section",
         "props": {
@@ -1020,7 +1141,7 @@
         ]
       },
       {
-        "id": 32,
+        "id": 40,
         "key": "button-section-wrapper-001",
         "type": "section",
         "props": {
@@ -1044,7 +1165,7 @@
         "code": "({ children, className }) => {\n                return (\n                    <section className={className}>\n                        {children}\n                    </section>\n                );\n            }",
         "children": [
           {
-            "id": 33,
+            "id": 41,
             "key": "button-section-001",
             "type": "section",
             "props": {
@@ -1232,7 +1353,7 @@
         ]
       },
       {
-        "id": 34,
+        "id": 42,
         "key": "cards-001",
         "type": "section",
         "props": {
@@ -1256,7 +1377,7 @@
         "code": "({ children, className }) => {\n                return (\n                    <section className={className}>\n                        {children}\n                    </section>\n                );\n            }",
         "children": [
           {
-            "id": 35,
+            "id": 43,
             "key": "cards-title-001",
             "type": "h2",
             "props": {
@@ -1280,7 +1401,7 @@
             "children": []
           },
           {
-            "id": 36,
+            "id": 44,
             "key": "cards-container-001",
             "type": "div",
             "props": {
@@ -1304,7 +1425,7 @@
             "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
             "children": [
               {
-                "id": 37,
+                "id": 45,
                 "key": "card-001",
                 "type": "div",
                 "props": {
@@ -1324,7 +1445,7 @@
                 "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                 "children": [
                   {
-                    "id": 38,
+                    "id": 46,
                     "key": "card-img-001",
                     "type": "img",
                     "props": {
@@ -1344,7 +1465,7 @@
                     "children": []
                   },
                   {
-                    "id": 39,
+                    "id": 47,
                     "key": "card-content-001",
                     "type": "div",
                     "props": {
@@ -1359,7 +1480,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 40,
+                        "id": 48,
                         "key": "card-title-001",
                         "type": "h3",
                         "props": {
@@ -1379,7 +1500,7 @@
                         "children": []
                       },
                       {
-                        "id": 41,
+                        "id": 49,
                         "key": "card-desc-001",
                         "type": "p",
                         "props": {
@@ -1399,7 +1520,7 @@
                         "children": []
                       },
                       {
-                        "id": 42,
+                        "id": 50,
                         "key": "card-button-001",
                         "type": "button",
                         "props": {
@@ -1433,7 +1554,7 @@
                 ]
               },
               {
-                "id": 43,
+                "id": 51,
                 "key": "card-002",
                 "type": "div",
                 "props": {
@@ -1453,7 +1574,7 @@
                 "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                 "children": [
                   {
-                    "id": 44,
+                    "id": 52,
                     "key": "card-img-001",
                     "type": "img",
                     "props": {
@@ -1473,7 +1594,7 @@
                     "children": []
                   },
                   {
-                    "id": 45,
+                    "id": 53,
                     "key": "card-content-001",
                     "type": "div",
                     "props": {
@@ -1488,7 +1609,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 46,
+                        "id": 54,
                         "key": "card-title-001",
                         "type": "h3",
                         "props": {
@@ -1508,7 +1629,7 @@
                         "children": []
                       },
                       {
-                        "id": 47,
+                        "id": 55,
                         "key": "card-desc-001",
                         "type": "p",
                         "props": {
@@ -1528,7 +1649,7 @@
                         "children": []
                       },
                       {
-                        "id": 48,
+                        "id": 56,
                         "key": "card-button-001",
                         "type": "button",
                         "props": {
@@ -1562,7 +1683,7 @@
                 ]
               },
               {
-                "id": 49,
+                "id": 57,
                 "key": "card-003",
                 "type": "div",
                 "props": {
@@ -1582,7 +1703,7 @@
                 "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                 "children": [
                   {
-                    "id": 50,
+                    "id": 58,
                     "key": "card-img-002",
                     "type": "img",
                     "props": {
@@ -1602,7 +1723,7 @@
                     "children": []
                   },
                   {
-                    "id": 51,
+                    "id": 59,
                     "key": "card-content-002",
                     "type": "div",
                     "props": {
@@ -1617,7 +1738,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 52,
+                        "id": 60,
                         "key": "card-title-002",
                         "type": "h3",
                         "props": {
@@ -1637,7 +1758,7 @@
                         "children": []
                       },
                       {
-                        "id": 53,
+                        "id": 61,
                         "key": "card-desc-002",
                         "type": "p",
                         "props": {
@@ -1657,7 +1778,7 @@
                         "children": []
                       },
                       {
-                        "id": 54,
+                        "id": 62,
                         "key": "card-button-002",
                         "type": "button",
                         "props": {
@@ -1695,7 +1816,7 @@
         ]
       },
       {
-        "id": 55,
+        "id": 63,
         "key": "content-001",
         "type": "section",
         "props": {
@@ -1720,7 +1841,7 @@
         "code": "({ children, className }) => {\n                return (\n                    <section className={className}>\n                        {children}\n                    </section>\n                );\n            }",
         "children": [
           {
-            "id": 56,
+            "id": 64,
             "key": "content-title-001",
             "type": "h2",
             "props": {
@@ -1751,7 +1872,7 @@
             "children": []
           },
           {
-            "id": 57,
+            "id": 65,
             "key": "content-text-001",
             "type": "div",
             "props": {
@@ -1780,7 +1901,7 @@
             "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
             "children": [
               {
-                "id": 58,
+                "id": 66,
                 "key": "content-paragraph-001",
                 "type": "p",
                 "props": {
@@ -1797,7 +1918,7 @@
                 "children": []
               },
               {
-                "id": 59,
+                "id": 67,
                 "key": "content-paragraph-002",
                 "type": "p",
                 "props": {
@@ -1814,7 +1935,7 @@
                 "children": []
               },
               {
-                "id": 60,
+                "id": 68,
                 "key": "content-paragraph-003",
                 "type": "p",
                 "props": {
@@ -1835,7 +1956,7 @@
         ]
       },
       {
-        "id": 61,
+        "id": 69,
         "key": "carousel-001",
         "type": "section",
         "props": {
@@ -1860,7 +1981,7 @@
         "code": "({ children, className }) => {\n        return (\n            <section className={className}>\n                {children}\n            </section>\n        );\n    }",
         "children": [
           {
-            "id": 62,
+            "id": 70,
             "key": "carousel-title-001",
             "type": "h2",
             "props": {
@@ -1884,7 +2005,7 @@
             "children": []
           },
           {
-            "id": 63,
+            "id": 71,
             "key": "carousel-container-001",
             "type": "div",
             "props": {
@@ -1902,7 +2023,7 @@
             "code": "({ children, className }) => {\n                        const [currentSlide, setCurrentSlide] = React.useState(0);\n                        const [slidesPerView, setSlidesPerView] = React.useState(2); // По умолчанию 3\n                        const slides = children[0].props.element.children; // Слайды из track\n                        const slideCount = slides.length;\n        \n                        // Определяем количество видимых слайдов в зависимости от ширины экрана\n                        React.useEffect(() => {\n                            if (typeof window !== 'undefined') {\n                                const updateSlidesPerView = () => {\n                                    const width = window.innerWidth;\n                                    setSlidesPerView(width > 1024 ? 2 : width > 768 ? 1 : 1);\n                                };\n                                updateSlidesPerView(); // Инициализация\n                                window.addEventListener('resize', updateSlidesPerView);\n                                return () => window.removeEventListener('resize', updateSlidesPerView);\n                            }\n                        }, []);\n        \n                        const maxSlide = Math.max(0, slideCount - slidesPerView - 1);\n                        const slideWidthPercentage = 100 / slidesPerView;\n        \n                        const handlePrev = () => {\n                            setCurrentSlide((prev) => Math.max(0, prev - 1));\n                        };\n                        const handleNext = () => {\n                            setCurrentSlide((prev) => Math.min(maxSlide, prev + 1));\n                        };\n                        \n                        children[1].props.element.props['onClick'] = handlePrev;\n                        children[1].props.element.props['disabled'] = currentSlide === 0;\n                        children[2].props.element.props['onClick'] = handleNext;\n                        children[2].props.element.props['disabled'] = currentSlide >= maxSlide;\n                        \n                        return (\n                            <div className={className}>\n                                <div style={{\n                                    display: 'flex',\n                                    transform: `translateX(-${currentSlide * slideWidthPercentage}%)`,\n                                    transition: 'transform 0.5s ease',\n                                    width: `${slideCount * slideWidthPercentage}%`,\n                                    gap: slidesPerView > 1 ? '30px' : '15px'\n                                }}>\n                                    {children[0]}\n                                </div>\n                                <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>\n                                    {React.cloneElement(children[1], { onClick: handlePrev, disabled: currentSlide === 0 })}\n                                    {React.cloneElement(children[2], { onClick: handleNext, disabled: currentSlide >= maxSlide })}\n                                </div>\n                            </div>\n                        );\n                    }",
             "children": [
               {
-                "id": 64,
+                "id": 72,
                 "key": "carousel-track-001",
                 "type": "div",
                 "props": {
@@ -1919,7 +2040,7 @@
                 "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                 "children": [
                   {
-                    "id": 65,
+                    "id": 73,
                     "key": "review-001",
                     "type": "div",
                     "props": {
@@ -1946,7 +2067,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 66,
+                        "id": 74,
                         "key": "review-name-001",
                         "type": "h3",
                         "props": {
@@ -1966,7 +2087,7 @@
                         "children": []
                       },
                       {
-                        "id": 67,
+                        "id": 75,
                         "key": "review-text-001",
                         "type": "p",
                         "props": {
@@ -1986,7 +2107,7 @@
                         "children": []
                       },
                       {
-                        "id": 68,
+                        "id": 76,
                         "key": "review-rating-001",
                         "type": "span",
                         "props": {
@@ -2007,7 +2128,7 @@
                     ]
                   },
                   {
-                    "id": 69,
+                    "id": 77,
                     "key": "review-002",
                     "type": "div",
                     "props": {
@@ -2034,7 +2155,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 70,
+                        "id": 78,
                         "key": "review-name-002",
                         "type": "h3",
                         "props": {
@@ -2054,7 +2175,7 @@
                         "children": []
                       },
                       {
-                        "id": 71,
+                        "id": 79,
                         "key": "review-text-002",
                         "type": "p",
                         "props": {
@@ -2074,7 +2195,7 @@
                         "children": []
                       },
                       {
-                        "id": 72,
+                        "id": 80,
                         "key": "review-rating-002",
                         "type": "span",
                         "props": {
@@ -2095,7 +2216,7 @@
                     ]
                   },
                   {
-                    "id": 73,
+                    "id": 81,
                     "key": "review-004",
                     "type": "div",
                     "props": {
@@ -2122,7 +2243,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 74,
+                        "id": 82,
                         "key": "review-name-003",
                         "type": "h3",
                         "props": {
@@ -2142,7 +2263,7 @@
                         "children": []
                       },
                       {
-                        "id": 75,
+                        "id": 83,
                         "key": "review-text-003",
                         "type": "p",
                         "props": {
@@ -2162,7 +2283,7 @@
                         "children": []
                       },
                       {
-                        "id": 76,
+                        "id": 84,
                         "key": "review-rating-003",
                         "type": "span",
                         "props": {
@@ -2183,7 +2304,7 @@
                     ]
                   },
                   {
-                    "id": 77,
+                    "id": 85,
                     "key": "review-003",
                     "type": "div",
                     "props": {
@@ -2210,7 +2331,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 78,
+                        "id": 86,
                         "key": "review-name-003",
                         "type": "h3",
                         "props": {
@@ -2230,7 +2351,7 @@
                         "children": []
                       },
                       {
-                        "id": 79,
+                        "id": 87,
                         "key": "review-text-003",
                         "type": "p",
                         "props": {
@@ -2250,7 +2371,7 @@
                         "children": []
                       },
                       {
-                        "id": 80,
+                        "id": 88,
                         "key": "review-rating-003",
                         "type": "span",
                         "props": {
@@ -2273,7 +2394,7 @@
                 ]
               },
               {
-                "id": 81,
+                "id": 89,
                 "key": "carousel-prev-btn-001",
                 "type": "button",
                 "props": {
@@ -2307,7 +2428,7 @@
                 "children": []
               },
               {
-                "id": 82,
+                "id": 90,
                 "key": "carousel-next-btn-001",
                 "type": "button",
                 "props": {
@@ -2345,7 +2466,7 @@
         ]
       },
       {
-        "id": 83,
+        "id": 91,
         "key": "gallery-001",
         "type": "section",
         "props": {
@@ -2367,10 +2488,10 @@
             "gap": "30px"
           }
         },
-        "code": "({ children, className }) => {\n        return (\n            <section className={className}>\n                {children}\n            </section>\n        );\n    }",
+        "code": "({ children, className }) => {\n                    return (\n                        <section className={className}>\n                            {children}\n                        </section>\n                    );\n                }",
         "children": [
           {
-            "id": 84,
+            "id": 92,
             "key": "gallery-title-001",
             "type": "h2",
             "props": {
@@ -2394,7 +2515,7 @@
             "children": []
           },
           {
-            "id": 85,
+            "id": 93,
             "key": "gallery-grid-001",
             "type": "div",
             "props": {
@@ -2421,7 +2542,7 @@
             "code": "({ children, className }) => {\n                return (\n                    <div className={className}>\n                        {children}\n                    </div>\n                );\n            }",
             "children": [
               {
-                "id": 86,
+                "id": 94,
                 "key": "gallery-item-001",
                 "type": "div",
                 "props": {
@@ -2441,7 +2562,7 @@
                 "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
                 "children": [
                   {
-                    "id": 87,
+                    "id": 95,
                     "key": "gallery-img-001",
                     "type": "img",
                     "props": {
@@ -2467,7 +2588,7 @@
                 ]
               },
               {
-                "id": 88,
+                "id": 96,
                 "key": "gallery-item-002",
                 "type": "div",
                 "props": {
@@ -2487,7 +2608,7 @@
                 "code": "({ children, className }) => {\n                                    return (\n                                        <div className={className}>\n                                            {children}\n                                        </div>\n                                    );\n                                }",
                 "children": [
                   {
-                    "id": 89,
+                    "id": 97,
                     "key": "gallery-img-002",
                     "type": "img",
                     "props": {
@@ -2513,7 +2634,7 @@
                 ]
               },
               {
-                "id": 90,
+                "id": 98,
                 "key": "gallery-item-003",
                 "type": "div",
                 "props": {
@@ -2533,7 +2654,7 @@
                 "code": "({ children, className }) => {\n                                    return (\n                                        <div className={className}>\n                                            {children}\n                                        </div>\n                                    );\n                                }",
                 "children": [
                   {
-                    "id": 91,
+                    "id": 99,
                     "key": "gallery-img-003",
                     "type": "img",
                     "props": {
@@ -2559,7 +2680,7 @@
                 ]
               },
               {
-                "id": 92,
+                "id": 100,
                 "key": "gallery-item-004",
                 "type": "div",
                 "props": {
@@ -2579,7 +2700,7 @@
                 "code": "({ children, className }) => {\n                                    return (\n                                        <div className={className}>\n                                            {children}\n                                        </div>\n                                    );\n                                }",
                 "children": [
                   {
-                    "id": 93,
+                    "id": 101,
                     "key": "gallery-img-004",
                     "type": "img",
                     "props": {
@@ -2609,7 +2730,7 @@
         ]
       },
       {
-        "id": 94,
+        "id": 102,
         "key": "video-section-001",
         "type": "section",
         "props": {
@@ -2634,7 +2755,7 @@
         "code": "({ children, className }) => {\n                return (\n                    <section className={className}>\n                        {children}\n                    </section>\n                );\n            }",
         "children": [
           {
-            "id": 95,
+            "id": 103,
             "key": "video-title-001",
             "type": "h2",
             "props": {
@@ -2658,7 +2779,7 @@
             "children": []
           },
           {
-            "id": 96,
+            "id": 104,
             "key": "video-container-001",
             "type": "div",
             "props": {
@@ -2683,7 +2804,7 @@
             "code": "({ children, className }) => {\n                return (\n                    <div className={className}>\n                        {children}\n                    </div>\n                );\n            }",
             "children": [
               {
-                "id": 97,
+                "id": 105,
                 "key": "video-embed-001",
                 "type": "iframe",
                 "props": {
@@ -2710,7 +2831,7 @@
         ]
       },
       {
-        "id": 98,
+        "id": 106,
         "key": "working-hours-001",
         "type": "section",
         "props": {
@@ -2735,7 +2856,7 @@
         "code": "({ children, className }) => {\n        return (\n            <section className={className}>\n                {children}\n            </section>\n        );\n    }",
         "children": [
           {
-            "id": 99,
+            "id": 107,
             "key": "working-hours-title-001",
             "type": "h2",
             "props": {
@@ -2759,7 +2880,7 @@
             "children": []
           },
           {
-            "id": 100,
+            "id": 108,
             "key": "working-hours-container-001",
             "type": "div",
             "props": {
@@ -2779,7 +2900,7 @@
             "code": "({ children, className }) => {\n                return (\n                    <div className={className}>\n                        {children}\n                    </div>\n                );\n            }",
             "children": [
               {
-                "id": 101,
+                "id": 109,
                 "key": "working-hours-list-001",
                 "type": "div",
                 "props": {
@@ -2803,7 +2924,7 @@
                 "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
                 "children": [
                   {
-                    "id": 102,
+                    "id": 110,
                     "key": "working-hours-item-001",
                     "type": "div",
                     "props": {
@@ -2821,7 +2942,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 103,
+                        "id": 111,
                         "key": "day-001",
                         "type": "span",
                         "props": {
@@ -2836,7 +2957,7 @@
                         "children": []
                       },
                       {
-                        "id": 104,
+                        "id": 112,
                         "key": "hours-001",
                         "type": "span",
                         "props": {
@@ -2850,7 +2971,7 @@
                     ]
                   },
                   {
-                    "id": 105,
+                    "id": 113,
                     "key": "working-hours-item-002",
                     "type": "div",
                     "props": {
@@ -2868,7 +2989,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 106,
+                        "id": 114,
                         "key": "day-002",
                         "type": "span",
                         "props": {
@@ -2883,7 +3004,7 @@
                         "children": []
                       },
                       {
-                        "id": 107,
+                        "id": 115,
                         "key": "hours-002",
                         "type": "span",
                         "props": {
@@ -2897,7 +3018,7 @@
                     ]
                   },
                   {
-                    "id": 108,
+                    "id": 116,
                     "key": "working-hours-item-003",
                     "type": "div",
                     "props": {
@@ -2915,7 +3036,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 109,
+                        "id": 117,
                         "key": "day-003",
                         "type": "span",
                         "props": {
@@ -2930,7 +3051,7 @@
                         "children": []
                       },
                       {
-                        "id": 110,
+                        "id": 118,
                         "key": "hours-003",
                         "type": "span",
                         "props": {
@@ -2944,7 +3065,7 @@
                     ]
                   },
                   {
-                    "id": 111,
+                    "id": 119,
                     "key": "working-hours-item-004",
                     "type": "div",
                     "props": {
@@ -2962,7 +3083,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 112,
+                        "id": 120,
                         "key": "day-004",
                         "type": "span",
                         "props": {
@@ -2977,7 +3098,7 @@
                         "children": []
                       },
                       {
-                        "id": 113,
+                        "id": 121,
                         "key": "hours-004",
                         "type": "span",
                         "props": {
@@ -2991,7 +3112,7 @@
                     ]
                   },
                   {
-                    "id": 114,
+                    "id": 122,
                     "key": "working-hours-item-005",
                     "type": "div",
                     "props": {
@@ -3009,7 +3130,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 115,
+                        "id": 123,
                         "key": "day-005",
                         "type": "span",
                         "props": {
@@ -3024,7 +3145,7 @@
                         "children": []
                       },
                       {
-                        "id": 116,
+                        "id": 124,
                         "key": "hours-005",
                         "type": "span",
                         "props": {
@@ -3038,7 +3159,7 @@
                     ]
                   },
                   {
-                    "id": 117,
+                    "id": 125,
                     "key": "working-hours-item-006",
                     "type": "div",
                     "props": {
@@ -3056,7 +3177,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 118,
+                        "id": 126,
                         "key": "day-006",
                         "type": "span",
                         "props": {
@@ -3071,7 +3192,7 @@
                         "children": []
                       },
                       {
-                        "id": 119,
+                        "id": 127,
                         "key": "hours-006",
                         "type": "span",
                         "props": {
@@ -3085,7 +3206,7 @@
                     ]
                   },
                   {
-                    "id": 120,
+                    "id": 128,
                     "key": "working-hours-item-007",
                     "type": "div",
                     "props": {
@@ -3100,7 +3221,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 121,
+                        "id": 129,
                         "key": "day-007",
                         "type": "span",
                         "props": {
@@ -3115,7 +3236,7 @@
                         "children": []
                       },
                       {
-                        "id": 122,
+                        "id": 130,
                         "key": "hours-007",
                         "type": "span",
                         "props": {
@@ -3137,7 +3258,7 @@
         ]
       },
       {
-        "id": 123,
+        "id": 131,
         "key": "footer-001",
         "type": "footer",
         "props": {
@@ -3162,7 +3283,7 @@
         "code": "({ children, className }) => {\n        return (\n            <footer className={className}>\n                {children}\n            </footer>\n        );\n    }",
         "children": [
           {
-            "id": 124,
+            "id": 132,
             "key": "footer-container-001",
             "type": "div",
             "props": {
@@ -3187,7 +3308,7 @@
             "code": "({ children, className }) => {\n                return (\n                    <div className={className}>\n                        {children}\n                    </div>\n                );\n            }",
             "children": [
               {
-                "id": 125,
+                "id": 133,
                 "key": "footer-logo-001",
                 "type": "div",
                 "props": {
@@ -3201,7 +3322,7 @@
                 "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
                 "children": [
                   {
-                    "id": 126,
+                    "id": 134,
                     "key": "logo-text-001",
                     "type": "h3",
                     "props": {
@@ -3221,7 +3342,7 @@
                     "children": []
                   },
                   {
-                    "id": 127,
+                    "id": 135,
                     "key": "logo-desc-001",
                     "type": "p",
                     "props": {
@@ -3240,7 +3361,7 @@
                 ]
               },
               {
-                "id": 128,
+                "id": 136,
                 "key": "footer-links-001",
                 "type": "div",
                 "props": {
@@ -3254,7 +3375,7 @@
                 "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
                 "children": [
                   {
-                    "id": 129,
+                    "id": 137,
                     "key": "links-title-001",
                     "type": "h4",
                     "props": {
@@ -3274,7 +3395,7 @@
                     "children": []
                   },
                   {
-                    "id": 130,
+                    "id": 138,
                     "key": "link-001",
                     "type": "a",
                     "props": {
@@ -3295,7 +3416,7 @@
                     "children": []
                   },
                   {
-                    "id": 131,
+                    "id": 139,
                     "key": "link-002",
                     "type": "a",
                     "props": {
@@ -3316,7 +3437,7 @@
                     "children": []
                   },
                   {
-                    "id": 132,
+                    "id": 140,
                     "key": "link-003",
                     "type": "a",
                     "props": {
@@ -3339,7 +3460,7 @@
                 ]
               },
               {
-                "id": 133,
+                "id": 141,
                 "key": "footer-contact-001",
                 "type": "div",
                 "props": {
@@ -3353,7 +3474,7 @@
                 "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
                 "children": [
                   {
-                    "id": 134,
+                    "id": 142,
                     "key": "contact-title-001",
                     "type": "h4",
                     "props": {
@@ -3373,7 +3494,7 @@
                     "children": []
                   },
                   {
-                    "id": 135,
+                    "id": 143,
                     "key": "contact-phone-001",
                     "type": "a",
                     "props": {
@@ -3394,7 +3515,7 @@
                     "children": []
                   },
                   {
-                    "id": 136,
+                    "id": 144,
                     "key": "contact-email-001",
                     "type": "a",
                     "props": {
@@ -3417,7 +3538,7 @@
                 ]
               },
               {
-                "id": 137,
+                "id": 145,
                 "key": "footer-social-001",
                 "type": "div",
                 "props": {
@@ -3431,7 +3552,7 @@
                 "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
                 "children": [
                   {
-                    "id": 138,
+                    "id": 146,
                     "key": "social-title-001",
                     "type": "h4",
                     "props": {
@@ -3451,7 +3572,7 @@
                     "children": []
                   },
                   {
-                    "id": 139,
+                    "id": 147,
                     "key": "social-links-001",
                     "type": "div",
                     "props": {
@@ -3464,7 +3585,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 140,
+                        "id": 148,
                         "key": "social-link-001",
                         "type": "a",
                         "props": {
@@ -3485,7 +3606,7 @@
                         "children": []
                       },
                       {
-                        "id": 141,
+                        "id": 149,
                         "key": "social-link-002",
                         "type": "a",
                         "props": {
@@ -3506,7 +3627,7 @@
                         "children": []
                       },
                       {
-                        "id": 142,
+                        "id": 150,
                         "key": "social-link-003",
                         "type": "a",
                         "props": {
@@ -3533,7 +3654,7 @@
             ]
           },
           {
-            "id": 143,
+            "id": 151,
             "key": "footer-copyright-001",
             "type": "div",
             "props": {
@@ -3553,7 +3674,7 @@
             "code": "({ children, className }) => {\n                return (\n                    <div className={className}>\n                        {children}\n                    </div>\n                );\n            }",
             "children": [
               {
-                "id": 144,
+                "id": 152,
                 "key": "copyright-text-001",
                 "type": "p",
                 "props": {
@@ -3573,7 +3694,7 @@
     ]
   },
   {
-    "id": 145,
+    "id": 153,
     "key": "root-002",
     "type": "div",
     "pageName": "Contacts Page",
@@ -3597,7 +3718,7 @@
     "code": "({ children, className }) => {\n            return (\n                <div className={className}>\n                    {children}\n                </div>\n            );\n        }",
     "children": [
       {
-        "id": 146,
+        "id": 154,
         "key": "header-001",
         "type": "header",
         "props": {
@@ -3626,7 +3747,7 @@
         "code": "({ children, className }) => {\n                return (\n                    <header className={className}>\n                        {children}\n                    </header>\n                );\n            }",
         "children": [
           {
-            "id": 147,
+            "id": 155,
             "key": "header-logo-001",
             "type": "div",
             "props": {
@@ -3640,7 +3761,7 @@
             "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
             "children": [
               {
-                "id": 148,
+                "id": 156,
                 "key": "logo-img-001",
                 "type": "img",
                 "props": {
@@ -3658,7 +3779,7 @@
                 "children": []
               },
               {
-                "id": 149,
+                "id": 157,
                 "key": "logo-text-001",
                 "type": "span",
                 "props": {
@@ -3680,7 +3801,7 @@
             ]
           },
           {
-            "id": 150,
+            "id": 158,
             "key": "header-nav-001",
             "type": "nav",
             "props": {
@@ -3696,7 +3817,7 @@
             "code": "({ children, className }) => {\n                        return (\n                            <nav className={className}>\n                                {children}\n                            </nav>\n                        );\n                    }",
             "children": [
               {
-                "id": 151,
+                "id": 159,
                 "key": "nav-link-001",
                 "type": "a",
                 "props": {
@@ -3718,7 +3839,7 @@
                 "children": []
               },
               {
-                "id": 152,
+                "id": 160,
                 "key": "nav-link-002",
                 "type": "a",
                 "props": {
@@ -3740,7 +3861,7 @@
                 "children": []
               },
               {
-                "id": 153,
+                "id": 161,
                 "key": "nav-link-003",
                 "type": "a",
                 "props": {
@@ -3766,7 +3887,7 @@
         ]
       },
       {
-        "id": 154,
+        "id": 162,
         "key": "hero-001",
         "type": "section",
         "props": {
@@ -3805,7 +3926,7 @@
         "code": "({ children, className }) => {\n                return (\n                    <section className={className}>\n                        {children}\n                    </section>\n                );\n            }",
         "children": [
           {
-            "id": 155,
+            "id": 163,
             "key": "hero-content-001",
             "type": "div",
             "props": {
@@ -3831,7 +3952,7 @@
             "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
             "children": [
               {
-                "id": 156,
+                "id": 164,
                 "key": "hero-title-001",
                 "type": "h1",
                 "props": {
@@ -3859,7 +3980,7 @@
                 "children": []
               },
               {
-                "id": 157,
+                "id": 165,
                 "key": "hero-subtitle-001",
                 "type": "p",
                 "props": {
@@ -3883,7 +4004,7 @@
                 "children": []
               },
               {
-                "id": 158,
+                "id": 166,
                 "key": "hero-cta-001",
                 "type": "button",
                 "props": {
@@ -3935,7 +4056,7 @@
         ]
       },
       {
-        "id": 159,
+        "id": 167,
         "key": "cards-001",
         "type": "section",
         "props": {
@@ -3959,7 +4080,7 @@
         "code": "({ children, className }) => {\n                return (\n                    <section className={className}>\n                        {children}\n                    </section>\n                );\n            }",
         "children": [
           {
-            "id": 160,
+            "id": 168,
             "key": "cards-title-001",
             "type": "h2",
             "props": {
@@ -3983,7 +4104,7 @@
             "children": []
           },
           {
-            "id": 161,
+            "id": 169,
             "key": "cards-container-001",
             "type": "div",
             "props": {
@@ -4007,7 +4128,7 @@
             "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
             "children": [
               {
-                "id": 162,
+                "id": 170,
                 "key": "card-001",
                 "type": "div",
                 "props": {
@@ -4027,7 +4148,7 @@
                 "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                 "children": [
                   {
-                    "id": 163,
+                    "id": 171,
                     "key": "card-img-001",
                     "type": "img",
                     "props": {
@@ -4047,7 +4168,7 @@
                     "children": []
                   },
                   {
-                    "id": 164,
+                    "id": 172,
                     "key": "card-content-001",
                     "type": "div",
                     "props": {
@@ -4062,7 +4183,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 165,
+                        "id": 173,
                         "key": "card-title-001",
                         "type": "h3",
                         "props": {
@@ -4082,7 +4203,7 @@
                         "children": []
                       },
                       {
-                        "id": 166,
+                        "id": 174,
                         "key": "card-desc-001",
                         "type": "p",
                         "props": {
@@ -4102,7 +4223,7 @@
                         "children": []
                       },
                       {
-                        "id": 167,
+                        "id": 175,
                         "key": "card-button-001",
                         "type": "button",
                         "props": {
@@ -4136,7 +4257,7 @@
                 ]
               },
               {
-                "id": 168,
+                "id": 176,
                 "key": "card-002",
                 "type": "div",
                 "props": {
@@ -4156,7 +4277,7 @@
                 "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                 "children": [
                   {
-                    "id": 169,
+                    "id": 177,
                     "key": "card-img-001",
                     "type": "img",
                     "props": {
@@ -4176,7 +4297,7 @@
                     "children": []
                   },
                   {
-                    "id": 170,
+                    "id": 178,
                     "key": "card-content-001",
                     "type": "div",
                     "props": {
@@ -4191,7 +4312,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 171,
+                        "id": 179,
                         "key": "card-title-001",
                         "type": "h3",
                         "props": {
@@ -4211,7 +4332,7 @@
                         "children": []
                       },
                       {
-                        "id": 172,
+                        "id": 180,
                         "key": "card-desc-001",
                         "type": "p",
                         "props": {
@@ -4231,7 +4352,7 @@
                         "children": []
                       },
                       {
-                        "id": 173,
+                        "id": 181,
                         "key": "card-button-001",
                         "type": "button",
                         "props": {
@@ -4265,7 +4386,7 @@
                 ]
               },
               {
-                "id": 174,
+                "id": 182,
                 "key": "card-003",
                 "type": "div",
                 "props": {
@@ -4285,7 +4406,7 @@
                 "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                 "children": [
                   {
-                    "id": 175,
+                    "id": 183,
                     "key": "card-img-002",
                     "type": "img",
                     "props": {
@@ -4305,7 +4426,7 @@
                     "children": []
                   },
                   {
-                    "id": 176,
+                    "id": 184,
                     "key": "card-content-002",
                     "type": "div",
                     "props": {
@@ -4320,7 +4441,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 177,
+                        "id": 185,
                         "key": "card-title-002",
                         "type": "h3",
                         "props": {
@@ -4340,7 +4461,7 @@
                         "children": []
                       },
                       {
-                        "id": 178,
+                        "id": 186,
                         "key": "card-desc-002",
                         "type": "p",
                         "props": {
@@ -4360,7 +4481,7 @@
                         "children": []
                       },
                       {
-                        "id": 179,
+                        "id": 187,
                         "key": "card-button-002",
                         "type": "button",
                         "props": {
@@ -4398,7 +4519,7 @@
         ]
       },
       {
-        "id": 180,
+        "id": 188,
         "key": "content-001",
         "type": "section",
         "props": {
@@ -4423,7 +4544,7 @@
         "code": "({ children, className }) => {\n                return (\n                    <section className={className}>\n                        {children}\n                    </section>\n                );\n            }",
         "children": [
           {
-            "id": 181,
+            "id": 189,
             "key": "content-title-001",
             "type": "h2",
             "props": {
@@ -4454,7 +4575,7 @@
             "children": []
           },
           {
-            "id": 182,
+            "id": 190,
             "key": "content-text-001",
             "type": "div",
             "props": {
@@ -4483,7 +4604,7 @@
             "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
             "children": [
               {
-                "id": 183,
+                "id": 191,
                 "key": "content-paragraph-001",
                 "type": "p",
                 "props": {
@@ -4500,7 +4621,7 @@
                 "children": []
               },
               {
-                "id": 184,
+                "id": 192,
                 "key": "content-paragraph-002",
                 "type": "p",
                 "props": {
@@ -4517,7 +4638,7 @@
                 "children": []
               },
               {
-                "id": 185,
+                "id": 193,
                 "key": "content-paragraph-003",
                 "type": "p",
                 "props": {
@@ -4538,7 +4659,7 @@
         ]
       },
       {
-        "id": 186,
+        "id": 194,
         "key": "carousel-001",
         "type": "section",
         "props": {
@@ -4563,7 +4684,7 @@
         "code": "({ children, className }) => {\n        return (\n            <section className={className}>\n                {children}\n            </section>\n        );\n    }",
         "children": [
           {
-            "id": 187,
+            "id": 195,
             "key": "carousel-title-001",
             "type": "h2",
             "props": {
@@ -4587,7 +4708,7 @@
             "children": []
           },
           {
-            "id": 188,
+            "id": 196,
             "key": "carousel-container-001",
             "type": "div",
             "props": {
@@ -4605,7 +4726,7 @@
             "code": "({ children, className }) => {\n                        const [currentSlide, setCurrentSlide] = React.useState(0);\n                        const [slidesPerView, setSlidesPerView] = React.useState(2); // По умолчанию 3\n                        const slides = children[0].props.element.children; // Слайды из track\n                        const slideCount = slides.length;\n        \n                        // Определяем количество видимых слайдов в зависимости от ширины экрана\n                        React.useEffect(() => {\n                            if (typeof window !== 'undefined') {\n                                const updateSlidesPerView = () => {\n                                    const width = window.innerWidth;\n                                    setSlidesPerView(width > 1024 ? 2 : width > 768 ? 1 : 1);\n                                };\n                                updateSlidesPerView(); // Инициализация\n                                window.addEventListener('resize', updateSlidesPerView);\n                                return () => window.removeEventListener('resize', updateSlidesPerView);\n                            }\n                        }, []);\n        \n                        const maxSlide = Math.max(0, slideCount - slidesPerView - 1);\n                        const slideWidthPercentage = 100 / slidesPerView;\n        \n                        const handlePrev = () => {\n                            setCurrentSlide((prev) => Math.max(0, prev - 1));\n                        };\n                        const handleNext = () => {\n                            setCurrentSlide((prev) => Math.min(maxSlide, prev + 1));\n                        };\n                        \n                        children[1].props.element.props['onClick'] = handlePrev;\n                        children[1].props.element.props['disabled'] = currentSlide === 0;\n                        children[2].props.element.props['onClick'] = handleNext;\n                        children[2].props.element.props['disabled'] = currentSlide >= maxSlide;\n                        \n                        return (\n                            <div className={className}>\n                                <div style={{\n                                    display: 'flex',\n                                    transform: `translateX(-${currentSlide * slideWidthPercentage}%)`,\n                                    transition: 'transform 0.5s ease',\n                                    width: `${slideCount * slideWidthPercentage}%`,\n                                    gap: slidesPerView > 1 ? '30px' : '15px'\n                                }}>\n                                    {children[0]}\n                                </div>\n                                <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>\n                                    {React.cloneElement(children[1], { onClick: handlePrev, disabled: currentSlide === 0 })}\n                                    {React.cloneElement(children[2], { onClick: handleNext, disabled: currentSlide >= maxSlide })}\n                                </div>\n                            </div>\n                        );\n                    }",
             "children": [
               {
-                "id": 189,
+                "id": 197,
                 "key": "carousel-track-001",
                 "type": "div",
                 "props": {
@@ -4622,7 +4743,7 @@
                 "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                 "children": [
                   {
-                    "id": 190,
+                    "id": 198,
                     "key": "review-001",
                     "type": "div",
                     "props": {
@@ -4649,7 +4770,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 191,
+                        "id": 199,
                         "key": "review-name-001",
                         "type": "h3",
                         "props": {
@@ -4669,7 +4790,7 @@
                         "children": []
                       },
                       {
-                        "id": 192,
+                        "id": 200,
                         "key": "review-text-001",
                         "type": "p",
                         "props": {
@@ -4689,7 +4810,7 @@
                         "children": []
                       },
                       {
-                        "id": 193,
+                        "id": 201,
                         "key": "review-rating-001",
                         "type": "span",
                         "props": {
@@ -4710,7 +4831,7 @@
                     ]
                   },
                   {
-                    "id": 194,
+                    "id": 202,
                     "key": "review-002",
                     "type": "div",
                     "props": {
@@ -4737,7 +4858,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 195,
+                        "id": 203,
                         "key": "review-name-002",
                         "type": "h3",
                         "props": {
@@ -4757,7 +4878,7 @@
                         "children": []
                       },
                       {
-                        "id": 196,
+                        "id": 204,
                         "key": "review-text-002",
                         "type": "p",
                         "props": {
@@ -4777,7 +4898,7 @@
                         "children": []
                       },
                       {
-                        "id": 197,
+                        "id": 205,
                         "key": "review-rating-002",
                         "type": "span",
                         "props": {
@@ -4798,7 +4919,7 @@
                     ]
                   },
                   {
-                    "id": 198,
+                    "id": 206,
                     "key": "review-004",
                     "type": "div",
                     "props": {
@@ -4825,7 +4946,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 199,
+                        "id": 207,
                         "key": "review-name-003",
                         "type": "h3",
                         "props": {
@@ -4845,7 +4966,7 @@
                         "children": []
                       },
                       {
-                        "id": 200,
+                        "id": 208,
                         "key": "review-text-003",
                         "type": "p",
                         "props": {
@@ -4865,7 +4986,7 @@
                         "children": []
                       },
                       {
-                        "id": 201,
+                        "id": 209,
                         "key": "review-rating-003",
                         "type": "span",
                         "props": {
@@ -4886,7 +5007,7 @@
                     ]
                   },
                   {
-                    "id": 202,
+                    "id": 210,
                     "key": "review-003",
                     "type": "div",
                     "props": {
@@ -4913,7 +5034,7 @@
                     "code": "({ children, className }) => {\n                                        return (\n                                            <div className={className}>\n                                                {children}\n                                            </div>\n                                        );\n                                    }",
                     "children": [
                       {
-                        "id": 203,
+                        "id": 211,
                         "key": "review-name-003",
                         "type": "h3",
                         "props": {
@@ -4933,7 +5054,7 @@
                         "children": []
                       },
                       {
-                        "id": 204,
+                        "id": 212,
                         "key": "review-text-003",
                         "type": "p",
                         "props": {
@@ -4953,7 +5074,7 @@
                         "children": []
                       },
                       {
-                        "id": 205,
+                        "id": 213,
                         "key": "review-rating-003",
                         "type": "span",
                         "props": {
@@ -4976,7 +5097,7 @@
                 ]
               },
               {
-                "id": 206,
+                "id": 214,
                 "key": "carousel-prev-btn-001",
                 "type": "button",
                 "props": {
@@ -5010,7 +5131,7 @@
                 "children": []
               },
               {
-                "id": 207,
+                "id": 215,
                 "key": "carousel-next-btn-001",
                 "type": "button",
                 "props": {
@@ -5048,7 +5169,7 @@
         ]
       },
       {
-        "id": 208,
+        "id": 216,
         "key": "gallery-001",
         "type": "section",
         "props": {
@@ -5073,7 +5194,7 @@
         "code": "({ children, className }) => {\n        return (\n            <section className={className}>\n                {children}\n            </section>\n        );\n    }",
         "children": [
           {
-            "id": 209,
+            "id": 217,
             "key": "gallery-title-001",
             "type": "h2",
             "props": {
@@ -5097,7 +5218,7 @@
             "children": []
           },
           {
-            "id": 210,
+            "id": 218,
             "key": "gallery-grid-001",
             "type": "div",
             "props": {
@@ -5124,7 +5245,7 @@
             "code": "({ children, className }) => {\n                return (\n                    <div className={className}>\n                        {children}\n                    </div>\n                );\n            }",
             "children": [
               {
-                "id": 211,
+                "id": 219,
                 "key": "gallery-item-001",
                 "type": "div",
                 "props": {
@@ -5144,7 +5265,7 @@
                 "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
                 "children": [
                   {
-                    "id": 212,
+                    "id": 220,
                     "key": "gallery-img-001",
                     "type": "img",
                     "props": {
@@ -5170,7 +5291,7 @@
                 ]
               },
               {
-                "id": 213,
+                "id": 221,
                 "key": "gallery-item-002",
                 "type": "div",
                 "props": {
@@ -5190,7 +5311,7 @@
                 "code": "({ children, className }) => {\n                                    return (\n                                        <div className={className}>\n                                            {children}\n                                        </div>\n                                    );\n                                }",
                 "children": [
                   {
-                    "id": 214,
+                    "id": 222,
                     "key": "gallery-img-002",
                     "type": "img",
                     "props": {
@@ -5216,7 +5337,7 @@
                 ]
               },
               {
-                "id": 215,
+                "id": 223,
                 "key": "gallery-item-003",
                 "type": "div",
                 "props": {
@@ -5236,7 +5357,7 @@
                 "code": "({ children, className }) => {\n                                    return (\n                                        <div className={className}>\n                                            {children}\n                                        </div>\n                                    );\n                                }",
                 "children": [
                   {
-                    "id": 216,
+                    "id": 224,
                     "key": "gallery-img-003",
                     "type": "img",
                     "props": {
@@ -5262,7 +5383,7 @@
                 ]
               },
               {
-                "id": 217,
+                "id": 225,
                 "key": "gallery-item-004",
                 "type": "div",
                 "props": {
@@ -5282,7 +5403,7 @@
                 "code": "({ children, className }) => {\n                                    return (\n                                        <div className={className}>\n                                            {children}\n                                        </div>\n                                    );\n                                }",
                 "children": [
                   {
-                    "id": 218,
+                    "id": 226,
                     "key": "gallery-img-004",
                     "type": "img",
                     "props": {
@@ -5312,7 +5433,7 @@
         ]
       },
       {
-        "id": 219,
+        "id": 227,
         "key": "video-section-001",
         "type": "section",
         "props": {
@@ -5337,7 +5458,7 @@
         "code": "({ children, className }) => {\n                return (\n                    <section className={className}>\n                        {children}\n                    </section>\n                );\n            }",
         "children": [
           {
-            "id": 220,
+            "id": 228,
             "key": "video-title-001",
             "type": "h2",
             "props": {
@@ -5361,7 +5482,7 @@
             "children": []
           },
           {
-            "id": 221,
+            "id": 229,
             "key": "video-container-001",
             "type": "div",
             "props": {
@@ -5386,7 +5507,7 @@
             "code": "({ children, className }) => {\n                            return (\n                                <div className={className}>\n                                    {children}\n                                </div>\n                            );\n                        }",
             "children": [
               {
-                "id": 222,
+                "id": 230,
                 "key": "video-embed-001",
                 "type": "iframe",
                 "props": {
@@ -5413,7 +5534,7 @@
         ]
       },
       {
-        "id": 223,
+        "id": 231,
         "key": "working-hours-001",
         "type": "section",
         "props": {
@@ -5438,7 +5559,7 @@
         "code": "({ children, className }) => {\n        return (\n            <section className={className}>\n                {children}\n            </section>\n        );\n    }",
         "children": [
           {
-            "id": 224,
+            "id": 232,
             "key": "working-hours-title-001",
             "type": "h2",
             "props": {
@@ -5462,7 +5583,7 @@
             "children": []
           },
           {
-            "id": 225,
+            "id": 233,
             "key": "working-hours-container-001",
             "type": "div",
             "props": {
@@ -5482,7 +5603,7 @@
             "code": "({ children, className }) => {\n                return (\n                    <div className={className}>\n                        {children}\n                    </div>\n                );\n            }",
             "children": [
               {
-                "id": 226,
+                "id": 234,
                 "key": "working-hours-list-001",
                 "type": "div",
                 "props": {
@@ -5506,7 +5627,7 @@
                 "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
                 "children": [
                   {
-                    "id": 227,
+                    "id": 235,
                     "key": "working-hours-item-001",
                     "type": "div",
                     "props": {
@@ -5524,7 +5645,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 228,
+                        "id": 236,
                         "key": "day-001",
                         "type": "span",
                         "props": {
@@ -5539,7 +5660,7 @@
                         "children": []
                       },
                       {
-                        "id": 229,
+                        "id": 237,
                         "key": "hours-001",
                         "type": "span",
                         "props": {
@@ -5553,7 +5674,7 @@
                     ]
                   },
                   {
-                    "id": 230,
+                    "id": 238,
                     "key": "working-hours-item-002",
                     "type": "div",
                     "props": {
@@ -5571,7 +5692,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 231,
+                        "id": 239,
                         "key": "day-002",
                         "type": "span",
                         "props": {
@@ -5586,7 +5707,7 @@
                         "children": []
                       },
                       {
-                        "id": 232,
+                        "id": 240,
                         "key": "hours-002",
                         "type": "span",
                         "props": {
@@ -5600,7 +5721,7 @@
                     ]
                   },
                   {
-                    "id": 233,
+                    "id": 241,
                     "key": "working-hours-item-003",
                     "type": "div",
                     "props": {
@@ -5618,7 +5739,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 234,
+                        "id": 242,
                         "key": "day-003",
                         "type": "span",
                         "props": {
@@ -5633,7 +5754,7 @@
                         "children": []
                       },
                       {
-                        "id": 235,
+                        "id": 243,
                         "key": "hours-003",
                         "type": "span",
                         "props": {
@@ -5647,7 +5768,7 @@
                     ]
                   },
                   {
-                    "id": 236,
+                    "id": 244,
                     "key": "working-hours-item-004",
                     "type": "div",
                     "props": {
@@ -5665,7 +5786,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 237,
+                        "id": 245,
                         "key": "day-004",
                         "type": "span",
                         "props": {
@@ -5680,7 +5801,7 @@
                         "children": []
                       },
                       {
-                        "id": 238,
+                        "id": 246,
                         "key": "hours-004",
                         "type": "span",
                         "props": {
@@ -5694,7 +5815,7 @@
                     ]
                   },
                   {
-                    "id": 239,
+                    "id": 247,
                     "key": "working-hours-item-005",
                     "type": "div",
                     "props": {
@@ -5712,7 +5833,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 240,
+                        "id": 248,
                         "key": "day-005",
                         "type": "span",
                         "props": {
@@ -5727,7 +5848,7 @@
                         "children": []
                       },
                       {
-                        "id": 241,
+                        "id": 249,
                         "key": "hours-005",
                         "type": "span",
                         "props": {
@@ -5741,7 +5862,7 @@
                     ]
                   },
                   {
-                    "id": 242,
+                    "id": 250,
                     "key": "working-hours-item-006",
                     "type": "div",
                     "props": {
@@ -5759,7 +5880,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 243,
+                        "id": 251,
                         "key": "day-006",
                         "type": "span",
                         "props": {
@@ -5774,7 +5895,7 @@
                         "children": []
                       },
                       {
-                        "id": 244,
+                        "id": 252,
                         "key": "hours-006",
                         "type": "span",
                         "props": {
@@ -5788,7 +5909,7 @@
                     ]
                   },
                   {
-                    "id": 245,
+                    "id": 253,
                     "key": "working-hours-item-007",
                     "type": "div",
                     "props": {
@@ -5803,7 +5924,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 246,
+                        "id": 254,
                         "key": "day-007",
                         "type": "span",
                         "props": {
@@ -5818,7 +5939,7 @@
                         "children": []
                       },
                       {
-                        "id": 247,
+                        "id": 255,
                         "key": "hours-007",
                         "type": "span",
                         "props": {
@@ -5840,7 +5961,7 @@
         ]
       },
       {
-        "id": 248,
+        "id": 256,
         "key": "footer-001",
         "type": "footer",
         "props": {
@@ -5865,7 +5986,7 @@
         "code": "({ children, className }) => {\n        return (\n            <footer className={className}>\n                {children}\n            </footer>\n        );\n    }",
         "children": [
           {
-            "id": 249,
+            "id": 257,
             "key": "footer-container-001",
             "type": "div",
             "props": {
@@ -5890,7 +6011,7 @@
             "code": "({ children, className }) => {\n                return (\n                    <div className={className}>\n                        {children}\n                    </div>\n                );\n            }",
             "children": [
               {
-                "id": 250,
+                "id": 258,
                 "key": "footer-logo-001",
                 "type": "div",
                 "props": {
@@ -5904,7 +6025,7 @@
                 "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
                 "children": [
                   {
-                    "id": 251,
+                    "id": 259,
                     "key": "logo-text-001",
                     "type": "h3",
                     "props": {
@@ -5924,7 +6045,7 @@
                     "children": []
                   },
                   {
-                    "id": 252,
+                    "id": 260,
                     "key": "logo-desc-001",
                     "type": "p",
                     "props": {
@@ -5943,7 +6064,7 @@
                 ]
               },
               {
-                "id": 253,
+                "id": 261,
                 "key": "footer-links-001",
                 "type": "div",
                 "props": {
@@ -5957,7 +6078,7 @@
                 "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
                 "children": [
                   {
-                    "id": 254,
+                    "id": 262,
                     "key": "links-title-001",
                     "type": "h4",
                     "props": {
@@ -5977,7 +6098,7 @@
                     "children": []
                   },
                   {
-                    "id": 255,
+                    "id": 263,
                     "key": "link-001",
                     "type": "a",
                     "props": {
@@ -5998,7 +6119,7 @@
                     "children": []
                   },
                   {
-                    "id": 256,
+                    "id": 264,
                     "key": "link-002",
                     "type": "a",
                     "props": {
@@ -6019,7 +6140,7 @@
                     "children": []
                   },
                   {
-                    "id": 257,
+                    "id": 265,
                     "key": "link-003",
                     "type": "a",
                     "props": {
@@ -6042,7 +6163,7 @@
                 ]
               },
               {
-                "id": 258,
+                "id": 266,
                 "key": "footer-contact-001",
                 "type": "div",
                 "props": {
@@ -6056,7 +6177,7 @@
                 "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
                 "children": [
                   {
-                    "id": 259,
+                    "id": 267,
                     "key": "contact-title-001",
                     "type": "h4",
                     "props": {
@@ -6076,7 +6197,7 @@
                     "children": []
                   },
                   {
-                    "id": 260,
+                    "id": 268,
                     "key": "contact-phone-001",
                     "type": "a",
                     "props": {
@@ -6097,7 +6218,7 @@
                     "children": []
                   },
                   {
-                    "id": 261,
+                    "id": 269,
                     "key": "contact-email-001",
                     "type": "a",
                     "props": {
@@ -6120,7 +6241,7 @@
                 ]
               },
               {
-                "id": 262,
+                "id": 270,
                 "key": "footer-social-001",
                 "type": "div",
                 "props": {
@@ -6134,7 +6255,7 @@
                 "code": "({ children, className }) => {\n                        return (\n                            <div className={className}>\n                                {children}\n                            </div>\n                        );\n                    }",
                 "children": [
                   {
-                    "id": 263,
+                    "id": 271,
                     "key": "social-title-001",
                     "type": "h4",
                     "props": {
@@ -6154,7 +6275,7 @@
                     "children": []
                   },
                   {
-                    "id": 264,
+                    "id": 272,
                     "key": "social-links-001",
                     "type": "div",
                     "props": {
@@ -6167,7 +6288,7 @@
                     "code": "({ children, className }) => {\n                                return (\n                                    <div className={className}>\n                                        {children}\n                                    </div>\n                                );\n                            }",
                     "children": [
                       {
-                        "id": 265,
+                        "id": 273,
                         "key": "social-link-001",
                         "type": "a",
                         "props": {
@@ -6188,7 +6309,7 @@
                         "children": []
                       },
                       {
-                        "id": 266,
+                        "id": 274,
                         "key": "social-link-002",
                         "type": "a",
                         "props": {
@@ -6209,7 +6330,7 @@
                         "children": []
                       },
                       {
-                        "id": 267,
+                        "id": 275,
                         "key": "social-link-003",
                         "type": "a",
                         "props": {
@@ -6236,7 +6357,7 @@
             ]
           },
           {
-            "id": 268,
+            "id": 276,
             "key": "footer-copyright-001",
             "type": "div",
             "props": {
@@ -6256,7 +6377,7 @@
             "code": "({ children, className }) => {\n                return (\n                    <div className={className}>\n                        {children}\n                    </div>\n                );\n            }",
             "children": [
               {
-                "id": 269,
+                "id": 277,
                 "key": "copyright-text-001",
                 "type": "p",
                 "props": {
