@@ -1,7 +1,9 @@
 import React, { CSSProperties, PropsWithChildren } from "react";
 
-import { ActionIcon, Box } from "@mantine/core";
+import { ActionIcon, Box, Loader, Skeleton } from "@mantine/core";
 import { Icon } from "@iconify/react";
+
+import AiRegenerationMenu from "@/features/AiRegenerationMenu";
 
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -18,6 +20,7 @@ export default function SortableSectionWrapper({ section, children }: PropsWithC
     const scale = useStore((state) => state.InteractionPane.scale);
     const activeSection = useStore((state) => state.EditSectionMenu.section);
     const open = useStore((state) => state.EditSectionMenu.open);
+    const isRegenerating = useStore((state) => state.EditSectionMenu.isRegenerating);
 
     const isElementActive = activeSection?.id === section.id;
 
@@ -50,6 +53,14 @@ export default function SortableSectionWrapper({ section, children }: PropsWithC
                 <ActionIcon size={"xl"} className={styles.reorderControl} {...listeners}>
                     <Icon icon="cuida:reorder-outline" width="24" height="24" />
                 </ActionIcon>
+            )}
+            {isElementActive && (
+                <AiRegenerationMenu />
+            )}
+            {isElementActive && isRegenerating && (
+                <Skeleton radius={0} className={styles.skeleton}>
+                    <Loader classNames={{ root: 'z-[1000]' }} size={'lg'} />
+                </Skeleton>
             )}
             {children}
         </Box>

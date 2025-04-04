@@ -23,7 +23,7 @@ export default function Controls() {
             <ActionIcon onClick={onDelete} size={"lg"} variant={"outline"} color={"red"}>
                 <Icon icon="mynaui:trash" width="24" height="24" />
             </ActionIcon>
-            <Button onClick={onCopy} variant={"filled"} color={"#e4e2df"} c={"#161616"} className={"grow"}>
+            <Button onClick={onCopy} variant={"outline"} color={"violet"} className={"grow"}>
                 Copy Element
             </Button>
         </Flex>

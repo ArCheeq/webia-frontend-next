@@ -3,14 +3,17 @@ import { IStateSlice } from "@/store/store";
 export interface IEditSectionMenuState {
     opened: boolean;
     section: ISection| null;
+    isRegenerating: boolean;
 
     open: (section?: ISection) => void;
     close: () => void;
+    setRegenerating: (status: boolean) => void;
 }
 
 export const createEditSectionMenuStore: IStateSlice<IEditSectionMenuState> = (set, get) => ({
     opened: false,
     section: null,
+    isRegenerating: false,
 
     open: (section) =>
         set((state) => {
@@ -34,4 +37,8 @@ export const createEditSectionMenuStore: IStateSlice<IEditSectionMenuState> = (s
             state.EditSectionMenu.opened = false;
             state.EditSectionMenu.section = null;
         }),
+    setRegenerating: (status) =>
+        set((state) => {
+            state.EditSectionMenu.isRegenerating = status;
+        })
 });

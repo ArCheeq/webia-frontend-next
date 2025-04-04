@@ -48,7 +48,6 @@ export default function SectionsDndContext(props: SectionsDndContextProps) {
             const newIndex = sections.findIndex((item) => item.id === over?.id);
 
             const reorderedSections = arrayMove(sections, oldIndex, newIndex);
-            console.log(reorderedSections);
             reorderSections(id, reorderedSections);
         }
     }

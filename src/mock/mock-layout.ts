@@ -182,8 +182,8 @@ export const mockLayout: IPage[] = [
                             { link: '#', text: 'About Us' },
                             { link: '#', text: 'Gallery' }
                         ],
-                        propLabel: "Ссылки навигации",
-                        propType: "text"
+                        propLabel: "Navigation Link",
+                        propType: "nav-links"
                     }
                 ],
                 code: `
