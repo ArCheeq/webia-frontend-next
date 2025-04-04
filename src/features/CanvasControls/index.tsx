@@ -17,7 +17,7 @@ export default function CanvasControls() {
                 </Tooltip>
             </Box>
             <Box className={styles.topRight}>
-                <Avatar variant="filled" radius="xl" color="orange" src="" />
+                <Avatar variant="filled" radius="xl" color="violet" src="" />
                 <Tooltip withArrow label={"In Development (Share Template)"}>
                     <Button disabled classNames={{ root: styles.actionIcon }} color={"#ecebe9"}>
                         Share

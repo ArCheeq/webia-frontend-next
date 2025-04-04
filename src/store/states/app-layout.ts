@@ -7,6 +7,7 @@ export interface IAppLayoutState {
     setLayout: (layout: IPage[]) => void;
     reorderPages: (pages: IPage[]) => void;
     reorderSections: (pageId: number, sections: ISection[]) => void;
+    updateSectionProps: (sectionId: number, props: IProp[]) => void;
 }
 
 export const createAppLayoutStore: IStateSlice<IAppLayoutState> = (set, get) => ({
@@ -32,7 +33,23 @@ export const createAppLayoutStore: IStateSlice<IAppLayoutState> = (set, get) => 
                 return page;
             });
 
-            console.log(newLayout)
+            state.AppLayout.layout = newLayout;
+        }),
+    updateSectionProps: (sectionId, props) =>
+        set((state) => {
+            const layout = get().AppLayout.layout;
+
+            const newLayout = layout.map((page) => {
+                const newPageSections = page.sections.map((section) => {
+                    if (section.id === sectionId) {
+                        return { ...section, props }
+                    } else {
+                        return section;
+                    }
+                })
+
+                return { ...page, sections: newPageSections };
+            });
 
             state.AppLayout.layout = newLayout;
         })

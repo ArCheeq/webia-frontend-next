@@ -2,6 +2,8 @@ import { ActionIcon, Menu } from "@mantine/core";
 import { Icon } from "@iconify/react";
 
 import DropdownHeader from "@/features/EditSectionMenu/components/DropdownHeader";
+import EmptySection from "@/features/EditSectionMenu/components/EmptySection";
+import Controls from "@/features/EditSectionMenu/components/Controls";
 import EditSectionForm from "@/features/EditSectionMenu/components/EditSectionForm";
 
 import { useStore } from "@/store";
@@ -29,6 +31,8 @@ export default function EditSectionMenu() {
 
             <Menu.Dropdown p={12} className={styles.dropdown}>
                 <DropdownHeader />
+                <EmptySection />
+                <Controls />
                 <EditSectionForm />
             </Menu.Dropdown>
         </Menu>

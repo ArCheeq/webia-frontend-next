@@ -2,5 +2,5 @@ interface IProp {
     propName: string;
     propValue: any;
     propLabel: string;
-    propType: 'src' | 'alt' | 'href' | 'text';
+    propType: 'src' | 'alt' | 'href' | 'text' | 'nav-links';
 }

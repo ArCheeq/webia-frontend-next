@@ -33,8 +33,8 @@ export const mockLayout: IPage[] = [
                             { link: '#', text: 'About Us' },
                             { link: '#', text: 'Gallery' }
                         ],
-                        propLabel: "Ссылки навигации",
-                        propType: "text"
+                        propLabel: "Navigation Link",
+                        propType: "nav-links"
                     }
                 ],
                 code: `
@@ -104,19 +104,13 @@ export const mockLayout: IPage[] = [
                     },
                     {
                         propName: "buttonHref",
-                        propLabel: "Ссылка кнопки",
+                        propLabel: "Action Button Link",
                         propType: "href",
                         propValue: "#about"
                     },
-                    {
-                        propName: "backgroundImage",
-                        propLabel: "Фон (ссылка на изображение)",
-                        propType: "src",
-                        propValue: "https://source.unsplash.com/1600x900/?technology"
-                    }
                 ],
                 code: `
-                    ({ title, subtitle, buttonText, buttonHref, backgroundImage }) => {
+                    ({ title, subtitle, buttonText, buttonHref }) => {
                         return (
                             <section
                                 className="py-20 px-4 md:px-6 flex flex-col items-center justify-center min-h-[80vh] relative flex flex-col items-center justify-center text-center text-white py-20 px-6 min-h-screen"
@@ -259,19 +253,13 @@ export const mockLayout: IPage[] = [
                     },
                     {
                         propName: "buttonHref",
-                        propLabel: "Ссылка кнопки",
+                        propLabel: "Action Button Link",
                         propType: "href",
                         propValue: "#about"
                     },
-                    {
-                        propName: "backgroundImage",
-                        propLabel: "Фон (ссылка на изображение)",
-                        propType: "src",
-                        propValue: "https://source.unsplash.com/1600x900/?technology"
-                    }
                 ],
                 code: `
-                    ({ title, subtitle, buttonText, buttonHref, backgroundImage }) => {
+                    ({ title, subtitle, buttonText, buttonHref }) => {
                         return (
                             <section
                                 className="py-20 px-4 md:px-6 flex flex-col items-center justify-center min-h-[80vh] relative flex flex-col items-center justify-center text-center text-white py-20 px-6 min-h-screen"
