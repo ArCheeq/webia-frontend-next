@@ -1,4 +1,4 @@
-import { ActionIcon, Button, Flex, Menu } from "@mantine/core";
+import { ActionIcon, Button, Flex } from "@mantine/core";
 import { Icon } from "@iconify/react";
 
 import { useStore } from "@/store";
