@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import {ActionIcon, Button, Flex, Menu, Stack, Textarea, Tooltip} from "@mantine/core";
+import { ActionIcon, Button, Flex, Menu, Stack, Textarea, Tooltip } from "@mantine/core";
 import { Icon } from "@iconify/react";
 
 import { useStore } from "@/store";
