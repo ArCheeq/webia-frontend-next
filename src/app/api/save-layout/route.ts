@@ -1,6 +1,8 @@
-import fs from "fs";
+import { NextResponse } from "next/server";
+
 import path from "path";
-import {NextResponse} from "next/server";
+import fs from "fs";
+
 
 const dataFilePath = path.join(process.cwd(), 'src', 'app', 'api',  'layout', 'layout.json');
 

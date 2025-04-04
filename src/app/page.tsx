@@ -2,7 +2,7 @@
 
 import CanvasWrapper from "@/features/CanvasWrapper";
 import PagesDndContext from "@/features/PagesDndContext";
-import {useStore} from "@/store";
+import { useStore } from "@/store";
 
 export default function LandingPage() {
     const layout = useStore((state) => state.AppLayout.layout);
