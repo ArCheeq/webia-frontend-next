@@ -1,10 +1,8 @@
 import { ActionIcon, Menu } from "@mantine/core";
+import { Icon } from "@iconify/react";
 
 import DropdownHeader from "@/features/EditSectionMenu/components/DropdownHeader";
-import EditPage from "@/features/EditSectionMenu/EditPage";
-import EditSection from "@/features/EditSectionMenu/EditSection";
-
-import { EditIcon } from "@/components/Icons/EditIcon";
+import EditSectionForm from "@/features/EditSectionMenu/components/EditSectionForm";
 
 import { useStore } from "@/store";
 
@@ -13,10 +11,6 @@ import styles from "./styles.module.css";
 export default function EditSectionMenu() {
     const opened = useStore((state) => state.EditSectionMenu.opened);
     const open = useStore((state) => state.EditSectionMenu.open);
-    const activeElement = useStore((state) => state.EditSectionMenu.element);
-
-    const isAddSectionMenuOpened = useStore((state) => state.AddSectionMenu.opened);
-    const closeAddSectionMenu = useStore((state) => state.AddSectionMenu.close);
 
     return (
         <Menu opened={opened} shadow="md" width={300} position={"right-start"} closeOnClickOutside={true}>
@@ -27,18 +21,15 @@ export default function EditSectionMenu() {
                     color={"#fff"}
                     size={"xl"}
                     aria-label="edit-section"
-                    onClick={() => {
-                        open();
-                        if (isAddSectionMenuOpened) closeAddSectionMenu();
-                    }}
+                    onClick={() => open()}
                 >
-                    <EditIcon />
+                    <Icon icon="material-symbols:edit-outline" width="24" height="24" />
                 </ActionIcon>
             </Menu.Target>
 
             <Menu.Dropdown p={12} className={styles.dropdown}>
                 <DropdownHeader />
-                {activeElement?.pageName ? <EditPage /> : <EditSection />}
+                <EditSectionForm />
             </Menu.Dropdown>
         </Menu>
     );

@@ -10,13 +10,17 @@ import {
 } from "@dnd-kit/sortable";
 
 import SortablePageWrapper from "@/features/PagesDndContext/components/SortablePageWrapper";
-import { useLandingContext } from "@/store/landing-ctx";
 import SectionsDndContext from "@/features/SectionsDndContext";
 import { KeyboardSensor, MouseSensor } from "@/features/PagesDndContext/SmartPointerSensor";
+import { useStore } from "@/store";
 
-export default function PagesDndContext() {
+interface IProps {
+    layout: IPage[];
+}
+
+export default function PagesDndContext({ layout }: IProps) {
     const contextId = useId();
-    const { layout, reorderPages } = useLandingContext();
+    const reorderPages = useStore((state) => state.AppLayout.reorderPages);
 
     const sensors = useSensors(
         useSensor(MouseSensor),
@@ -41,7 +45,7 @@ export default function PagesDndContext() {
         <DndContext id={contextId} sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
             <SortableContext items={layout} strategy={horizontalListSortingStrategy}>
                 {layout.map((page, idx) => (
-                    <SortablePageWrapper key={page.id} element={page}>
+                    <SortablePageWrapper key={page.id} page={page}>
                         <SectionsDndContext page={page} pageIndex={idx} />
                     </SortablePageWrapper>
                 ))}

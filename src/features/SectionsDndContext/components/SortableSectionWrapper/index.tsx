@@ -1,35 +1,28 @@
 import React, { CSSProperties, PropsWithChildren } from "react";
 
-import {ActionIcon, Box, Button} from "@mantine/core";
+import { ActionIcon, Box } from "@mantine/core";
+import { Icon } from "@iconify/react";
 
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-import { ReorderIcon } from "@/components/Icons/ReorderIcon";
 import { useStore } from "@/store";
 
 import styles from "./styles.module.css";
-import {Icon} from "@iconify/react";
 
 interface Props {
-    element: IDynamicElement;
-    pageIndex: number;
-    sectionIndex: number;
+    section: ISection;
 }
 
-export default function SortableSectionWrapper({ element, pageIndex, sectionIndex, children }: PropsWithChildren<Props>) {
+export default function SortableSectionWrapper({ section, children }: PropsWithChildren<Props>) {
     const scale = useStore((state) => state.InteractionPane.scale);
-    const activeElement = useStore((state) => state.EditSectionMenu.element);
+    const activeSection = useStore((state) => state.EditSectionMenu.section);
+    const open = useStore((state) => state.EditSectionMenu.open);
 
-    const open = useStore((state) => state.AddSectionMenu.open);
-    const setParentIndex = useStore((state) => state.AddSectionMenu.setParentIndex);
-    const setIndexToAdd = useStore((state) => state.AddSectionMenu.setIndexToAdd);
-
-
-    const isElementActive = activeElement?.id === element.id;
+    const isElementActive = activeSection?.id === section.id;
 
     const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
-        id: element.id,
+        id: section.id,
     });
 
     const style: CSSProperties = {
@@ -42,37 +35,21 @@ export default function SortableSectionWrapper({ element, pageIndex, sectionInde
     };
 
     return (
-        <Box ref={setNodeRef} style={style} {...attributes} pos={"relative"}>
+        <Box
+            ref={setNodeRef}
+            style={style}
+            {...attributes}
+            pos={"relative"}
+            onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                open(section);
+            }}
+        >
             {isElementActive && (
                 <ActionIcon size={"xl"} className={styles.reorderControl} {...listeners}>
-                    <ReorderIcon />
+                    <Icon icon="cuida:reorder-outline" width="24" height="24" />
                 </ActionIcon>
-            )}
-            {isElementActive && (
-                <Button
-                    className={styles.addSectionTop}
-                    leftSection={<Icon icon="ic:baseline-plus" width="24" height="24" />}
-                    onClick={() => {
-                        open();
-                        setParentIndex(pageIndex);
-                        setIndexToAdd(sectionIndex);
-                    }}
-                >
-                    Add Section
-                </Button>
-            )}
-            {isElementActive && (
-                <Button
-                    className={styles.addSectionBottom}
-                    leftSection={<Icon icon="ic:baseline-plus" width="24" height="24" />}
-                    onClick={() => {
-                        open();
-                        setParentIndex(pageIndex);
-                        setIndexToAdd(sectionIndex + 1);
-                    }}
-                >
-                    Add Section
-                </Button>
             )}
             {children}
         </Box>

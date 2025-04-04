@@ -5,9 +5,6 @@ import "./globals.css";
 import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
 import '@mantine/core/styles.css';
 
-import { LandingContextProvider } from '@/store/landing-ctx';
-import StyledComponentsRegistry from './registry';
-
 const geistSans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],
@@ -31,11 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
                 <MantineProvider>
-                    <StyledComponentsRegistry>
-                        <LandingContextProvider>
-                            {children}
-                        </LandingContextProvider>
-                    </StyledComponentsRegistry>
+                    {children}
                 </MantineProvider>
             </body>
         </html>

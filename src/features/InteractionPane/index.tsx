@@ -138,7 +138,6 @@ export default function InteractionPane({ children }: PropsWithChildren) {
         const initialOffset = { ...offset };
 
         if (event.ctrlKey) {
-            event.preventDefault();
 
             let newScale;
             if (event.deltaY > 0) newScale = initialScale * (1 - SCROLL_WHEEL_FACTOR);

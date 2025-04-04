@@ -1,4 +1,4 @@
-import layout from "../../api/data/components.json" assert { type: "json" };
+import layout from "../../../app/api/data/components.json" assert { type: "json" };
 import DynamicReactElement from "@/features/DynamicReactElement";
 
 export async function generateStaticParams() {

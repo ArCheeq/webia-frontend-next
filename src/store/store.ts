@@ -5,14 +5,14 @@ import { immer } from "zustand/middleware/immer";
 
 import { createInteractionPaneStore, IInteractionPaneState } from "@/store/states/interaction-pane";
 import { createEditSectionMenuStore, IEditSectionMenuState } from "@/store/states/edit-section-menu";
-import { createAddSectionMenuStore, IAddSectionMenuState } from "@/store/states/add-section-menu";
 import { createBreakpointsStore, IBreakpointsState } from "@/store/states/breakpoints";
+import { createAppLayoutStore, IAppLayoutState } from "@/store/states/app-layout";
 
 export interface IStore {
     InteractionPane: IInteractionPaneState;
     EditSectionMenu: IEditSectionMenuState;
-    AddSectionMenu: IAddSectionMenuState;
     Breakpoints: IBreakpointsState;
+    AppLayout: IAppLayoutState;
 }
 
 export const store = createStore<IStore>()(
@@ -21,8 +21,8 @@ export const store = createStore<IStore>()(
             (...a) => ({
                 InteractionPane: createInteractionPaneStore(...a),
                 EditSectionMenu: createEditSectionMenuStore(...a),
-                AddSectionMenu: createAddSectionMenuStore(...a),
                 Breakpoints: createBreakpointsStore(...a),
+                AppLayout:  createAppLayoutStore(...a),
             }),
             { enabled: true, name: "APP (DEV)" },
         ),
