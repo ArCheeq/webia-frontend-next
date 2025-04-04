@@ -3,6 +3,7 @@ import { Avatar, Box, Button, Divider, Text, Tooltip, UnstyledButton } from "@ma
 
 import InfoSectionMenu from "@/features/InfoSectionMenu";
 import EditSectionMenu from "@/features/EditSectionMenu";
+import ExportTemplateButton from "@/features/CanvasControls/components/ExportTemplate";
 import BreakpointButtons from "@/features/CanvasControls/components/BreakpointButtons";
 
 import styles from "./styles.module.css";
@@ -22,7 +23,7 @@ export default function CanvasControls() {
                         Share
                     </Button>
                 </Tooltip>
-                {/*<ExportTemplateButton />*/}
+                <ExportTemplateButton />
                 <Tooltip withArrow label={"In Development (Upgrade)"}>
                     <Button disabled classNames={{ root: styles.actionIcon }} color={"#ecebe9"}>
                         Upgrade

@@ -9,14 +9,14 @@ interface IProps {
     section: ISection;
 }
 
-export default function EditableDynamicSection({ section }: IProps) {
+export default function DynamicSection({ section }: IProps) {
     const { id, props, code } = section;
 
-    let DynamicSection: any;
+    let DynamicSectionComponent: any;
 
     try {
         const transformed = Babel.transform(code, { presets: ["react"] }).code;
-        DynamicSection = new Function("React", "motion", `return ${transformed}`)(React, motion);
+        DynamicSectionComponent = new Function("React", "motion", `return ${transformed}`)(React, motion);
     } catch (error) {
         throw new Error(
             `Failed to parse and execute the dynamic component code. This could be due to a syntax error, missing dependencies, or an issue with the transformation process. 
@@ -25,7 +25,7 @@ export default function EditableDynamicSection({ section }: IProps) {
         );
     }
 
-    if (!DynamicSection) return null;
+    if (!DynamicSectionComponent) return null;
 
     const initAcc: Record<string, any> = {};
 
@@ -34,9 +34,5 @@ export default function EditableDynamicSection({ section }: IProps) {
         return acc;
     }, initAcc);
 
-    return (
-        <div style={{ display: "contents" }}>
-            <DynamicSection key={id} {...mappedProps} />
-        </div>
-    );
+    return <DynamicSectionComponent key={id} {...mappedProps} />;
 }

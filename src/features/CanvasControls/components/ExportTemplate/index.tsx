@@ -1,25 +1,28 @@
 import { Fragment, useState } from "react";
-import { Button, Loader, Overlay, Tooltip } from "@mantine/core";
+import { Button, Loader, Overlay } from "@mantine/core";
 
-import { useLandingContext } from "@/store/landing-ctx";
 import { useRouter } from "next/navigation";
 
-import styles from "./styles.module.css";
+import { useStore } from "@/store";
+
+import styles from './styles.module.css';
 
 export default function ExportTemplateButton() {
-    const { layout } = useLandingContext();
-    const [isPending, setIsPending] = useState(false);
     const router = useRouter();
+    const [isPending, setIsPending] = useState(false);
+    const layout = useStore((state) => state.AppLayout.layout);
 
     const onExportTemplate = async () => {
         try {
             setIsPending(true);
-            await fetch("/api/saveData", {
+            await fetch("/api/save-layout", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(layout),
             });
-            router.push(`/landing-parser/${layout[0].pageLink}`);
+
+            const homepageLink = layout[0]?.path;
+            router.push(`/landing/${homepageLink}`);
         } catch (error) {
             console.error(error);
         } finally {

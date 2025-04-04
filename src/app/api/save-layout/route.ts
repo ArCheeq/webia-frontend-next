@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import {NextResponse} from "next/server";
 
-const dataFilePath = path.join(process.cwd(), 'src', 'app', 'api',  'data', 'components.json');
+const dataFilePath = path.join(process.cwd(), 'src', 'app', 'api',  'layout', 'layout.json');
 
 const writeData = (data: any): void => {
     const dataDir = path.dirname(dataFilePath);

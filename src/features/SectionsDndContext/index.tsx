@@ -18,8 +18,9 @@ import {
 } from "@dnd-kit/sortable";
 
 import SortableSectionWrapper from "@/features/SectionsDndContext/components/SortableSectionWrapper";
-import EditableDynamicSection from "@/features/EditableDynamicSection";
-import {useStore} from "@/store";
+import DynamicSection from "@/features/DynamicSection";
+
+import { useStore } from "@/store";
 
 interface SectionsDndContextProps {
     page: IPage;
@@ -57,7 +58,7 @@ export default function SectionsDndContext(props: SectionsDndContextProps) {
             <SortableContext items={sections} strategy={verticalListSortingStrategy}>
                 {sections.map((section, idx) => (
                     <SortableSectionWrapper key={section.id} section={section}>
-                        <EditableDynamicSection section={section} />
+                        <DynamicSection section={section} />
                     </SortableSectionWrapper>
                 ))}
             </SortableContext>
