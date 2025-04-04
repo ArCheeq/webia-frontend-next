@@ -68,7 +68,7 @@ export const mockLayout: IPage[] = [
                                         ))}
                                     </ul>
                                 </nav>
-                                <style jsx>
+                                <style jsx="true">
                                 {\`
                                     .text-neon {
                                         color: #0ff;
@@ -223,7 +223,7 @@ export const mockLayout: IPage[] = [
                                         ))}
                                     </ul>
                                 </nav>
-                                <style jsx>
+                                <style jsx="true">
                                 {\`
                                     .text-neon {
                                         color: #0ff;
