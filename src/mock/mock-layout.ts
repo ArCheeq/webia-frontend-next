@@ -147,6 +147,158 @@ export const mockLayout: IPage[] = [
                     };
                 `,
             },
+            {
+                id: 7,
+                props: [
+                    {
+                        propName: 'companyName',
+                        propLabel: 'Company Name',
+                        propValue: 'Automotive Paradise',
+                        propType: 'text',
+                    },
+                    {
+                        propName: 'companyDescription',
+                        propLabel: 'Company Description',
+                        propValue: 'Your one-stop shop for all automotive needs.',
+                        propType: 'text',
+                    },
+                    {
+                        propName: 'oilChange',
+                        propLabel: 'Fast Oil Change',
+                        propValue: 'Fast Oil Change',
+                        propType: 'text',
+                    },
+                    {
+                        propName: 'tireRotation',
+                        propLabel: 'Tire Rotation',
+                        propValue: 'Tire Rotation',
+                        propType: 'text'
+                    },
+                    {
+                        propName: 'brakeInspection',
+                        propLabel: 'Brake Inspection',
+                        propValue: 'Brake Inspection',
+                        propType: 'text'
+                    }
+                    ],
+                code: `
+                    ({ companyName, companyDescription, oilChange, tireRotation, brakeInspection }) => {
+                        return (
+                            <motion.header className='bg-gradient-to-r from-blue-900 to-gray-800 text-white p-5 h-screen flex flex-col justify-center items-center' initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+                                <h1 className='text-4xl font-semibold tracking-wide mb-2'>{companyName}</h1>
+                                <p className='text-lg font-light mb-6'>{companyDescription}</p>
+                                <nav className='space-x-2'>
+                                    <a href='#' className='px-4 py-2 bg-orange-500 hover:bg-orange-600 transition-colors duration-300 rounded text-white'>{oilChange}</a>
+                                    <a href='#' className='px-4 py-2 bg-blue-500 hover:bg-blue-600 transition-colors duration-300 rounded text-white'>{tireRotation}</a>
+                                    <a href='#' className='px-4 py-2 bg-gray-500 hover:bg-gray-600 transition-colors duration-300 rounded text-white'>{brakeInspection}</a>
+                                </nav>
+                            </motion.header>
+                        )
+                    }
+                `
+            },
+            {
+                id: 8,
+                props: [
+                    {
+                        propName: 'companyName',
+                        propLabel: 'Company Name',
+                        propValue: 'Automotive Paradise',
+                        propType: 'text'
+                    },
+                    {
+                        propName: 'companyDescription',
+                        propLabel: 'Company Description',
+                        propValue: 'Your one-stop shop for all automotive needs.',
+                        propType: 'text'
+                    },
+                    {
+                        propName: 'keyPoint1',
+                        propLabel: 'Key Point 1',
+                        propValue: 'Fast Oil Change',
+                        propType: 'text'
+                    },
+                    {
+                        propName: 'keyPoint2',
+                        propLabel: 'Key Point 2',
+                        propValue: 'Tire Rotation',
+                        propType: 'text'
+                    },
+                    {
+                        propName: 'keyPoint3',
+                        propLabel: 'Key Point 3',
+                        propValue: 'Brake Inspection',
+                        propType: 'text'
+                    }
+                    ],
+                code: `
+                    ({ companyName, companyDescription, keyPoint1, keyPoint2, keyPoint3 }) => {
+                        return (
+                            <section className='flex flex-col items-center justify-center bg-gradient-to-r from-blue-600 to-blue-800 h-screen text-white'>
+                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className='text-center'>
+                                    <h1 className='text-4xl font-sans mb-6 tracking-wide'>{companyName}</h1>
+                                    <p className='font-serif text-lg mb-10'>{companyDescription}</p>
+                                    <div className='flex gap-4'>
+                                        <a href={\`#\${keyPoint1.toLowerCase().replace(' ', '-')}\`} className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow-md transition duration-200 transform hover:scale-105'>{keyPoint1}</a>
+                                        <a href={\`#\${keyPoint2.toLowerCase().replace(' ', '-')}\`} className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow-md transition duration-200 transform hover:scale-105'>{keyPoint2}</a>
+                                        <a href={\`#\${keyPoint3.toLowerCase().replace(' ', '-')}\`} className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow-md transition duration-200 transform hover:scale-105'>{keyPoint3}</a>
+                                    </div>
+                                </motion.div>
+                            </section>
+                      );
+                    };
+                `
+            },
+            {
+                id: 9,
+                props: [
+                    {
+                        propName: 'companyName',
+                        propLabel: 'Company Name',
+                        propValue: 'Automotive Paradise',
+                        propType: 'text'
+                    },
+                    {
+                        propName: 'description',
+                        propLabel: 'Company Description',
+                        propValue: 'Your one-stop shop for all automotive needs.',
+                        propType: 'text',
+                    },
+                    {
+                        propName: 'keyPoint1',
+                        propLabel: 'Key Point 1',
+                        propValue: 'Fast Oil Change',
+                        propType: 'text',
+                    },
+                    {
+                        propName: 'keyPoint2',
+                        propLabel: 'Key Point 2',
+                        propValue: 'Tire Rotation',
+                        propType: 'text',
+                    },
+                    {
+                        propName: 'keyPoint3',
+                        propLabel: 'Key Point 3',
+                        propValue: 'Brake Inspection',
+                        propType: 'text',
+                    }
+                    ],
+                code: `
+                    ({ companyName, description, keyPoint1, keyPoint2, keyPoint3 }) => {
+                        return (
+                            <motion.footer className="p-6 bg-gray-800 text-white space-y-4" initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}>
+                                <h3 className="text-2xl font-semibold tracking-wide font-sans">{companyName}</h3>
+                                <p className="text-gray-300 text-base font-serif">{description}</p>
+                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                    <p className="text-gray-300 text-base font-serif">{keyPoint1}</p>
+                                    <p className="text-gray-300 text-base font-serif">{keyPoint2}</p>
+                                    <p className="text-gray-300 text-base font-serif">{keyPoint3}</p>
+                                </div>
+                            </motion.footer>
+                        );
+                    };
+                `
+            }
         ]
     },
     {

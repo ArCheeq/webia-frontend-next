@@ -72,10 +72,118 @@
             "propName": "buttonHref",
             "propLabel": "Action Button Link",
             "propType": "href",
-            "propValue": "/landing/about-us"
+            "propValue": "#about"
           }
         ],
         "code": "\n                    ({ title, subtitle, buttonText, buttonHref }) => {\n                        return (\n                            <section\n                                className=\"py-20 px-4 md:px-6 flex flex-col items-center justify-center min-h-[80vh] relative flex flex-col items-center justify-center text-center text-white py-20 px-6 min-h-screen\"\n                       \n                            >\n                                <div className=\"absolute bg-slate-900 inset-0 absolute inset-0 z-0\"></div>\n                                <motion.h1\n                                    className=\"text-5xl md:text-6xl font-bold relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500\"\n                                    initial={{ opacity: 0, y: -20 }}\n                                    animate={{ opacity: 1, y: 0 }}\n                                    transition={{ duration: 0.8 }}\n                                >\n                                    {title}\n                                </motion.h1>\n                                <motion.p\n                                    className=\"mt-4 text-lg md:text-xl relative z-10 max-w-2xl\"\n                                    initial={{ opacity: 0, y: 10 }}\n                                    animate={{ opacity: 1, y: 0 }}\n                                    transition={{ duration: 1, delay: 0.3 }}\n                                >\n                                    {subtitle}\n                                </motion.p>\n                                <motion.a\n                                    href={buttonHref}\n                                    className=\"mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-lg rounded-lg shadow-lg hover:scale-105 transition-transform relative z-10\"\n                                    initial={{ opacity: 0, scale: 0.9 }}\n                                    animate={{ opacity: 1, scale: 1 }}\n                                    transition={{ duration: 0.5, delay: 0.5 }}\n                                >\n                                    {buttonText}\n                                </motion.a>\n                            </section>\n                        );\n                    };\n                "
+      },
+      {
+        "id": 7,
+        "props": [
+          {
+            "propName": "companyName",
+            "propLabel": "Company Name",
+            "propValue": "Automotive Paradise",
+            "propType": "text"
+          },
+          {
+            "propName": "companyDescription",
+            "propLabel": "Company Description",
+            "propValue": "Your one-stop shop for all automotive needs.",
+            "propType": "text"
+          },
+          {
+            "propName": "oilChange",
+            "propLabel": "Fast Oil Change",
+            "propValue": "Fast Oil Change",
+            "propType": "text"
+          },
+          {
+            "propName": "tireRotation",
+            "propLabel": "Tire Rotation",
+            "propValue": "Tire Rotation",
+            "propType": "text"
+          },
+          {
+            "propName": "brakeInspection",
+            "propLabel": "Brake Inspection",
+            "propValue": "Brake Inspection",
+            "propType": "text"
+          }
+        ],
+        "code": "\n                    ({ companyName, companyDescription, oilChange, tireRotation, brakeInspection }) => {\n                        return (\n                            <motion.header className='bg-gradient-to-r from-blue-900 to-gray-800 text-white p-5 h-screen flex flex-col justify-center items-center' initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>\n                                <h1 className='text-4xl font-semibold tracking-wide mb-2'>{companyName}</h1>\n                                <p className='text-lg font-light mb-6'>{companyDescription}</p>\n                                <nav className='space-x-2'>\n                                    <a href='#' className='px-4 py-2 bg-orange-500 hover:bg-orange-600 transition-colors duration-300 rounded text-white'>{oilChange}</a>\n                                    <a href='#' className='px-4 py-2 bg-blue-500 hover:bg-blue-600 transition-colors duration-300 rounded text-white'>{tireRotation}</a>\n                                    <a href='#' className='px-4 py-2 bg-gray-500 hover:bg-gray-600 transition-colors duration-300 rounded text-white'>{brakeInspection}</a>\n                                </nav>\n                            </motion.header>\n                        )\n                    }\n                "
+      },
+      {
+        "id": 8,
+        "props": [
+          {
+            "propName": "companyName",
+            "propLabel": "Company Name",
+            "propValue": "Automotive Paradise",
+            "propType": "text"
+          },
+          {
+            "propName": "companyDescription",
+            "propLabel": "Company Description",
+            "propValue": "Your one-stop shop for all automotive needs.",
+            "propType": "text"
+          },
+          {
+            "propName": "keyPoint1",
+            "propLabel": "Key Point 1",
+            "propValue": "Fast Oil Change",
+            "propType": "text"
+          },
+          {
+            "propName": "keyPoint2",
+            "propLabel": "Key Point 2",
+            "propValue": "Tire Rotation",
+            "propType": "text"
+          },
+          {
+            "propName": "keyPoint3",
+            "propLabel": "Key Point 3",
+            "propValue": "Brake Inspection",
+            "propType": "text"
+          }
+        ],
+        "code": "\n                    ({ companyName, companyDescription, keyPoint1, keyPoint2, keyPoint3 }) => {\n                        return (\n                            <section className='flex flex-col items-center justify-center bg-gradient-to-r from-blue-600 to-blue-800 h-screen text-white'>\n                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className='text-center'>\n                                    <h1 className='text-4xl font-sans mb-6 tracking-wide'>{companyName}</h1>\n                                    <p className='font-serif text-lg mb-10'>{companyDescription}</p>\n                                    <div className='flex gap-4'>\n                                        <a href={`#${keyPoint1.toLowerCase().replace(' ', '-')}`} className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow-md transition duration-200 transform hover:scale-105'>{keyPoint1}</a>\n                                        <a href={`#${keyPoint2.toLowerCase().replace(' ', '-')}`} className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow-md transition duration-200 transform hover:scale-105'>{keyPoint2}</a>\n                                        <a href={`#${keyPoint3.toLowerCase().replace(' ', '-')}`} className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow-md transition duration-200 transform hover:scale-105'>{keyPoint3}</a>\n                                    </div>\n                                </motion.div>\n                            </section>\n                      );\n                    };\n                "
+      },
+      {
+        "id": 9,
+        "props": [
+          {
+            "propName": "companyName",
+            "propLabel": "Company Name",
+            "propValue": "Automotive Paradise",
+            "propType": "text"
+          },
+          {
+            "propName": "description",
+            "propLabel": "Company Description",
+            "propValue": "Your one-stop shop for all automotive needs.",
+            "propType": "text"
+          },
+          {
+            "propName": "keyPoint1",
+            "propLabel": "Key Point 1",
+            "propValue": "Fast Oil Change",
+            "propType": "text"
+          },
+          {
+            "propName": "keyPoint2",
+            "propLabel": "Key Point 2",
+            "propValue": "Tire Rotation",
+            "propType": "text"
+          },
+          {
+            "propName": "keyPoint3",
+            "propLabel": "Key Point 3",
+            "propValue": "Brake Inspection",
+            "propType": "text"
+          }
+        ],
+        "code": "\n                    ({ companyName, description, keyPoint1, keyPoint2, keyPoint3 }) => {\n                        return (\n                            <motion.footer className=\"p-6 bg-gray-800 text-white space-y-4\" initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}>\n                                <h3 className=\"text-2xl font-semibold tracking-wide font-sans\">{companyName}</h3>\n                                <p className=\"text-gray-300 text-base font-serif\">{description}</p>\n                                <div className=\"grid grid-cols-1 sm:grid-cols-3 gap-4\">\n                                    <p className=\"text-gray-300 text-base font-serif\">{keyPoint1}</p>\n                                    <p className=\"text-gray-300 text-base font-serif\">{keyPoint2}</p>\n                                    <p className=\"text-gray-300 text-base font-serif\">{keyPoint3}</p>\n                                </div>\n                            </motion.footer>\n                        );\n                    };\n                "
       }
     ]
   },
