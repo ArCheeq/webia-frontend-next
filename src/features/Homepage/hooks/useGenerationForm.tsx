@@ -74,8 +74,9 @@ export function useGenerationForm() {
             });
             setIsGenerated(true);
         } catch (error: any) {
-            const message = error.response?.data?.message || 'An unknown error has occurred';
-            const code = error.response?.data?.code || 500;
+            const message = error.response?.data?.detail || 'An unknown error has occurred';
+            const code = error.response?.status || 500;
+
             setError(message);
 
             notifications.show({
