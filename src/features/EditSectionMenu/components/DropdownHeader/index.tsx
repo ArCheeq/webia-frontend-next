@@ -3,12 +3,11 @@ import { useStore } from "@/store";
 
 export default function DropdownHeader() {
     const close = useStore((state) => state.EditSectionMenu.close);
-    const activeElement = useStore((state) => state.EditSectionMenu.element);
 
     return (
-        <Group px={12} py={8} align={"center"} justify={"space-between"}>
+        <Group pb={12} align={"center"} justify={"space-between"}>
             <Text fz={16} fw={500}>
-                {activeElement?.pageName ? "Page" : "Section"}
+                Section
             </Text>
             <CloseButton onClick={close} />
         </Group>

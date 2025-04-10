@@ -1,35 +1,28 @@
-import { Fragment, useState } from "react";
-import { Button, Loader, Overlay, Tooltip } from "@mantine/core";
+import { Fragment } from "react";
+import { Button, Loader, Overlay } from "@mantine/core";
 
-import { useLandingContext } from "@/store/landing-ctx";
 import { useRouter } from "next/navigation";
 
-import styles from "./styles.module.css";
+import { useStore } from "@/store";
+import { useExportTemplate } from "@/features/CanvasControls/components/hooks/useExportTemplate";
+
+import styles from './styles.module.css';
 
 export default function ExportTemplateButton() {
-    const { layout } = useLandingContext();
-    const [isPending, setIsPending] = useState(false);
     const router = useRouter();
+    const layout = useStore((state) => state.AppLayout.layout);
 
-    const onExportTemplate = async () => {
-        try {
-            setIsPending(true);
-            await fetch("/api/saveData", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(layout),
-            });
-            router.push(`/landing-parser/${layout[0].pageLink}`);
-        } catch (error) {
-            console.error(error);
-        } finally {
-            setIsPending(false);
-        }
+    const { isPending, onExportTemplate } = useExportTemplate();
+
+    const handleExportTemplate = async () => {
+        await onExportTemplate(layout);
+        const homepageLink = layout[0]?.path;
+        router.push(`/landing/${homepageLink}`);
     };
 
     return (
         <Fragment>
-            <Button onClick={onExportTemplate} classNames={{ root: styles.exportButton }} color={"#ecebe9"}>
+            <Button onClick={handleExportTemplate} classNames={{ root: styles.exportButton }} color={"#ecebe9"}>
                 Export
             </Button>
             {isPending && (

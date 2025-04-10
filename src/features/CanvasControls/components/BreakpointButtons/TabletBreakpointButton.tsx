@@ -1,5 +1,5 @@
 import { ActionIcon } from "@mantine/core";
-import { TabletIcon } from "@/components/Icons/TabletIcon";
+import { Icon } from "@iconify/react";
 
 import { useStore } from "@/store";
 import { Breakpoints } from "@/store/states/breakpoints";
@@ -18,7 +18,7 @@ export default function TabletBreakpointButton() {
             color={breakpoint === Breakpoints.tablet ? "#fff" : "#e4e2df"}
             onClick={() => setBreakpoint(Breakpoints.tablet)}
         >
-            <TabletIcon />
+            <Icon icon="material-symbols-light:tablet-outline" width="24" height="24" />
         </ActionIcon>
     );
 }

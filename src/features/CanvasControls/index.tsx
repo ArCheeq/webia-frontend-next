@@ -1,9 +1,8 @@
 import { Fragment } from "react";
 import { Avatar, Box, Button, Divider, Text, Tooltip, UnstyledButton } from "@mantine/core";
 
-import EditSectionMenu from "@/features/EditSectionMenu";
-import AddSectionMenu from "@/features/AddSectionMenu";
 import InfoSectionMenu from "@/features/InfoSectionMenu";
+import EditSectionMenu from "@/features/EditSectionMenu";
 import ExportTemplateButton from "@/features/CanvasControls/components/ExportTemplate";
 import BreakpointButtons from "@/features/CanvasControls/components/BreakpointButtons";
 
@@ -16,12 +15,9 @@ export default function CanvasControls() {
                 <Tooltip label="Edit" withArrow position={"right"}>
                     <EditSectionMenu />
                 </Tooltip>
-                <Tooltip label={"Add Section"} withArrow position={"right"}>
-                    <AddSectionMenu />
-                </Tooltip>
             </Box>
             <Box className={styles.topRight}>
-                <Avatar variant="filled" radius="xl" color="orange" src="" />
+                <Avatar variant="filled" radius="xl" color="violet" src="" />
                 <Tooltip withArrow label={"In Development (Share Template)"}>
                     <Button disabled classNames={{ root: styles.actionIcon }} color={"#ecebe9"}>
                         Share

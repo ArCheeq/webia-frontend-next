@@ -1,34 +1,31 @@
-import { ActionIcon, Button, Flex, Menu } from "@mantine/core";
-import { TrashIcon } from "@/components/Icons/TrashIcon";
-import { useLandingContext } from "@/store/landing-ctx";
+import { ActionIcon, Button, Flex } from "@mantine/core";
+import { Icon } from "@iconify/react";
+
 import { useStore } from "@/store";
 
 export default function Controls() {
-    const activeElement = useStore((state) => state.EditSectionMenu.element);
+    const section = useStore((state) => state.EditSectionMenu.section);
     const close = useStore((state) => state.EditSectionMenu.close);
-    const { deleteElement, copyElement } = useLandingContext();
 
-    if (!activeElement) return null;
+    if (!section) return null;
 
     const onDelete = () => {
-        deleteElement(activeElement.key);
+        // deleteElement(activeElement.key);
         close();
     };
 
     const onCopy = () => {
-        copyElement(activeElement.key);
+        // copyElement(activeElement.key);
     };
 
     return (
-        <Menu.Item>
-            <Flex align={"center"} gap={8}>
-                <ActionIcon onClick={onDelete} size={"lg"} variant={"outline"} color={"red"}>
-                    <TrashIcon width={"24px"} height={"24px"} />
-                </ActionIcon>
-                <Button onClick={onCopy} variant={"filled"} color={"#e4e2df"} c={"#161616"} className={"grow"}>
-                    Copy Element
-                </Button>
-            </Flex>
-        </Menu.Item>
+        <Flex align={"center"} gap={8}>
+            <ActionIcon onClick={onDelete} size={"lg"} variant={"outline"} color={"red"}>
+                <Icon icon="mynaui:trash" width="24" height="24" />
+            </ActionIcon>
+            <Button onClick={onCopy} variant={"outline"} color={"violet"} className={"grow"}>
+                Copy Element
+            </Button>
+        </Flex>
     );
 }

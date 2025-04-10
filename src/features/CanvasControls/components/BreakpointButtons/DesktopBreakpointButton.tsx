@@ -1,5 +1,5 @@
 import { ActionIcon } from "@mantine/core";
-import { DesktopIcon } from "@/components/Icons/DesktopIcon";
+import { Icon } from "@iconify/react";
 
 import { useStore } from "@/store";
 import { Breakpoints } from "@/store/states/breakpoints";
@@ -18,7 +18,7 @@ export default function DesktopBreakpointButton() {
             color={breakpoint === Breakpoints.desktop ? "#fff" : "#e4e2df"}
             onClick={() => setBreakpoint(Breakpoints.desktop)}
         >
-            <DesktopIcon />
+            <Icon icon="lets-icons:desktop-light" width="24" height="24" />
         </ActionIcon>
     );
 }

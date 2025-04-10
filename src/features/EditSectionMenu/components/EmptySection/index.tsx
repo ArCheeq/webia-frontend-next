@@ -2,9 +2,9 @@ import { Menu, Text } from "@mantine/core";
 import { useStore } from "@/store";
 
 export default function EmptySection() {
-    const activeElement = useStore((state) => state.EditSectionMenu.element);
+    const section = useStore((state) => state.EditSectionMenu.section);
 
-    if (activeElement) return null;
+    if (section) return null;
 
     return (
         <Menu.Item>

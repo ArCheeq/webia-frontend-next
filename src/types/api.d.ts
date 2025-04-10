@@ -1,0 +1,3 @@
+interface ApiGenerationResponse {
+    pages: IPage[];
+}

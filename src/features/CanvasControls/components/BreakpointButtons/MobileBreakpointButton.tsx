@@ -1,5 +1,5 @@
 import { ActionIcon } from "@mantine/core";
-import { MobileIcon } from "@/components/Icons/MobileIcon";
+import { Icon } from "@iconify/react";
 
 import { useStore } from "@/store";
 import { Breakpoints } from "@/store/states/breakpoints";
@@ -18,7 +18,7 @@ export default function MobileBreakpointButton() {
             color={breakpoint === Breakpoints.mobile ? "#fff" : "#e4e2df"}
             onClick={() => setBreakpoint(Breakpoints.mobile)}
         >
-            <MobileIcon />
+            <Icon icon="mynaui:mobile" width="24" height="24" />
         </ActionIcon>
     );
 }

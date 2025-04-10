@@ -2,8 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-    compiler: {
-        styledComponents: true,
+    env: {
+        BACKEND_URL: process.env.BACKEND_URL,
     },
     typescript: {
         ignoreBuildErrors: true,

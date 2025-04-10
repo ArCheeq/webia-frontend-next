@@ -1,5 +1,5 @@
-import { ActionIcon, CloseButton, Group, Menu, Text, Tooltip } from "@mantine/core";
-import { HelpIcon } from "@/components/Icons/HelpIcon";
+import { ActionIcon, Menu, Tooltip } from "@mantine/core";
+import { Icon } from "@iconify/react";
 
 import styles from "./styles.module.css";
 
@@ -16,7 +16,7 @@ export default function InfoSectionMenu() {
                         size={"xl"}
                         aria-label="info-section"
                     >
-                        <HelpIcon />
+                        <Icon icon="material-symbols:help-outline-rounded" width="24" height="24" />
                     </ActionIcon>
                 </Tooltip>
             </Menu.Target>

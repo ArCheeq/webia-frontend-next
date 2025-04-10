@@ -1,0 +1,75 @@
+[
+  {
+    "id": "2c1750da-07ce-4dba-8816-9de4237866a0",
+    "name": "Home Page",
+    "path": "homepage",
+    "sections": [
+      {
+        "id": "ca410beb-c821-45df-a629-3d2014946550",
+        "code": "({ logo, logoAlt, luxuryText, vintageText, nicheText }) => { return (<header className='bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 h-24 flex items-center justify-between p-6'> <img className='w-32' src={logo} alt={logoAlt} /> <nav className='font-serif text-white'> <ul className='flex space-x-4'> <li><a href='#' className='hover:scale-105 transition transform'>{luxuryText}</a></li> <li><a href='#' className='hover:scale-105 transition transform'>{vintageText}</a></li> <li><a href='#' className='hover:scale-105 transition transform'>{nicheText}</a></li> </ul> </nav> </header>) }",
+        "props": [
+          {
+            "propName": "logo",
+            "propLabel": "Logo Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/0a565f8e-54c4-4169-9db6-eda9d5b7286f/Header/logo.png"
+          },
+          {
+            "propName": "logoAlt",
+            "propLabel": "Logo Alt Text",
+            "propType": "alt",
+            "propValue": "Scent Secrets - Discover the finest luxury fragrances"
+          },
+          {
+            "propName": "luxuryText",
+            "propLabel": "Luxury Fragrances Navigation Text",
+            "propType": "text",
+            "propValue": "Exquisite Luxury"
+          },
+          {
+            "propName": "vintageText",
+            "propLabel": "Vintage Fragrances Navigation Text",
+            "propType": "text",
+            "propValue": "Timeless Vintage"
+          },
+          {
+            "propName": "nicheText",
+            "propLabel": "Niche Parfumes Navigation Text",
+            "propType": "text",
+            "propValue": "Exclusive Niche"
+          }
+        ]
+      },
+      {
+        "id": "ca410beb-c821-45df-a629-3d2014946550",
+        "code": "({ heroImage, heroImageAlt, heroTitle, heroSubtitle }) => { return (<section className='bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 p-6'> <div className='max-w-screen-xl mx-auto pt-20 pb-12 px-4 sm:px-6 lg:px-8'> <div className='sm:flex sm:flex-col sm:align-center'> <img className='mx-auto h-10' src={heroImage} alt={heroImageAlt} /> <h1 className='mt-5 text-4xl leading-none font-extrabold text-white sm:text-5xl sm:leading-none md:text-6xl'>{heroTitle}</h1> <p className='mt-2 text-2xl leading-8 font-bold tracking-tight text-white sm:text-3xl sm:leading-9'>{heroSubtitle}</p> </div> </div> </section>) }",
+        "props": [
+          {
+            "propName": "heroImage",
+            "propLabel": "Hero Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/cf6ab30d-3778-405d-bf74-174ee27d8a2a/HeroSection/heroImage.png"
+          },
+          {
+            "propName": "heroImageAlt",
+            "propLabel": "Hero Image Alt Text",
+            "propType": "alt",
+            "propValue": "A diverse collection of luxury, vintage, and niche fragrances"
+          },
+          {
+            "propName": "heroTitle",
+            "propLabel": "Hero Title",
+            "propType": "text",
+            "propValue": "Unveil Your Signature Scent"
+          },
+          {
+            "propName": "heroSubtitle",
+            "propLabel": "Hero Subtitle",
+            "propType": "text",
+            "propValue": "Explore our collection and discover fragrances that capture your unique essence"
+          }
+        ]
+      }
+    ]
+  }
+]
