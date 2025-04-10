@@ -1,269 +1,74 @@
 [
   {
-    "id": 1,
+    "id": "2c1750da-07ce-4dba-8816-9de4237866a0",
     "name": "Home Page",
     "path": "homepage",
     "sections": [
       {
-        "id": 2,
+        "id": "ca410beb-c821-45df-a629-3d2014946550",
+        "code": "({ logo, logoAlt, luxuryText, vintageText, nicheText }) => { return (<header className='bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 h-24 flex items-center justify-between p-6'> <img className='w-32' src={logo} alt={logoAlt} /> <nav className='font-serif text-white'> <ul className='flex space-x-4'> <li><a href='#' className='hover:scale-105 transition transform'>{luxuryText}</a></li> <li><a href='#' className='hover:scale-105 transition transform'>{vintageText}</a></li> <li><a href='#' className='hover:scale-105 transition transform'>{nicheText}</a></li> </ul> </nav> </header>) }",
         "props": [
           {
-            "propName": "logoSrc",
-            "propValue": "https://img.icons8.com/?size=512&id=oiy2sWxAnP31&format=png",
-            "propLabel": "Logo Source",
-            "propType": "src"
+            "propName": "logo",
+            "propLabel": "Logo Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/0a565f8e-54c4-4169-9db6-eda9d5b7286f/Header/logo.png"
           },
           {
             "propName": "logoAlt",
-            "propValue": "logo",
-            "propLabel": "Logo Alternative Text",
-            "propType": "alt"
+            "propLabel": "Logo Alt Text",
+            "propType": "alt",
+            "propValue": "Scent Secrets - Discover the finest luxury fragrances"
           },
           {
-            "propName": "brandName",
-            "propValue": "DevFlux",
-            "propLabel": "Brand Name",
-            "propType": "text"
+            "propName": "luxuryText",
+            "propLabel": "Luxury Fragrances Navigation Text",
+            "propType": "text",
+            "propValue": "Exquisite Luxury"
           },
           {
-            "propName": "navLinks",
-            "propValue": [
-              {
-                "link": "#",
-                "text": "Contacts"
-              },
-              {
-                "link": "#",
-                "text": "About Us"
-              },
-              {
-                "link": "#",
-                "text": "Gallery"
-              }
-            ],
-            "propLabel": "Navigation Link",
-            "propType": "nav-links"
+            "propName": "vintageText",
+            "propLabel": "Vintage Fragrances Navigation Text",
+            "propType": "text",
+            "propValue": "Timeless Vintage"
+          },
+          {
+            "propName": "nicheText",
+            "propLabel": "Niche Parfumes Navigation Text",
+            "propType": "text",
+            "propValue": "Exclusive Niche"
           }
-        ],
-        "code": "\n                    ({ logoSrc, logoAlt, brandName, navLinks }) => {\n                        return (\n                            <header className=\"py-4 px-4 md:px-6 flex items-center justify-between border-b border-border bg-slate-950 backdrop-blur-sm sticky top-0 z-50\">\n                                <div className=\"flex items-center gap-3\">\n                                    <img src={logoSrc} alt={logoAlt} className=\"h-10 w-10 object-contain\" />\n                                    <motion.h1\n                                      className=\"text-2xl font-bold text-neon\"\n                                      initial={{ opacity: 0, x: -20 }}\n                                      animate={{ opacity: 1, x: 0 }}\n                                      transition={{ duration: 0.5 }}\n                                    >\n                                        {brandName}\n                                    </motion.h1>\n                                </div>\n                                <nav>\n                                    <ul className=\"hidden md:flex gap-6\">\n                                        {navLinks.map((link, index) => (\n                                            <motion.li\n                                                key={index}\n                                                initial={{ opacity: 0, y: -10 }}\n                                                animate={{ opacity: 1, y: 0 }}\n                                                transition={{ duration: 0.3, delay: index * 0.1 }}\n                                            >\n                                                <a href={link.href} className=\"text-lg text-white  hover:text-[#0ff] transition-colors\">\n                                                    {link.text}\n                                                </a>\n                                            </motion.li>\n                                        ))}\n                                    </ul>\n                                </nav>\n                                <style jsx=\"true\">\n                                {`\n                                    .text-neon {\n                                        color: #0ff;\n                                        text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;\n                                    }\n                                `}\n                                </style>\n                            </header>\n                      );\n                    };\n                "
+        ]
       },
       {
-        "id": 3,
+        "id": "ca410beb-c821-45df-a629-3d2014946550",
+        "code": "({ heroImage, heroImageAlt, heroTitle, heroSubtitle }) => { return (<section className='bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 p-6'> <div className='max-w-screen-xl mx-auto pt-20 pb-12 px-4 sm:px-6 lg:px-8'> <div className='sm:flex sm:flex-col sm:align-center'> <img className='mx-auto h-10' src={heroImage} alt={heroImageAlt} /> <h1 className='mt-5 text-4xl leading-none font-extrabold text-white sm:text-5xl sm:leading-none md:text-6xl'>{heroTitle}</h1> <p className='mt-2 text-2xl leading-8 font-bold tracking-tight text-white sm:text-3xl sm:leading-9'>{heroSubtitle}</p> </div> </div> </section>) }",
         "props": [
           {
-            "propName": "title",
-            "propLabel": "Title",
+            "propName": "heroImage",
+            "propLabel": "Hero Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/cf6ab30d-3778-405d-bf74-174ee27d8a2a/HeroSection/heroImage.png"
+          },
+          {
+            "propName": "heroImageAlt",
+            "propLabel": "Hero Image Alt Text",
+            "propType": "alt",
+            "propValue": "A diverse collection of luxury, vintage, and niche fragrances"
+          },
+          {
+            "propName": "heroTitle",
+            "propLabel": "Hero Title",
             "propType": "text",
-            "propValue": "Supercharge Your Web Development Workflow"
+            "propValue": "Unveil Your Signature Scent"
           },
           {
-            "propName": "subtitle",
-            "propLabel": "Subtitle",
+            "propName": "heroSubtitle",
+            "propLabel": "Hero Subtitle",
             "propType": "text",
-            "propValue": "All-in-one browser extension combining essential development tools for inspecting, testing, debugging, and optimizing websites."
-          },
-          {
-            "propName": "buttonText",
-            "propLabel": "Action Button Text",
-            "propType": "text",
-            "propValue": "Read More"
-          },
-          {
-            "propName": "buttonHref",
-            "propLabel": "Action Button Link",
-            "propType": "href",
-            "propValue": "#about"
+            "propValue": "Explore our collection and discover fragrances that capture your unique essence"
           }
-        ],
-        "code": "\n                    ({ title, subtitle, buttonText, buttonHref }) => {\n                        return (\n                            <section\n                                className=\"py-20 px-4 md:px-6 flex flex-col items-center justify-center min-h-[80vh] relative flex flex-col items-center justify-center text-center text-white py-20 px-6 min-h-screen\"\n                       \n                            >\n                                <div className=\"absolute bg-slate-900 inset-0 absolute inset-0 z-0\"></div>\n                                <motion.h1\n                                    className=\"text-5xl md:text-6xl font-bold relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500\"\n                                    initial={{ opacity: 0, y: -20 }}\n                                    animate={{ opacity: 1, y: 0 }}\n                                    transition={{ duration: 0.8 }}\n                                >\n                                    {title}\n                                </motion.h1>\n                                <motion.p\n                                    className=\"mt-4 text-lg md:text-xl relative z-10 max-w-2xl\"\n                                    initial={{ opacity: 0, y: 10 }}\n                                    animate={{ opacity: 1, y: 0 }}\n                                    transition={{ duration: 1, delay: 0.3 }}\n                                >\n                                    {subtitle}\n                                </motion.p>\n                                <motion.a\n                                    href={buttonHref}\n                                    className=\"mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-lg rounded-lg shadow-lg hover:scale-105 transition-transform relative z-10\"\n                                    initial={{ opacity: 0, scale: 0.9 }}\n                                    animate={{ opacity: 1, scale: 1 }}\n                                    transition={{ duration: 0.5, delay: 0.5 }}\n                                >\n                                    {buttonText}\n                                </motion.a>\n                            </section>\n                        );\n                    };\n                "
-      },
-      {
-        "id": 7,
-        "props": [
-          {
-            "propName": "companyName",
-            "propLabel": "Company Name",
-            "propValue": "Automotive Paradise",
-            "propType": "text"
-          },
-          {
-            "propName": "companyDescription",
-            "propLabel": "Company Description",
-            "propValue": "Your one-stop shop for all automotive needs.",
-            "propType": "text"
-          },
-          {
-            "propName": "oilChange",
-            "propLabel": "Fast Oil Change",
-            "propValue": "Fast Oil Change",
-            "propType": "text"
-          },
-          {
-            "propName": "tireRotation",
-            "propLabel": "Tire Rotation",
-            "propValue": "Tire Rotation",
-            "propType": "text"
-          },
-          {
-            "propName": "brakeInspection",
-            "propLabel": "Brake Inspection",
-            "propValue": "Brake Inspection",
-            "propType": "text"
-          }
-        ],
-        "code": "\n                    ({ companyName, companyDescription, oilChange, tireRotation, brakeInspection }) => {\n                        return (\n                            <motion.header className='bg-gradient-to-r from-blue-900 to-gray-800 text-white p-5 h-screen flex flex-col justify-center items-center' initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>\n                                <h1 className='text-4xl font-semibold tracking-wide mb-2'>{companyName}</h1>\n                                <p className='text-lg font-light mb-6'>{companyDescription}</p>\n                                <nav className='space-x-2'>\n                                    <a href='#' className='px-4 py-2 bg-orange-500 hover:bg-orange-600 transition-colors duration-300 rounded text-white'>{oilChange}</a>\n                                    <a href='#' className='px-4 py-2 bg-blue-500 hover:bg-blue-600 transition-colors duration-300 rounded text-white'>{tireRotation}</a>\n                                    <a href='#' className='px-4 py-2 bg-gray-500 hover:bg-gray-600 transition-colors duration-300 rounded text-white'>{brakeInspection}</a>\n                                </nav>\n                            </motion.header>\n                        )\n                    }\n                "
-      },
-      {
-        "id": 8,
-        "props": [
-          {
-            "propName": "companyName",
-            "propLabel": "Company Name",
-            "propValue": "Automotive Paradise",
-            "propType": "text"
-          },
-          {
-            "propName": "companyDescription",
-            "propLabel": "Company Description",
-            "propValue": "Your one-stop shop for all automotive needs.",
-            "propType": "text"
-          },
-          {
-            "propName": "keyPoint1",
-            "propLabel": "Key Point 1",
-            "propValue": "Fast Oil Change",
-            "propType": "text"
-          },
-          {
-            "propName": "keyPoint2",
-            "propLabel": "Key Point 2",
-            "propValue": "Tire Rotation",
-            "propType": "text"
-          },
-          {
-            "propName": "keyPoint3",
-            "propLabel": "Key Point 3",
-            "propValue": "Brake Inspection",
-            "propType": "text"
-          }
-        ],
-        "code": "\n                    ({ companyName, companyDescription, keyPoint1, keyPoint2, keyPoint3 }) => {\n                        return (\n                            <section className='flex flex-col items-center justify-center bg-gradient-to-r from-blue-600 to-blue-800 h-screen text-white'>\n                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className='text-center'>\n                                    <h1 className='text-4xl font-sans mb-6 tracking-wide'>{companyName}</h1>\n                                    <p className='font-serif text-lg mb-10'>{companyDescription}</p>\n                                    <div className='flex gap-4'>\n                                        <a href={`#${keyPoint1.toLowerCase().replace(' ', '-')}`} className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow-md transition duration-200 transform hover:scale-105'>{keyPoint1}</a>\n                                        <a href={`#${keyPoint2.toLowerCase().replace(' ', '-')}`} className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow-md transition duration-200 transform hover:scale-105'>{keyPoint2}</a>\n                                        <a href={`#${keyPoint3.toLowerCase().replace(' ', '-')}`} className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded shadow-md transition duration-200 transform hover:scale-105'>{keyPoint3}</a>\n                                    </div>\n                                </motion.div>\n                            </section>\n                      );\n                    };\n                "
-      },
-      {
-        "id": 9,
-        "props": [
-          {
-            "propName": "companyName",
-            "propLabel": "Company Name",
-            "propValue": "Automotive Paradise",
-            "propType": "text"
-          },
-          {
-            "propName": "description",
-            "propLabel": "Company Description",
-            "propValue": "Your one-stop shop for all automotive needs.",
-            "propType": "text"
-          },
-          {
-            "propName": "keyPoint1",
-            "propLabel": "Key Point 1",
-            "propValue": "Fast Oil Change",
-            "propType": "text"
-          },
-          {
-            "propName": "keyPoint2",
-            "propLabel": "Key Point 2",
-            "propValue": "Tire Rotation",
-            "propType": "text"
-          },
-          {
-            "propName": "keyPoint3",
-            "propLabel": "Key Point 3",
-            "propValue": "Brake Inspection",
-            "propType": "text"
-          }
-        ],
-        "code": "\n                    ({ companyName, description, keyPoint1, keyPoint2, keyPoint3 }) => {\n                        return (\n                            <motion.footer className=\"p-6 bg-gray-800 text-white space-y-4\" initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}>\n                                <h3 className=\"text-2xl font-semibold tracking-wide font-sans\">{companyName}</h3>\n                                <p className=\"text-gray-300 text-base font-serif\">{description}</p>\n                                <div className=\"grid grid-cols-1 sm:grid-cols-3 gap-4\">\n                                    <p className=\"text-gray-300 text-base font-serif\">{keyPoint1}</p>\n                                    <p className=\"text-gray-300 text-base font-serif\">{keyPoint2}</p>\n                                    <p className=\"text-gray-300 text-base font-serif\">{keyPoint3}</p>\n                                </div>\n                            </motion.footer>\n                        );\n                    };\n                "
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "name": "Home Page 2",
-    "path": "homepage",
-    "sections": [
-      {
-        "id": 5,
-        "props": [
-          {
-            "propName": "logoSrc",
-            "propValue": "https://img.icons8.com/?size=512&id=oiy2sWxAnP31&format=png",
-            "propLabel": "Logo Source",
-            "propType": "src"
-          },
-          {
-            "propName": "logoAlt",
-            "propValue": "logo",
-            "propLabel": "Logo Alternative Text",
-            "propType": "alt"
-          },
-          {
-            "propName": "brandName",
-            "propValue": "DevFlux",
-            "propLabel": "Brand Name",
-            "propType": "text"
-          },
-          {
-            "propName": "navLinks",
-            "propValue": [
-              {
-                "link": "#",
-                "text": "Contacts"
-              },
-              {
-                "link": "#",
-                "text": "About Us"
-              },
-              {
-                "link": "#",
-                "text": "Gallery"
-              }
-            ],
-            "propLabel": "Navigation Link",
-            "propType": "nav-links"
-          }
-        ],
-        "code": "\n                    ({ logoSrc, logoAlt, brandName, navLinks }) => {\n                        return (\n                            <header className=\"py-4 px-4 md:px-6 flex items-center justify-between border-b border-border bg-slate-950 backdrop-blur-sm sticky top-0 z-50\">\n                                <div className=\"flex items-center gap-3\">\n                                    <img src={logoSrc} alt={logoAlt} className=\"h-10 w-10 object-contain\" />\n                                    <motion.h1\n                                      className=\"text-2xl font-bold text-neon\"\n                                      initial={{ opacity: 0, x: -20 }}\n                                      animate={{ opacity: 1, x: 0 }}\n                                      transition={{ duration: 0.5 }}\n                                    >\n                                        {brandName}\n                                    </motion.h1>\n                                </div>\n                                <nav>\n                                    <ul className=\"hidden md:flex gap-6\">\n                                        {navLinks.map((link, index) => (\n                                            <motion.li\n                                                key={index}\n                                                initial={{ opacity: 0, y: -10 }}\n                                                animate={{ opacity: 1, y: 0 }}\n                                                transition={{ duration: 0.3, delay: index * 0.1 }}\n                                            >\n                                                <a href={link.href} className=\"text-lg text-white  hover:text-[#0ff] transition-colors\">\n                                                    {link.text}\n                                                </a>\n                                            </motion.li>\n                                        ))}\n                                    </ul>\n                                </nav>\n                                <style jsx=\"true\">\n                                {`\n                                    .text-neon {\n                                        color: #0ff;\n                                        text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;\n                                    }\n                                `}\n                                </style>\n                            </header>\n                      );\n                    };\n                "
-      },
-      {
-        "id": 6,
-        "props": [
-          {
-            "propName": "title",
-            "propLabel": "Title",
-            "propType": "text",
-            "propValue": "Supercharge Your Web Development Workflow"
-          },
-          {
-            "propName": "subtitle",
-            "propLabel": "Subtitle",
-            "propType": "text",
-            "propValue": "All-in-one browser extension combining essential development tools for inspecting, testing, debugging, and optimizing websites."
-          },
-          {
-            "propName": "buttonText",
-            "propLabel": "Action Button Text",
-            "propType": "text",
-            "propValue": "Read More"
-          },
-          {
-            "propName": "buttonHref",
-            "propLabel": "Action Button Link",
-            "propType": "href",
-            "propValue": "#about"
-          }
-        ],
-        "code": "\n                    ({ title, subtitle, buttonText, buttonHref }) => {\n                        return (\n                            <section\n                                className=\"py-20 px-4 md:px-6 flex flex-col items-center justify-center min-h-[80vh] relative flex flex-col items-center justify-center text-center text-white py-20 px-6 min-h-screen\"\n                       \n                            >\n                                <div className=\"absolute bg-slate-900 inset-0 absolute inset-0 z-0\"></div>\n                                <motion.h1\n                                    className=\"text-5xl md:text-6xl font-bold relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500\"\n                                    initial={{ opacity: 0, y: -20 }}\n                                    animate={{ opacity: 1, y: 0 }}\n                                    transition={{ duration: 0.8 }}\n                                >\n                                    {title}\n                                </motion.h1>\n                                <motion.p\n                                    className=\"mt-4 text-lg md:text-xl relative z-10 max-w-2xl\"\n                                    initial={{ opacity: 0, y: 10 }}\n                                    animate={{ opacity: 1, y: 0 }}\n                                    transition={{ duration: 1, delay: 0.3 }}\n                                >\n                                    {subtitle}\n                                </motion.p>\n                                <motion.a\n                                    href={buttonHref}\n                                    className=\"mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-lg rounded-lg shadow-lg hover:scale-105 transition-transform relative z-10\"\n                                    initial={{ opacity: 0, scale: 0.9 }}\n                                    animate={{ opacity: 1, scale: 1 }}\n                                    transition={{ duration: 0.5, delay: 0.5 }}\n                                >\n                                    {buttonText}\n                                </motion.a>\n                            </section>\n                        );\n                    };\n                "
+        ]
       }
     ]
   }

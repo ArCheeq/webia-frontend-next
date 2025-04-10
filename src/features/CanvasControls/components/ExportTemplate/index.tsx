@@ -1,38 +1,28 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Button, Loader, Overlay } from "@mantine/core";
 
 import { useRouter } from "next/navigation";
 
 import { useStore } from "@/store";
+import { useExportTemplate } from "@/features/CanvasControls/components/hooks/useExportTemplate";
 
 import styles from './styles.module.css';
 
 export default function ExportTemplateButton() {
     const router = useRouter();
-    const [isPending, setIsPending] = useState(false);
     const layout = useStore((state) => state.AppLayout.layout);
 
-    const onExportTemplate = async () => {
-        try {
-            setIsPending(true);
-            await fetch("/api/save-layout", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(layout),
-            });
+    const { isPending, onExportTemplate } = useExportTemplate();
 
-            const homepageLink = layout[0]?.path;
-            router.push(`/landing/${homepageLink}`);
-        } catch (error) {
-            console.error(error);
-        } finally {
-            setIsPending(false);
-        }
+    const handleExportTemplate = async () => {
+        await onExportTemplate(layout);
+        const homepageLink = layout[0]?.path;
+        router.push(`/landing/${homepageLink}`);
     };
 
     return (
         <Fragment>
-            <Button onClick={onExportTemplate} classNames={{ root: styles.exportButton }} color={"#ecebe9"}>
+            <Button onClick={handleExportTemplate} classNames={{ root: styles.exportButton }} color={"#ecebe9"}>
                 Export
             </Button>
             {isPending && (

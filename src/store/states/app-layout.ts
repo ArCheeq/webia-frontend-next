@@ -1,5 +1,5 @@
 import { IStateSlice } from "@/store/store";
-import { mockLayout } from "@/mock/mock-layout";
+import layout from "../../app/api/layout/layout.json" assert { type: "json" };
 
 export interface IAppLayoutState {
     layout: IPage[];
@@ -11,7 +11,7 @@ export interface IAppLayoutState {
 }
 
 export const createAppLayoutStore: IStateSlice<IAppLayoutState> = (set, get) => ({
-    layout: mockLayout,
+    layout: layout as any,
 
     setLayout: (layout) =>
         set((state) => {

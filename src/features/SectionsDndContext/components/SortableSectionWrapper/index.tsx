@@ -35,6 +35,7 @@ export default function SortableSectionWrapper({ section, children }: PropsWithC
         } as any),
         transition,
         zIndex: isElementActive ? 10000 : -1,
+        overflow: 'hidden',
     };
 
     return (

@@ -36,7 +36,7 @@ export default function EditSectionForm() {
                 <Stack pt={12} gap={12}>
                     {fields?.map((field) => getField(field))}
                     <Flex justify={'flex-end'}>
-                        <Button disabled={!form.formState.isDirty} loading={form.formState.isSubmitting} type={'submit'}>
+                        <Button loading={form.formState.isSubmitting} type={'submit'}>
                             Save Changes
                         </Button>
                     </Flex>
