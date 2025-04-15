@@ -1,72 +1,204 @@
 [
   {
-    "id": "2c1750da-07ce-4dba-8816-9de4237866a0",
+    "id": "7455b9c0-d545-4970-98e4-ac5efc9b311d",
     "name": "Home Page",
     "path": "homepage",
     "sections": [
       {
-        "id": "ca410beb-c821-45df-a629-3d2014946550",
-        "code": "({ logo, logoAlt, luxuryText, vintageText, nicheText }) => { return (<header className='bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 h-24 flex items-center justify-between p-6'> <img className='w-32' src={logo} alt={logoAlt} /> <nav className='font-serif text-white'> <ul className='flex space-x-4'> <li><a href='#' className='hover:scale-105 transition transform'>{luxuryText}</a></li> <li><a href='#' className='hover:scale-105 transition transform'>{vintageText}</a></li> <li><a href='#' className='hover:scale-105 transition transform'>{nicheText}</a></li> </ul> </nav> </header>) }",
+        "id": "876fa831-23cc-44d9-a7d1-c0c0e8c4e20f",
+        "code": "({ \n  logoSrc = 'https://global-cloud-logo.png', \n  logoAlt = 'Global Cloud Logo', \n  navItem1Text = 'Services', \n  navItem2Text = 'Solutions', \n  navItem3Text = 'Pricing', \n  navItem4Text = 'Support',\n  ctaText = 'Get Started',\n  ctaHref = '/signup'\n}) => {\n  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);\n\n  return (\n    <header className=\"w-full bg-white dark:bg-[#121826] shadow-sm fixed top-0 left-0 z-50\">\n      <div className=\"container mx-auto px-4 py-4 flex items-center justify-between\">\n        {/* Logo */}\n        <a href=\"/\" className=\"flex items-center\">\n          <img \n            src={logoSrc} \n            alt={logoAlt} \n            className=\"h-10 w-auto\"\n          />\n        </a>\n\n        {/* Desktop Navigation */}\n        <nav className=\"hidden md:flex items-center space-x-6\">\n          <a \n            href=\"#services\" \n            className=\"text-[#0A6EBD] hover:text-[#10B981] transition-colors text-base font-medium\"\n          >\n            {navItem1Text}\n          </a>\n          <a \n            href=\"#solutions\" \n            className=\"text-[#0A6EBD] hover:text-[#10B981] transition-colors text-base font-medium\"\n          >\n            {navItem2Text}\n          </a>\n          <a \n            href=\"#pricing\" \n            className=\"text-[#0A6EBD] hover:text-[#10B981] transition-colors text-base font-medium\"\n          >\n            {navItem3Text}\n          </a>\n          <a \n            href=\"#support\" \n            className=\"text-[#0A6EBD] hover:text-[#10B981] transition-colors text-base font-medium\"\n          >\n            {navItem4Text}\n          </a>\n        </nav>\n\n        {/* CTA Button */}\n        <div className=\"hidden md:flex items-center space-x-4\">\n          <a \n            href={ctaHref} \n            className=\"bg-[#0A6EBD] text-white px-4 py-2 rounded-md hover:bg-[#10B981] transition-colors font-medium\"\n          >\n            {ctaText}\n          </a>\n        </div>\n\n        {/* Mobile Menu Toggle */}\n        <div className=\"md:hidden\">\n          <button \n            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}\n            className=\"text-[#0A6EBD] focus:outline-none\"\n            aria-label=\"Toggle mobile menu\"\n          >\n            <svg \n              xmlns=\"http://www.w3.org/2000/svg\" \n              className=\"h-6 w-6\" \n              fill=\"none\" \n              viewBox=\"0 0 24 24\" \n              stroke=\"currentColor\"\n            >\n              {mobileMenuOpen ? (\n                <path \n                  strokeLinecap=\"round\" \n                  strokeLinejoin=\"round\" \n                  strokeWidth={2} \n                  d=\"M6 18L18 6M6 6l12 12\" \n                />\n              ) : (\n                <path \n                  strokeLinecap=\"round\" \n                  strokeLinejoin=\"round\" \n                  strokeWidth={2} \n                  d=\"M4 6h16M4 12h16M4 18h16\" \n                />\n              )}\n            </svg>\n          </button>\n        </div>\n      </div>\n\n      {/* Mobile Menu */}\n      {mobileMenuOpen && (\n        <div className=\"md:hidden fixed inset-0 bg-white dark:bg-[#121826] z-40 pt-20\">\n          <nav className=\"px-4 space-y-4\">\n            <a \n              href=\"#services\" \n              className=\"block text-[#0A6EBD] hover:text-[#10B981] py-2 text-xl\"\n              onClick={() => setMobileMenuOpen(false)}\n            >\n              {navItem1Text}\n            </a>\n            <a \n              href=\"#solutions\" \n              className=\"block text-[#0A6EBD] hover:text-[#10B981] py-2 text-xl\"\n              onClick={() => setMobileMenuOpen(false)}\n            >\n              {navItem2Text}\n            </a>\n            <a \n              href=\"#pricing\" \n              className=\"block text-[#0A6EBD] hover:text-[#10B981] py-2 text-xl\"\n              onClick={() => setMobileMenuOpen(false)}\n            >\n              {navItem3Text}\n            </a>\n            <a \n              href=\"#support\" \n              className=\"block text-[#0A6EBD] hover:text-[#10B981] py-2 text-xl\"\n              onClick={() => setMobileMenuOpen(false)}\n            >\n              {navItem4Text}\n            </a>\n            <a \n              href={ctaHref} \n              className=\"block bg-[#0A6EBD] text-white px-6 py-3 rounded-md text-center text-xl hover:bg-[#10B981] transition-colors\"\n              onClick={() => setMobileMenuOpen(false)}\n            >\n              {ctaText}\n            </a>\n          </nav>\n        </div>\n      )}\n    </header>\n  );\n}",
         "props": [
           {
-            "propName": "logo",
-            "propLabel": "Logo Image",
+            "propName": "logoSrc",
+            "propLabel": "Logo Image Source",
             "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/0a565f8e-54c4-4169-9db6-eda9d5b7286f/Header/logo.png"
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/8338dcd0-60ab-41f5-a817-75be56d66c21/Header/logoSrc.png"
           },
           {
             "propName": "logoAlt",
-            "propLabel": "Logo Alt Text",
+            "propLabel": "Logo Alternative Text",
             "propType": "alt",
-            "propValue": "Scent Secrets - Discover the finest luxury fragrances"
+            "propValue": "Global Cloud Logo"
           },
           {
-            "propName": "luxuryText",
-            "propLabel": "Luxury Fragrances Navigation Text",
+            "propName": "navItem1Text",
+            "propLabel": "First Navigation Item Text",
             "propType": "text",
-            "propValue": "Exquisite Luxury"
+            "propValue": "Services"
           },
           {
-            "propName": "vintageText",
-            "propLabel": "Vintage Fragrances Navigation Text",
+            "propName": "navItem2Text",
+            "propLabel": "Second Navigation Item Text",
             "propType": "text",
-            "propValue": "Timeless Vintage"
+            "propValue": "Solutions"
           },
           {
-            "propName": "nicheText",
-            "propLabel": "Niche Parfumes Navigation Text",
+            "propName": "navItem3Text",
+            "propLabel": "Third Navigation Item Text",
             "propType": "text",
-            "propValue": "Exclusive Niche"
+            "propValue": "Pricing"
+          },
+          {
+            "propName": "navItem4Text",
+            "propLabel": "Fourth Navigation Item Text",
+            "propType": "text",
+            "propValue": "Support"
+          },
+          {
+            "propName": "ctaText",
+            "propLabel": "Call to Action Button Text",
+            "propType": "text",
+            "propValue": "Get Started"
+          },
+          {
+            "propName": "ctaHref",
+            "propLabel": "Call to Action Link",
+            "propType": "href",
+            "propValue": "/signup"
           }
         ]
       },
       {
-        "id": "ca410beb-c821-45df-a629-3d2014946550",
-        "code": "({ heroImage, heroImageAlt, heroTitle, heroSubtitle }) => { return (<section className='bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 p-6'> <div className='max-w-screen-xl mx-auto pt-20 pb-12 px-4 sm:px-6 lg:px-8'> <div className='sm:flex sm:flex-col sm:align-center'> <img className='mx-auto h-10' src={heroImage} alt={heroImageAlt} /> <h1 className='mt-5 text-4xl leading-none font-extrabold text-white sm:text-5xl sm:leading-none md:text-6xl'>{heroTitle}</h1> <p className='mt-2 text-2xl leading-8 font-bold tracking-tight text-white sm:text-3xl sm:leading-9'>{heroSubtitle}</p> </div> </div> </section>) }",
+        "id": "6a7cef5f-84ec-46aa-a6bf-ec57f737ede1",
+        "code": "({ \n  headline1Text = 'Reliable Cloud Infrastructure for Modern Businesses', \n  headline2Text = 'Scalable, Secure & High-Performance Cloud Solutions', \n  ctaButtonText = 'Start Your Cloud Journey', \n  ctaButtonHref = '/signup',\n  heroImageSrc = 'https://globalcloud.com/hero-illustration.svg',\n  heroImageAlt = 'Global Cloud Infrastructure Network Visualization'\n}) => {\n  return (\n    <div className=\"w-full bg-white dark:bg-[#121826] flex flex-col md:flex-row items-center justify-center py-16 px-4 md:px-12 lg:px-24\">\n      <div className=\"w-full md:w-1/2 text-center md:text-left space-y-6\">\n        <motion.h1 \n          initial={{ opacity: 0, y: 20 }}\n          animate={{ opacity: 1, y: 0 }}\n          transition={{ duration: 0.5 }}\n          className=\"text-[#0A6EBD] font-inter font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight\"\n        >\n          {headline1Text}\n        </motion.h1>\n        \n        <motion.p\n          initial={{ opacity: 0, y: 20 }}\n          animate={{ opacity: 1, y: 0 }}\n          transition={{ duration: 0.5, delay: 0.2 }}\n          className=\"text-gray-600 dark:text-gray-300 text-lg md:text-xl font-inter font-medium\"\n        >\n          {headline2Text}\n        </motion.p>\n        \n        <motion.div\n          initial={{ opacity: 0, y: 20 }}\n          animate={{ opacity: 1, y: 0 }}\n          transition={{ duration: 0.5, delay: 0.4 }}\n        >\n          <a \n            href={ctaButtonHref}\n            className=\"inline-block bg-[#0A6EBD] hover:bg-[#10B981] text-white font-inter font-semibold py-3 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#10B981]\"\n          >\n            {ctaButtonText}\n          </a>\n        </motion.div>\n      </div>\n      \n      <motion.div \n        initial={{ opacity: 0, scale: 0.9 }}\n        animate={{ opacity: 1, scale: 1 }}\n        transition={{ duration: 0.5, delay: 0.6 }}\n        className=\"w-full md:w-1/2 mt-8 md:mt-0 flex justify-center\"\n      >\n        <img \n          src={heroImageSrc} \n          alt={heroImageAlt}\n          className=\"max-w-full h-auto object-contain\"\n        />\n      </motion.div>\n    </div>\n  );\n};",
         "props": [
           {
-            "propName": "heroImage",
-            "propLabel": "Hero Image",
+            "propName": "headline1Text",
+            "propLabel": "Primary Headline",
+            "propType": "text",
+            "propValue": "Reliable Cloud Infrastructure for Modern"
+          },
+          {
+            "propName": "headline2Text",
+            "propLabel": "Secondary Headline",
+            "propType": "text",
+            "propValue": "Scalable, Secure & High-Performance Cloud Solutions"
+          },
+          {
+            "propName": "ctaButtonText",
+            "propLabel": "Call to Action Button Text",
+            "propType": "text",
+            "propValue": "Start Your Cloud Journey"
+          },
+          {
+            "propName": "ctaButtonHref",
+            "propLabel": "Call to Action Button Link",
+            "propType": "href",
+            "propValue": "/signup"
+          },
+          {
+            "propName": "heroImageSrc",
+            "propLabel": "Hero Section Image Source",
             "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/cf6ab30d-3778-405d-bf74-174ee27d8a2a/HeroSection/heroImage.png"
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/2b4ce233-20f7-4304-81f0-e5a0cb9c94e9/HeroSection/heroImageSrc.png"
           },
           {
             "propName": "heroImageAlt",
-            "propLabel": "Hero Image Alt Text",
+            "propLabel": "Hero Section Image Alt Text",
             "propType": "alt",
-            "propValue": "A diverse collection of luxury, vintage, and niche fragrances"
+            "propValue": "Global Cloud Infrastructure Network Visualization"
+          }
+        ]
+      },
+      {
+        "id": "3a909e74-8ae5-495b-87e5-2c2bbaeb0a45",
+        "code": "({\n  logo1Src = '/logo.svg', \n  companyName1Text = 'Global Cloud', \n  description1Text = 'Reliable, Scalable, Innovative Cloud Infrastructure',\n  link1Text = 'Products', \n  link1Href = '/products',\n  link2Text = 'Services', \n  link2Href = '/services',\n  link3Text = 'About', \n  link3Href = '/about',\n  socialLink1Href = 'https://twitter.com/globalcloud',\n  socialLink2Href = 'https://linkedin.com/globalcloud',\n  socialLink3Href = 'https://github.com/globalcloud',\n  newsletterTitle1Text = 'Stay Updated',\n  newsletterSubtitle1Text = 'Subscribe to our newsletter',\n  newsletterPlaceholder1Text = 'Enter your email',\n  copyrightText = '© 2023 Global Cloud. All Rights Reserved.',\n}) => {\n  const [email, setEmail] = React.useState('');\n\n  const handleNewsletterSubmit = (e) => {\n    e.preventDefault();\n    // Newsletter submission logic\n  };\n\n  return (\n    <footer className=\"w-full bg-gray-900 text-white py-12 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8\">\n        {/* Company Info */}\n        <div className=\"space-y-4\">\n          <img src={logo1Src} alt={`${companyName1Text} Logo`} className=\"h-10 w-auto\" />\n          <h3 className=\"text-lg font-semibold\">{companyName1Text}</h3>\n          <p className=\"text-gray-300\">{description1Text}</p>\n        </div>\n\n        {/* Quick Links */}\n        <div>\n          <h4 className=\"text-lg font-semibold mb-4\">Quick Links</h4>\n          <nav className=\"space-y-2\">\n            <a href={link1Href} className=\"block text-gray-300 hover:text-white transition-colors\">\n              {link1Text}\n            </a>\n            <a href={link2Href} className=\"block text-gray-300 hover:text-white transition-colors\">\n              {link2Text}\n            </a>\n            <a href={link3Href} className=\"block text-gray-300 hover:text-white transition-colors\">\n              {link3Text}\n            </a>\n          </nav>\n        </div>\n\n        {/* Social Links */}\n        <div>\n          <h4 className=\"text-lg font-semibold mb-4\">Connect</h4>\n          <div className=\"flex space-x-4\">\n            <a \n              href={socialLink1Href} \n              target=\"_blank\" \n              rel=\"noopener noreferrer\" \n              className=\"text-gray-300 hover:text-white transition-colors\"\n            >\n              <Icon icon=\"mdi:twitter\" className=\"h-6 w-6\" />\n            </a>\n            <a \n              href={socialLink2Href} \n              target=\"_blank\" \n              rel=\"noopener noreferrer\" \n              className=\"text-gray-300 hover:text-white transition-colors\"\n            >\n              <Icon icon=\"mdi:linkedin\" className=\"h-6 w-6\" />\n            </a>\n            <a \n              href={socialLink3Href} \n              target=\"_blank\" \n              rel=\"noopener noreferrer\" \n              className=\"text-gray-300 hover:text-white transition-colors\"\n            >\n              <Icon icon=\"mdi:github\" className=\"h-6 w-6\" />\n            </a>\n          </div>\n        </div>\n\n        {/* Newsletter */}\n        <div>\n          <h4 className=\"text-lg font-semibold mb-4\">{newsletterTitle1Text}</h4>\n          <p className=\"text-gray-300 mb-4\">{newsletterSubtitle1Text}</p>\n          <form onSubmit={handleNewsletterSubmit} className=\"flex\">\n            <input \n              type=\"email\"\n              value={email}\n              onChange={(e) => setEmail(e.target.value)}\n              placeholder={newsletterPlaceholder1Text}\n              className=\"w-full px-3 py-2 bg-gray-800 text-white rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500\"\n            />\n            <button \n              type=\"submit\" \n              className=\"bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors\"\n            >\n              <Icon icon=\"mdi:send\" className=\"h-5 w-5\" />\n            </button>\n          </form>\n        </div>\n      </div>\n\n      {/* Copyright */}\n      <div className=\"border-t border-gray-800 mt-8 pt-6 text-center text-gray-400\">\n        {copyrightText}\n      </div>\n    </footer>\n  );\n}",
+        "props": [
+          {
+            "propName": "logo1Src",
+            "propLabel": "Company Logo",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/68f01585-4742-4d56-add3-6011203c116d/Footer/logo1Src.png"
           },
           {
-            "propName": "heroTitle",
-            "propLabel": "Hero Title",
+            "propName": "companyName1Text",
+            "propLabel": "Company Name",
             "propType": "text",
-            "propValue": "Unveil Your Signature Scent"
+            "propValue": "Global Cloud"
           },
           {
-            "propName": "heroSubtitle",
-            "propLabel": "Hero Subtitle",
+            "propName": "description1Text",
+            "propLabel": "Company Description",
             "propType": "text",
-            "propValue": "Explore our collection and discover fragrances that capture your unique essence"
+            "propValue": "Reliable, Scalable, Innovative Cloud Infrastructure"
+          },
+          {
+            "propName": "link1Text",
+            "propLabel": "First Navigation Link Text",
+            "propType": "text",
+            "propValue": "Products"
+          },
+          {
+            "propName": "link1Href",
+            "propLabel": "First Navigation Link URL",
+            "propType": "href",
+            "propValue": "/products"
+          },
+          {
+            "propName": "link2Text",
+            "propLabel": "Second Navigation Link Text",
+            "propType": "text",
+            "propValue": "Services"
+          },
+          {
+            "propName": "link2Href",
+            "propLabel": "Second Navigation Link URL",
+            "propType": "href",
+            "propValue": "/services"
+          },
+          {
+            "propName": "link3Text",
+            "propLabel": "Third Navigation Link Text",
+            "propType": "text",
+            "propValue": "About"
+          },
+          {
+            "propName": "link3Href",
+            "propLabel": "Third Navigation Link URL",
+            "propType": "href",
+            "propValue": "/about"
+          },
+          {
+            "propName": "socialLink1Href",
+            "propLabel": "Twitter Profile URL",
+            "propType": "href",
+            "propValue": "https://twitter.com/globalcloud"
+          },
+          {
+            "propName": "socialLink2Href",
+            "propLabel": "LinkedIn Profile URL",
+            "propType": "href",
+            "propValue": "https://linkedin.com/globalcloud"
+          },
+          {
+            "propName": "socialLink3Href",
+            "propLabel": "GitHub Profile URL",
+            "propType": "href",
+            "propValue": "https://github.com/globalcloud"
+          },
+          {
+            "propName": "newsletterTitle1Text",
+            "propLabel": "Newsletter Section Title",
+            "propType": "text",
+            "propValue": "Stay Updated"
+          },
+          {
+            "propName": "newsletterSubtitle1Text",
+            "propLabel": "Newsletter Subtitle",
+            "propType": "text",
+            "propValue": "Subscribe to our newsletter"
+          },
+          {
+            "propName": "newsletterPlaceholder1Text",
+            "propLabel": "Newsletter Email Placeholder",
+            "propType": "text",
+            "propValue": "Enter your email"
+          },
+          {
+            "propName": "copyrightText",
+            "propLabel": "Copyright Notice",
+            "propType": "text",
+            "propValue": "© 2023 Global Cloud. All Rights Reserved."
           }
         ]
       }

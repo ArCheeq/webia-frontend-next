@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Icon } from "@iconify/react";
 
 import * as Babel from "@babel/standalone";
 
@@ -16,7 +17,7 @@ export default function DynamicSection({ section }: IProps) {
 
     try {
         const transformed = Babel.transform(code, { presets: ["react"] }).code;
-        DynamicSectionComponent = new Function("React", "motion", `return ${transformed}`)(React, motion);
+        DynamicSectionComponent = new Function("React", "motion", "Icon", `return ${transformed}`)(React, motion, Icon);
     } catch (error) {
         throw new Error(
             `Failed to parse and execute the dynamic component code. This could be due to a syntax error, missing dependencies, or an issue with the transformation process. 
