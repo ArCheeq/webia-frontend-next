@@ -1,3 +1,5 @@
+import { nanoid } from "nanoid";
+
 import { IStateSlice } from "@/store/store";
 import layout from "../../app/api/layout/layout.json" assert { type: "json" };
 
@@ -6,8 +8,10 @@ export interface IAppLayoutState {
 
     setLayout: (layout: IPage[]) => void;
     reorderPages: (pages: IPage[]) => void;
-    reorderSections: (pageId: number, sections: ISection[]) => void;
-    updateSectionProps: (sectionId: number, props: IProp[]) => void;
+    reorderSections: (pageId: string, sections: ISection[]) => void;
+    updateSectionProps: (sectionId: string, props: IProp[]) => void;
+    deleteSection: (sectionId: string) => void;
+    copySection: (sectionId: string) => void;
 }
 
 export const createAppLayoutStore: IStateSlice<IAppLayoutState> = (set, get) => ({
@@ -52,5 +56,46 @@ export const createAppLayoutStore: IStateSlice<IAppLayoutState> = (set, get) => 
             });
 
             state.AppLayout.layout = newLayout;
-        })
+        }),
+    deleteSection: (sectionId) =>
+        set((state) => {
+            const layout = get().AppLayout.layout;
+
+            const newLayout = layout.map((page) => {
+                const newSections = page.sections.filter(
+                    (section) => section.id !== sectionId
+                );
+
+                return { ...page, sections: newSections };
+            });
+
+            state.AppLayout.layout = newLayout;
+        }),
+    copySection: (sectionId) =>
+        set((state) => {
+            const layout = get().AppLayout.layout;
+
+            const newLayout = layout.map((page) => {
+                const sectionIndex = page.sections.findIndex(
+                    (section) => section.id === sectionId
+                );
+                if (sectionIndex === -1) return page;
+
+                const sectionToCopy = page.sections[sectionIndex];
+                const newSection = {
+                    ...sectionToCopy,
+                    id: nanoid(),
+                };
+
+                const newSections = [
+                    ...page.sections.slice(0, sectionIndex + 1),
+                    newSection,
+                    ...page.sections.slice(sectionIndex + 1),
+                ];
+
+                return { ...page, sections: newSections };
+            });
+
+            state.AppLayout.layout = newLayout;
+        }),
 });

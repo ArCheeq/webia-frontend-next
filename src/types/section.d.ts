@@ -1,5 +1,5 @@
 interface ISection {
-    id: number;
+    id: string;
     props: IProp[];
     code: string;
 }

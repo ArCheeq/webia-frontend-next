@@ -6,16 +6,18 @@ import { useStore } from "@/store";
 export default function Controls() {
     const section = useStore((state) => state.EditSectionMenu.section);
     const close = useStore((state) => state.EditSectionMenu.close);
+    const deleteSection = useStore((state) => state.AppLayout.deleteSection);
+    const copySection = useStore((state) => state.AppLayout.copySection);
 
     if (!section) return null;
 
     const onDelete = () => {
-        // deleteElement(activeElement.key);
         close();
+        deleteSection(section?.id!);
     };
 
     const onCopy = () => {
-        // copyElement(activeElement.key);
+        copySection(section?.id!);
     };
 
     return (
