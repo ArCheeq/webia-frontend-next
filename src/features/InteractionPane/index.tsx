@@ -165,7 +165,9 @@ export default function InteractionPane({ children }: PropsWithChildren) {
             window.addEventListener(
                 "wheel",
                 (event) => {
-                    event.preventDefault();
+                    if (event.ctrlKey) {
+                        event.preventDefault();
+                    }
                 },
                 {
                     capture: true,
