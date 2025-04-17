@@ -12,6 +12,7 @@ export default function MobileBreakpointButton() {
 
     return (
         <ActionIcon
+            disabled
             variant={"filled"}
             aria-label="mobile-view"
             classNames={{ root: styles.actionIcon }}

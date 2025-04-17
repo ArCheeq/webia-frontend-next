@@ -7,6 +7,7 @@ export interface IEditSectionMenuState {
 
     open: (section?: ISection) => void;
     close: () => void;
+    toggle: () => void;
     setRegenerating: (status: boolean) => void;
 }
 
@@ -36,6 +37,11 @@ export const createEditSectionMenuStore: IStateSlice<IEditSectionMenuState> = (s
         set((state) => {
             state.EditSectionMenu.opened = false;
             state.EditSectionMenu.section = null;
+        }),
+    toggle: () =>
+        set((state) => {
+           const opened = get().EditSectionMenu.opened;
+           state.EditSectionMenu.opened = !opened;
         }),
     setRegenerating: (status) =>
         set((state) => {

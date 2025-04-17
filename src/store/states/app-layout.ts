@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 
 import { IStateSlice } from "@/store/store";
-import layout from "../../app/api/layout/layout.json" assert { type: "json" };
+import layout from "../../app/api/layout/layout2.json" assert { type: "json" };
 
 export interface IAppLayoutState {
     layout: IPage[];

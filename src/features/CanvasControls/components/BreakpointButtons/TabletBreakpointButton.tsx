@@ -12,6 +12,7 @@ export default function TabletBreakpointButton() {
 
     return (
         <ActionIcon
+            disabled
             variant={"filled"}
             aria-label="tablet-view"
             classNames={{ root: styles.actionIcon }}

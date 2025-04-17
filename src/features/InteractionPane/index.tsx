@@ -5,7 +5,7 @@ import { useStore } from "@/store";
 const SCROLL_WHEEL_FACTOR = 0.2;
 
 export default function InteractionPane({ children }: PropsWithChildren) {
-    // Scale determines the size of the displayed children (this react to pinch/zoom movements).
+    // Scale determines the size of the displayed children (this reacts to pinch/zoom movements).
     // Offset determines the position of the displayed children (this respond to dragging movement).
     const offset = useStore((state) => state.InteractionPane.offset);
     const setOffset = useStore((state) => state.InteractionPane.setOffset);
@@ -29,7 +29,7 @@ export default function InteractionPane({ children }: PropsWithChildren) {
         }
     }
 
-    function handlePointerUp(event: PointerEvent<HTMLDivElement>) {
+    function handlePointerUp() {
         setIsDragging(false);
     }
 

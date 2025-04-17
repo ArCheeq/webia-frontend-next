@@ -1,0 +1,951 @@
+[
+  {
+    "id": "0a3089ab-b698-49db-9279-1c459d4c5c6f",
+    "name": "Home Page",
+    "path": "homepage",
+    "sections": [
+      {
+        "id": "94a4f49b-a811-4849-a9b4-37e24a21b898",
+        "code": "({ \n  logoSrc, \n  logoAlt, \n  companyName, \n  navLink1Text, \n  navLink1Href, \n  navLink2Text, \n  navLink2Href, \n  navLink3Text, \n  navLink3Href, \n  ctaText, \n  ctaHref \n}) => {\n  const [isMenuOpen, setIsMenuOpen] = React.useState(false);\n\n  return (\n    <header className=\"w-full bg-white shadow-sm fixed top-0 left-0 z-50\">\n      <div className=\"container mx-auto px-4 py-3 flex justify-between items-center\">\n        {/* Logo Section */}\n        <div className=\"flex items-center\">\n          <a href=\"/\" className=\"flex items-center\">\n            <img \n              src={logoSrc} \n              alt={logoAlt} \n              className=\"h-10 w-auto mr-3\" \n            />\n            <span className=\"text-[#0D47A1] font-inter font-bold text-xl\">\n              {companyName}\n            </span>\n          </a>\n        </div>\n\n        {/* Navigation - Desktop */}\n        <nav className=\"hidden md:flex space-x-6 items-center\">\n          <a \n            href={navLink1Href} \n            className=\"text-gray-800 hover:text-[#0D47A1] transition-colors duration-300\"\n          >\n            {navLink1Text}\n          </a>\n          <a \n            href={navLink2Href} \n            className=\"text-gray-800 hover:text-[#0D47A1] transition-colors duration-300\"\n          >\n            {navLink2Text}\n          </a>\n          <a \n            href={navLink3Href} \n            className=\"text-gray-800 hover:text-[#0D47A1] transition-colors duration-300\"\n          >\n            {navLink3Text}\n          </a>\n          <a \n            href={ctaHref} \n            className=\"bg-[#F57C00] text-white px-4 py-2 rounded-md hover:bg-[#FF9800] transition-colors duration-300\"\n          >\n            {ctaText}\n          </a>\n        </nav>\n\n        {/* Mobile Menu Toggle */}\n        <div className=\"md:hidden\">\n          <button \n            onClick={() => setIsMenuOpen(!isMenuOpen)}\n            className=\"text-[#0D47A1] focus:outline-none\"\n            aria-label=\"Toggle Mobile Menu\"\n          >\n            {isMenuOpen ? (\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\">\n                <path fill=\"currentColor\" d=\"M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z\"/>\n              </svg>\n            ) : (\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\">\n                <path fill=\"currentColor\" d=\"M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z\"/>\n              </svg>\n            )}\n          </button>\n        </div>\n      </div>\n\n      {/* Mobile Menu */}\n      {isMenuOpen && (\n        <div className=\"md:hidden fixed inset-0 bg-white z-40 pt-20\">\n          <nav className=\"flex flex-col items-center space-y-6\">\n            <a \n              href={navLink1Href} \n              className=\"text-gray-800 text-xl hover:text-[#0D47A1] transition-colors duration-300\"\n            >\n              {navLink1Text}\n            </a>\n            <a \n              href={navLink2Href} \n              className=\"text-gray-800 text-xl hover:text-[#0D47A1] transition-colors duration-300\"\n            >\n              {navLink2Text}\n            </a>\n            <a \n              href={navLink3Href} \n              className=\"text-gray-800 text-xl hover:text-[#0D47A1] transition-colors duration-300\"\n            >\n              {navLink3Text}\n            </a>\n            <a \n              href={ctaHref} \n              className=\"bg-[#F57C00] text-white px-6 py-3 rounded-md text-xl hover:bg-[#FF9800] transition-colors duration-300\"\n            >\n              {ctaText}\n            </a>\n          </nav>\n        </div>\n      )}\n    </header>\n  );\n}",
+        "props": [
+          {
+            "propName": "logoSrc",
+            "propLabel": "Logo Image Source",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/00e2e88b-5759-4523-825b-c246395f65a0/Header/logoSrc.png"
+          },
+          {
+            "propName": "logoAlt",
+            "propLabel": "Logo Alt Text",
+            "propType": "alt",
+            "propValue": "Drivers Dream Logo"
+          },
+          {
+            "propName": "companyName",
+            "propLabel": "Company Name",
+            "propType": "text",
+            "propValue": "Drivers Dream"
+          },
+          {
+            "propName": "navLink1Text",
+            "propLabel": "First Navigation Link Text",
+            "propType": "text",
+            "propValue": "Trade-in"
+          },
+          {
+            "propName": "navLink1Href",
+            "propLabel": "First Navigation Link URL",
+            "propType": "href",
+            "propValue": "/trade-in"
+          },
+          {
+            "propName": "navLink2Text",
+            "propLabel": "Second Navigation Link Text",
+            "propType": "text",
+            "propValue": "Finance"
+          },
+          {
+            "propName": "navLink2Href",
+            "propLabel": "Second Navigation Link URL",
+            "propType": "href",
+            "propValue": "/finance"
+          },
+          {
+            "propName": "navLink3Text",
+            "propLabel": "Third Navigation Link Text",
+            "propType": "text",
+            "propValue": "Lease"
+          },
+          {
+            "propName": "navLink3Href",
+            "propLabel": "Third Navigation Link URL",
+            "propType": "href",
+            "propValue": "/lease"
+          },
+          {
+            "propName": "ctaText",
+            "propLabel": "Call to Action Button Text",
+            "propType": "text",
+            "propValue": "Get Started"
+          },
+          {
+            "propName": "ctaHref",
+            "propLabel": "Call to Action Button URL",
+            "propType": "href",
+            "propValue": "/get-started"
+          }
+        ]
+      },
+      {
+        "id": "7763fd8d-3aa7-4d45-8434-5a032feb3106",
+        "code": "({ \n  headline1Text = 'Your Perfect Car Journey Starts Here', \n  subheadline1Text = 'Comprehensive Car Solutions Tailored to Your Needs',\n  cta1Text = 'Explore Our Services',\n  cta1Href = '/services',\n  heroImage1Src = 'https://images.unsplash.com/photo-1503376780353-7db4d9e2c792',\n  heroImage1Alt = 'Modern automotive showroom with sleek vehicles'\n}) => {\n  return (\n    <section className=\"w-full min-h-[80vh] flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-[#121212] py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"w-full lg:w-1/2 flex flex-col justify-center space-y-6 text-center lg:text-left\">\n        <h1 className=\"text-[2.5rem] font-inter font-bold text-[#0D47A1] dark:text-white leading-tight tracking-[-0.025em]\">\n          {headline1Text}\n        </h1>\n        <p className=\"text-xl font-roboto text-gray-700 dark:text-gray-300 mb-6\">\n          {subheadline1Text}\n        </p>\n        <div className=\"flex justify-center lg:justify-start\">\n          <a \n            href={cta1Href}\n            className=\"px-6 py-3 bg-[#F57C00] text-white font-roboto font-medium rounded-lg \n            hover:bg-[#FF9800] transition-all duration-300 ease-in-out \n            transform hover:scale-105 focus:outline-none focus:ring-2 \n            focus:ring-[#F57C00] focus:ring-opacity-50 shadow-md\"\n          >\n            {cta1Text}\n          </a>\n        </div>\n      </div>\n      <div className=\"w-full lg:w-1/2 mt-10 lg:mt-0 flex justify-center\">\n        <div className=\"w-full max-w-[600px] overflow-hidden rounded-2xl shadow-2xl \n        transition-transform duration-500 hover:scale-[1.02]\">\n          <img \n            src={heroImage1Src} \n            alt={heroImage1Alt}\n            className=\"w-full h-auto object-cover rounded-2xl\"\n          />\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "headline1Text",
+            "propLabel": "Hero Headline",
+            "propType": "text",
+            "propValue": "Your Perfect Car Journey Starts Here"
+          },
+          {
+            "propName": "subheadline1Text",
+            "propLabel": "Hero Subheadline",
+            "propType": "text",
+            "propValue": "Comprehensive Car Solutions Tailored to Your Needs"
+          },
+          {
+            "propName": "cta1Text",
+            "propLabel": "Call to Action Text",
+            "propType": "text",
+            "propValue": "Explore Our Services"
+          },
+          {
+            "propName": "cta1Href",
+            "propLabel": "Call to Action Link",
+            "propType": "href",
+            "propValue": "/services"
+          },
+          {
+            "propName": "heroImage1Src",
+            "propLabel": "Hero Image Source",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/b36fc19e-0c7a-4970-940d-b482fed6bc6e/HeroSection/heroImage1Src.png"
+          },
+          {
+            "propName": "heroImage1Alt",
+            "propLabel": "Hero Image Alternative Text",
+            "propType": "alt",
+            "propValue": "Modern automotive showroom with sleek vehicles"
+          }
+        ]
+      },
+      {
+        "id": "9c283255-f8b1-4ea9-9643-72a93925eec3",
+        "code": "({ \n  feature1Title, \n  feature1Description, \n  feature2Title, \n  feature2Description, \n  feature3Title, \n  feature3Description,\n  feature4Title, \n  feature4Description\n}) => {\n  const features = [\n    {\n      title: feature1Title,\n      description: feature1Description,\n      icon: 'mdi:car-trade'\n    },\n    {\n      title: feature2Title,\n      description: feature2Description,\n      icon: 'mdi:cash'\n    },\n    {\n      title: feature3Title,\n      description: feature3Description,\n      icon: 'mdi:shield-check'\n    },\n    {\n      title: feature4Title,\n      description: feature4Description,\n      icon: 'mdi:car-renewable'\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-white py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-7xl mx-auto\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"text-2xl md:text-3xl font-bold text-[#0D47A1] mb-4\">\n            Our Comprehensive Car Services\n          </h2>\n          <p className=\"text-gray-600 max-w-2xl mx-auto\">\n            Experience a seamless journey with Drivers Dream's tailored automotive solutions\n          </p>\n        </div>\n        \n        <div className=\"grid md:grid-cols-2 lg:grid-cols-4 gap-6\">\n          {features.map((feature, index) => (\n            <div \n              key={index} \n              className=\"bg-[#F5F5F5] rounded-lg p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg\"\n            >\n              <div className=\"flex justify-center mb-4\">\n                <span className=\"text-[#0D47A1] text-4xl\">\n                  <span className=\"iconify\" data-icon={feature.icon}></span>\n                </span>\n              </div>\n              <h3 className=\"text-xl font-semibold text-[#0D47A1] mb-3\">\n                {feature.title}\n              </h3>\n              <p className=\"text-gray-600\">\n                {feature.description}\n              </p>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "feature1Title",
+            "propLabel": "First Feature Title",
+            "propType": "text",
+            "propValue": "Trade-in"
+          },
+          {
+            "propName": "feature1Description",
+            "propLabel": "First Feature Description",
+            "propType": "text",
+            "propValue": "Upgrade your vehicle with our hassle-free trade-in process"
+          },
+          {
+            "propName": "feature2Title",
+            "propLabel": "Second Feature Title",
+            "propType": "text",
+            "propValue": "Finance"
+          },
+          {
+            "propName": "feature2Description",
+            "propLabel": "Second Feature Description",
+            "propType": "text",
+            "propValue": "Flexible financing options tailored to your budget"
+          },
+          {
+            "propName": "feature3Title",
+            "propLabel": "Third Feature Title",
+            "propType": "text",
+            "propValue": "Extended Warranty"
+          },
+          {
+            "propName": "feature3Description",
+            "propLabel": "Third Feature Description",
+            "propType": "text",
+            "propValue": "Comprehensive protection for your vehicle's peace of mind"
+          },
+          {
+            "propName": "feature4Title",
+            "propLabel": "Fourth Feature Title",
+            "propType": "text",
+            "propValue": "Lease"
+          },
+          {
+            "propName": "feature4Description",
+            "propLabel": "Fourth Feature Description",
+            "propType": "text",
+            "propValue": "Convenient lease solutions for your ideal driving experience"
+          }
+        ]
+      },
+      {
+        "id": "375aac34-853c-48e4-950f-ab7f77fedbbc",
+        "code": "({ \n  galleryItems1ImageSrc, \n  galleryItems1Title, \n  galleryItems1Description,\n  galleryItems2ImageSrc, \n  galleryItems2Title, \n  galleryItems2Description,\n  galleryItems3ImageSrc, \n  galleryItems3Title, \n  galleryItems3Description,\n  sectionTitle, \n  sectionSubtitle \n}) => {\n  const productItems = [\n    {\n      icon: 'carbon:trade-marked',\n      title: galleryItems1Title,\n      description: galleryItems1Description,\n      image: galleryItems1ImageSrc\n    },\n    {\n      icon: 'carbon:finance',\n      title: galleryItems2Title, \n      description: galleryItems2Description,\n      image: galleryItems2ImageSrc\n    },\n    {\n      icon: 'carbon:license',\n      title: galleryItems3Title,\n      description: galleryItems3Description, \n      image: galleryItems3ImageSrc\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-white py-16 px-4 md:px-12 lg:px-24\">\n      <div className=\"max-w-7xl mx-auto text-center\">\n        <h2 className=\"text-2xl md:text-3xl lg:text-4xl font-bold text-[#0D47A1] mb-4\">\n          {sectionTitle}\n        </h2>\n        <p className=\"text-base md:text-lg text-gray-600 mb-12\">\n          {sectionSubtitle}\n        </p>\n        \n        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n          {productItems.map((item, index) => (\n            <motion.div \n              key={index}\n              whileHover={{ scale: 1.05 }}\n              className=\"bg-[#F5F5F5] rounded-lg p-6 shadow-sm transition-all duration-300 hover:shadow-md\"\n            >\n              <div className=\"mb-4 flex justify-center\">\n                <Icon \n                  icon={item.icon} \n                  className=\"w-12 h-12 text-[#F57C00]\"\n                />\n              </div>\n              <h3 className=\"text-xl font-semibold text-[#0D47A1] mb-3\">\n                {item.title}\n              </h3>\n              <p className=\"text-gray-700 mb-4\">\n                {item.description}\n              </p>\n              {item.image && (\n                <div className=\"w-full h-48 overflow-hidden rounded-md\">\n                  <img \n                    src={item.image} \n                    alt={item.title} \n                    className=\"w-full h-full object-cover\"\n                  />\n                </div>\n              )}\n            </motion.div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "galleryItems1ImageSrc",
+            "propLabel": "First Gallery Item Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/713a871f-b403-4283-aa11-9965cd5986ba/ProductsSection/galleryItems1ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems1Title",
+            "propLabel": "First Gallery Item Title",
+            "propType": "text",
+            "propValue": "Trade-in Services"
+          },
+          {
+            "propName": "galleryItems1Description",
+            "propLabel": "First Gallery Item Description",
+            "propType": "text",
+            "propValue": "Seamless vehicle trade-in process with competitive valuations"
+          },
+          {
+            "propName": "galleryItems2ImageSrc",
+            "propLabel": "Second Gallery Item Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/d187a1d0-47f7-4038-aada-590fd71937d0/ProductsSection/galleryItems2ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems2Title",
+            "propLabel": "Second Gallery Item Title",
+            "propType": "text",
+            "propValue": "Flexible Financing"
+          },
+          {
+            "propName": "galleryItems2Description",
+            "propLabel": "Second Gallery Item Description",
+            "propType": "text",
+            "propValue": "Customized financing solutions tailored to your budget"
+          },
+          {
+            "propName": "galleryItems3ImageSrc",
+            "propLabel": "Third Gallery Item Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/2c8e87ca-0adf-4589-9539-786081dbd374/ProductsSection/galleryItems3ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems3Title",
+            "propLabel": "Third Gallery Item Title",
+            "propType": "text",
+            "propValue": "Extended Warranty"
+          },
+          {
+            "propName": "galleryItems3Description",
+            "propLabel": "Third Gallery Item Description",
+            "propType": "text",
+            "propValue": "Comprehensive protection plans for your peace of mind"
+          },
+          {
+            "propName": "sectionTitle",
+            "propLabel": "Section Title",
+            "propType": "text",
+            "propValue": "Our Car Services"
+          },
+          {
+            "propName": "sectionSubtitle",
+            "propLabel": "Section Subtitle",
+            "propType": "text",
+            "propValue": "Comprehensive solutions designed to simplify your automotive experience"
+          }
+        ]
+      },
+      {
+        "id": "caaacfb0-a64c-455e-97c8-3127e7e64a9f",
+        "code": "({ \n  galleryItems1ImageSrc, \n  galleryItems1Title, \n  galleryItems1Description,\n  galleryItems2ImageSrc, \n  galleryItems2Title, \n  galleryItems2Description,\n  galleryItems3ImageSrc, \n  galleryItems3Title, \n  galleryItems3Description,\n  sectionTitle,\n  sectionSubtitle\n}) => {\n  const galleryItems = [\n    {\n      imageSrc: galleryItems1ImageSrc,\n      title: galleryItems1Title,\n      description: galleryItems1Description\n    },\n    {\n      imageSrc: galleryItems2ImageSrc,\n      title: galleryItems2Title,\n      description: galleryItems2Description\n    },\n    {\n      imageSrc: galleryItems3ImageSrc,\n      title: galleryItems3Title,\n      description: galleryItems3Description\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-white py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-7xl mx-auto text-center mb-12\">\n        <h2 className=\"text-2xl md:text-3xl lg:text-4xl font-bold text-[#0D47A1] mb-4\">\n          {sectionTitle}\n        </h2>\n        <p className=\"text-base md:text-lg text-gray-600\">\n          {sectionSubtitle}\n        </p>\n      </div>\n      \n      <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n        {galleryItems.map((item, index) => (\n          <div \n            key={index} \n            className=\"bg-[#F5F5F5] rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl\"\n          >\n            <div className=\"relative w-full pb-[66.66%]\">\n              <img \n                src={item.imageSrc} \n                alt={item.title} \n                className=\"absolute inset-0 w-full h-full object-cover\"\n              />\n            </div>\n            <div className=\"p-6\">\n              <h3 className=\"text-xl font-semibold text-[#0D47A1] mb-3\">\n                {item.title}\n              </h3>\n              <p className=\"text-gray-600\">\n                {item.description}\n              </p>\n            </div>\n          </div>\n        ))}\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "galleryItems1ImageSrc",
+            "propLabel": "First Gallery Item Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/eee66f3d-f4fd-40f7-9b3f-5599e6238c9f/GallerySection/galleryItems1ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems1Title",
+            "propLabel": "First Gallery Item Title",
+            "propType": "text",
+            "propValue": "Trade-In Services"
+          },
+          {
+            "propName": "galleryItems1Description",
+            "propLabel": "First Gallery Item Description",
+            "propType": "text",
+            "propValue": "Seamless vehicle trade-in process with top market valuations"
+          },
+          {
+            "propName": "galleryItems2ImageSrc",
+            "propLabel": "Second Gallery Item Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/6e0dfb6f-9654-4d26-beff-3b00a616b849/GallerySection/galleryItems2ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems2Title",
+            "propLabel": "Second Gallery Item Title",
+            "propType": "text",
+            "propValue": "Flexible Financing"
+          },
+          {
+            "propName": "galleryItems2Description",
+            "propLabel": "Second Gallery Item Description",
+            "propType": "text",
+            "propValue": "Customized financing solutions tailored to your budget"
+          },
+          {
+            "propName": "galleryItems3ImageSrc",
+            "propLabel": "Third Gallery Item Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/2dc41242-d622-4b92-b176-7c32732b139e/GallerySection/galleryItems3ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems3Title",
+            "propLabel": "Third Gallery Item Title",
+            "propType": "text",
+            "propValue": "Certified Used Cars"
+          },
+          {
+            "propName": "galleryItems3Description",
+            "propLabel": "Third Gallery Item Description",
+            "propType": "text",
+            "propValue": "High-quality pre-owned vehicles with comprehensive inspections"
+          },
+          {
+            "propName": "sectionTitle",
+            "propLabel": "Section Title",
+            "propType": "text",
+            "propValue": "Our Comprehensive Car Solutions"
+          },
+          {
+            "propName": "sectionSubtitle",
+            "propLabel": "Section Subtitle",
+            "propType": "text",
+            "propValue": "Explore the range of services designed to make your car ownership journey smooth and enjoyable"
+          }
+        ]
+      },
+      {
+        "id": "dc36e475-5200-41fe-ab58-832dcbc352cd",
+        "code": "({ \n  socialProofTitle1 = 'Trusted by Thousands of Drivers', \n  socialProofSubtitle1 = 'Real Success Stories from Our Customers',\n  testimonial1Name1 = 'Michael Thompson', \n  testimonial1Role1 = 'Small Business Owner', \n  testimonial1Text1 = 'Drivers Dream made my car buying experience seamless and stress-free. Their professional team guided me through every step.',\n  testimonial1ImageSrc1 = 'https://randomuser.me/api/portraits/men/32.jpg',\n  testimonial2Name1 = 'Sarah Rodriguez', \n  testimonial2Role1 = 'Marketing Professional', \n  testimonial2Text1 = 'The trade-in process was incredibly smooth. I got a fair value for my previous vehicle and found my dream car in one visit.',\n  testimonial2ImageSrc1 = 'https://randomuser.me/api/portraits/women/44.jpg',\n  testimonial3Name1 = 'David Chen', \n  testimonial3Role1 = 'Tech Entrepreneur', \n  testimonial3Text1 = 'Transparent financing options and incredible customer support. Drivers Dream truly understands modern car buyers.',\n  testimonial3ImageSrc1 = 'https://randomuser.me/api/portraits/men/85.jpg'\n}) => {\n  const testimonials = [\n    {\n      name: testimonial1Name1,\n      role: testimonial1Role1,\n      text: testimonial1Text1,\n      image: testimonial1ImageSrc1\n    },\n    {\n      name: testimonial2Name1,\n      role: testimonial2Role1,\n      text: testimonial2Text1,\n      image: testimonial2ImageSrc1\n    },\n    {\n      name: testimonial3Name1,\n      role: testimonial3Role1,\n      text: testimonial3Text1,\n      image: testimonial3ImageSrc1\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-white py-16 px-4 sm:px-6 lg:px-8\">\n      <div className=\"max-w-7xl mx-auto\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"text-3xl font-bold text-[#0D47A1] mb-4\">\n            {socialProofTitle1}\n          </h2>\n          <p className=\"text-xl text-gray-600\">\n            {socialProofSubtitle1}\n          </p>\n        </div>\n        \n        <div className=\"grid md:grid-cols-3 gap-8\">\n          {testimonials.map((testimonial, index) => (\n            <div \n              key={index} \n              className=\"bg-[#F5F5F5] rounded-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-lg\"\n            >\n              <div className=\"flex items-center mb-4\">\n                <img \n                  src={testimonial.image} \n                  alt={`${testimonial.name} profile`}\n                  className=\"w-16 h-16 rounded-full mr-4 object-cover\"\n                />\n                <div>\n                  <h3 className=\"font-semibold text-[#0D47A1]\">\n                    {testimonial.name}\n                  </h3>\n                  <p className=\"text-gray-600 text-sm\">\n                    {testimonial.role}\n                  </p>\n                </div>\n              </div>\n              <p className=\"text-gray-700 italic\">\n                \"{testimonial.text}\"\n              </p>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "socialProofTitle1",
+            "propLabel": "Social Proof Section Title",
+            "propType": "text",
+            "propValue": "Trusted by Thousands of Drivers"
+          },
+          {
+            "propName": "socialProofSubtitle1",
+            "propLabel": "Social Proof Section Subtitle",
+            "propType": "text",
+            "propValue": "Real Success Stories from Our Customers"
+          },
+          {
+            "propName": "testimonial1Name1",
+            "propLabel": "First Testimonial Name",
+            "propType": "text",
+            "propValue": "Michael Thompson"
+          },
+          {
+            "propName": "testimonial1Role1",
+            "propLabel": "First Testimonial Role",
+            "propType": "text",
+            "propValue": "Small Business Owner"
+          },
+          {
+            "propName": "testimonial1Text1",
+            "propLabel": "First Testimonial Text",
+            "propType": "text",
+            "propValue": "Drivers Dream made my car buying experience seamless and stress-free. Their professional team guided me through every step."
+          },
+          {
+            "propName": "testimonial1ImageSrc1",
+            "propLabel": "First Testimonial Profile Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/c4f08313-af8a-4d00-a79b-2af1bb18248a/SocialProofSection/testimonial1ImageSrc1.png"
+          },
+          {
+            "propName": "testimonial2Name1",
+            "propLabel": "Second Testimonial Name",
+            "propType": "text",
+            "propValue": "Sarah Rodriguez"
+          },
+          {
+            "propName": "testimonial2Role1",
+            "propLabel": "Second Testimonial Role",
+            "propType": "text",
+            "propValue": "Marketing Professional"
+          },
+          {
+            "propName": "testimonial2Text1",
+            "propLabel": "Second Testimonial Text",
+            "propType": "text",
+            "propValue": "The trade-in process was incredibly smooth. I got a fair value for my previous vehicle and found my dream car in one visit."
+          },
+          {
+            "propName": "testimonial2ImageSrc1",
+            "propLabel": "Second Testimonial Profile Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/aef691fb-5f64-44b9-ab92-7b13a5eaad1c/SocialProofSection/testimonial2ImageSrc1.png"
+          },
+          {
+            "propName": "testimonial3Name1",
+            "propLabel": "Third Testimonial Name",
+            "propType": "text",
+            "propValue": "David Chen"
+          },
+          {
+            "propName": "testimonial3Role1",
+            "propLabel": "Third Testimonial Role",
+            "propType": "text",
+            "propValue": "Tech Entrepreneur"
+          },
+          {
+            "propName": "testimonial3Text1",
+            "propLabel": "Third Testimonial Text",
+            "propType": "text",
+            "propValue": "Transparent financing options and incredible customer support. Drivers Dream truly understands modern car buyers."
+          },
+          {
+            "propName": "testimonial3ImageSrc1",
+            "propLabel": "Third Testimonial Profile Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/f2a50051-ec67-42df-9d89-4717187b78f1/SocialProofSection/testimonial3ImageSrc1.png"
+          }
+        ]
+      },
+      {
+        "id": "1510c194-8f75-42a5-83df-53d2abb35455",
+        "code": "({ \n  title1Text = 'Expert Car Services Tailored to Your Needs', \n  subtitle1Text = 'Simplifying Your Automotive Journey with Comprehensive Solutions', \n  keyService1Text = 'Trade-in', \n  keyService2Text = 'Finance', \n  keyService3Text = 'Extended Warranty', \n  keyService4Text = 'Lease', \n  keyService5Text = 'Used Cars',\n  backgroundImageSrc = '/images/about-background.jpg',\n  teamImageSrc = '/images/our-team.jpg'\n}) => {\n  return (\n    <section className=\"w-full relative bg-white dark:bg-neutral-900 py-16 md:py-24\">\n      <div className=\"container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center\">\n        {/* Text Content */}\n        <div className=\"space-y-6\">\n          <h2 className=\"text-2xl md:text-4xl font-bold text-blue-900 dark:text-blue-200 mb-4\">\n            {title1Text}\n          </h2>\n          <p className=\"text-base md:text-lg text-gray-700 dark:text-gray-300 mb-6\">\n            {subtitle1Text}\n          </p>\n          \n          {/* Key Services Grid */}\n          <div className=\"grid grid-cols-3 gap-4\">\n            {[\n              { text: keyService1Text, icon: 'mdi:car-arrow-right' },\n              { text: keyService2Text, icon: 'mdi:cash' },\n              { text: keyService3Text, icon: 'mdi:shield-check' },\n              { text: keyService4Text, icon: 'mdi:file-document' },\n              { text: keyService5Text, icon: 'mdi:car' }\n            ].map((service, index) => (\n              <div \n                key={index} \n                className=\"flex flex-col items-center p-3 bg-gray-100 dark:bg-neutral-800 rounded-lg hover:scale-105 transition-transform\"\n              >\n                <span className=\"text-blue-600 dark:text-blue-400 text-2xl mb-2\">\n                  <span className=\"iconify\" data-icon={service.icon} />\n                </span>\n                <span className=\"text-xs md:text-sm text-center text-gray-800 dark:text-gray-200\">\n                  {service.text}\n                </span>\n              </div>\n            ))}\n          </div>\n        </div>\n        \n        {/* Visual Content */}\n        <div className=\"relative\">\n          <div className=\"grid grid-cols-2 gap-6\">\n            <div className=\"bg-cover bg-center rounded-lg overflow-hidden\" \n              style={{ \n                backgroundImage: `url(${backgroundImageSrc})`, \n                paddingTop: '120%' \n              }} \n            />\n            <div className=\"bg-cover bg-center rounded-lg overflow-hidden\" \n              style={{ \n                backgroundImage: `url(${teamImageSrc})`, \n                paddingTop: '120%' \n              }} \n            />\n          </div>\n          <div className=\"absolute -bottom-8 -right-8 w-24 h-24 bg-orange-500 rounded-full flex items-center justify-center text-white\">\n            <span className=\"text-sm text-center\">15+ Years Experience</span>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "title1Text",
+            "propLabel": "Main Title",
+            "propType": "text",
+            "propValue": "Expert Car Services Tailored to Your Needs"
+          },
+          {
+            "propName": "subtitle1Text",
+            "propLabel": "Subtitle Description",
+            "propType": "text",
+            "propValue": "Simplifying Your Automotive Journey with Comprehensive Solutions"
+          },
+          {
+            "propName": "keyService1Text",
+            "propLabel": "First Key Service",
+            "propType": "text",
+            "propValue": "Trade-in"
+          },
+          {
+            "propName": "keyService2Text",
+            "propLabel": "Second Key Service",
+            "propType": "text",
+            "propValue": "Finance"
+          },
+          {
+            "propName": "keyService3Text",
+            "propLabel": "Third Key Service",
+            "propType": "text",
+            "propValue": "Extended Warranty"
+          },
+          {
+            "propName": "keyService4Text",
+            "propLabel": "Fourth Key Service",
+            "propType": "text",
+            "propValue": "Lease"
+          },
+          {
+            "propName": "keyService5Text",
+            "propLabel": "Fifth Key Service",
+            "propType": "text",
+            "propValue": "Used Cars"
+          },
+          {
+            "propName": "backgroundImageSrc",
+            "propLabel": "Background Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/8907e2cd-edbd-4935-b635-3fb05295e9be/AboutSection/backgroundImageSrc.png"
+          },
+          {
+            "propName": "teamImageSrc",
+            "propLabel": "Team Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/b0dc2d70-1fd2-462d-8e40-219d724ce615/AboutSection/teamImageSrc.png"
+          }
+        ]
+      },
+      {
+        "id": "013e6c5e-4d33-4a93-ace3-0d52eb8b2ade",
+        "code": "({ \n  galleryItems1ImageSrc, \n  galleryItems1Title, \n  galleryItems1Description,\n  galleryItems2ImageSrc, \n  galleryItems2Title, \n  galleryItems2Description,\n  galleryItems3ImageSrc, \n  galleryItems3Title, \n  galleryItems3Description,\n  galleryItems4ImageSrc, \n  galleryItems4Title, \n  galleryItems4Description\n}) => {\n  const features = [\n    {\n      icon: 'mdi:car-trade', \n      title: galleryItems1Title, \n      description: galleryItems1Description,\n      image: galleryItems1ImageSrc\n    },\n    {\n      icon: 'mdi:finance', \n      title: galleryItems2Title, \n      description: galleryItems2Description,\n      image: galleryItems2ImageSrc\n    },\n    {\n      icon: 'mdi:shield-check', \n      title: galleryItems3Title, \n      description: galleryItems3Description,\n      image: galleryItems3ImageSrc\n    },\n    {\n      icon: 'mdi:car-clock', \n      title: galleryItems4Title, \n      description: galleryItems4Description,\n      image: galleryItems4ImageSrc\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-white py-16 px-4 sm:px-6 lg:px-8\">\n      <div className=\"max-w-7xl mx-auto\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"text-3xl font-bold text-[#0D47A1] mb-4\">Our Comprehensive Car Services</h2>\n          <p className=\"text-lg text-gray-600 max-w-2xl mx-auto\">\n            Discover how Drivers Dream provides tailored automotive solutions to meet your every need\n          </p>\n        </div>\n        \n        <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6\">\n          {features.map((feature, index) => (\n            <motion.div \n              key={index}\n              initial={{ opacity: 0, scale: 0.9 }}\n              whileInView={{ opacity: 1, scale: 1 }}\n              transition={{ \n                duration: 0.3, \n                ease: \"easeInOut\",\n                delay: index * 0.1 \n              }}\n              className=\"bg-[#F5F5F5] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group\"\n            >\n              <div className=\"p-6 text-center\">\n                <div className=\"mb-4 flex justify-center\">\n                  <Icon \n                    icon={feature.icon} \n                    className=\"w-12 h-12 text-[#0D47A1] group-hover:text-[#F57C00] transition-colors duration-300\"\n                  />\n                </div>\n                <h3 className=\"text-xl font-semibold text-[#0D47A1] mb-3\">{feature.title}</h3>\n                <p className=\"text-gray-600 mb-4\">{feature.description}</p>\n                {feature.image && (\n                  <div className=\"w-full h-48 overflow-hidden rounded-lg\">\n                    <img \n                      src={feature.image} \n                      alt={feature.title} \n                      className=\"w-full h-full object-cover group-hover:scale-110 transition-transform duration-300\"\n                    />\n                  </div>\n                )}\n                <a \n                  href=\"#\" \n                  className=\"mt-4 inline-block px-4 py-2 bg-[#F57C00] text-white rounded-full hover:bg-[#FF9800] transition-colors duration-300\"\n                >\n                  Learn More\n                </a>\n              </div>\n            </motion.div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "galleryItems1ImageSrc",
+            "propLabel": "First Feature Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/e7934366-04d5-4012-b2dc-3685840dd887/FeaturesGridSection/galleryItems1ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems1Title",
+            "propLabel": "First Feature Title",
+            "propType": "text",
+            "propValue": "Trade-In"
+          },
+          {
+            "propName": "galleryItems1Description",
+            "propLabel": "First Feature Description",
+            "propType": "text",
+            "propValue": "Get the best value for your current vehicle"
+          },
+          {
+            "propName": "galleryItems2ImageSrc",
+            "propLabel": "Second Feature Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/b3f73da8-8e6e-4346-ae68-c6c8a3e0c662/FeaturesGridSection/galleryItems2ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems2Title",
+            "propLabel": "Second Feature Title",
+            "propType": "text",
+            "propValue": "Finance"
+          },
+          {
+            "propName": "galleryItems2Description",
+            "propLabel": "Second Feature Description",
+            "propType": "text",
+            "propValue": "Flexible financing options tailored to you"
+          },
+          {
+            "propName": "galleryItems3ImageSrc",
+            "propLabel": "Third Feature Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/d00a168a-0abb-481a-b90d-421fff932bba/FeaturesGridSection/galleryItems3ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems3Title",
+            "propLabel": "Third Feature Title",
+            "propType": "text",
+            "propValue": "Extended Warranty"
+          },
+          {
+            "propName": "galleryItems3Description",
+            "propLabel": "Third Feature Description",
+            "propType": "text",
+            "propValue": "Comprehensive protection for your vehicle"
+          },
+          {
+            "propName": "galleryItems4ImageSrc",
+            "propLabel": "Fourth Feature Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/3fc85ba2-1ce6-466b-898c-805b374f561b/FeaturesGridSection/galleryItems4ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems4Title",
+            "propLabel": "Fourth Feature Title",
+            "propType": "text",
+            "propValue": "Lease"
+          },
+          {
+            "propName": "galleryItems4Description",
+            "propLabel": "Fourth Feature Description",
+            "propType": "text",
+            "propValue": "Convenient and affordable leasing solutions"
+          }
+        ]
+      },
+      {
+        "id": "ac5f4452-a8ee-44b8-bc2d-3a6c6075a382",
+        "code": "({ \n  teamTitle1 = 'Meet Our Automotive Experts', \n  teamSubtitle1 = 'Passionate Professionals Dedicated to Your Driving Experience',\n  teamMember1Name1 = 'John Anderson',\n  teamMember1Role1 = 'Senior Vehicle Consultant',\n  teamMember1ImageSrc1 = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?fit=crop&w=300&h=300',\n  teamMember1Description1 = 'With 15 years of automotive expertise, John specializes in finding the perfect vehicle match.',\n  teamMember2Name1 = 'Sarah Martinez',\n  teamMember2Role1 = 'Finance & Leasing Specialist',\n  teamMember2ImageSrc1 = 'https://images.unsplash.com/photo-1507810004634-6b9090f6279d?fit=crop&w=300&h=300',\n  teamMember2Description1 = 'Expert in navigating complex automotive financing with personalized solutions.',\n  teamMember3Name1 = 'Michael Chen',\n  teamMember3Role1 = 'Trade-In & Valuation Expert',\n  teamMember3ImageSrc1 = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?fit=crop&w=300&h=300',\n  teamMember3Description1 = 'Delivering transparent and competitive trade-in valuations for our customers.'\n}) => {\n  const teamMembers = [\n    {\n      name: teamMember1Name1,\n      role: teamMember1Role1,\n      imageSrc: teamMember1ImageSrc1,\n      description: teamMember1Description1\n    },\n    {\n      name: teamMember2Name1,\n      role: teamMember2Role1,\n      imageSrc: teamMember2ImageSrc1,\n      description: teamMember2Description1\n    },\n    {\n      name: teamMember3Name1,\n      role: teamMember3Role1,\n      imageSrc: teamMember3ImageSrc1,\n      description: teamMember3Description1\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-white py-16 px-4 sm:px-6 lg:px-8\">\n      <div className=\"max-w-7xl mx-auto\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"text-3xl font-bold text-[#0D47A1] mb-4\">{teamTitle1}</h2>\n          <p className=\"text-xl text-gray-600\">{teamSubtitle1}</p>\n        </div>\n        \n        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n          {teamMembers.map((member, index) => (\n            <div \n              key={index} \n              className=\"bg-[#F5F5F5] rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105\"\n            >\n              <div className=\"w-full h-64 overflow-hidden\">\n                <img \n                  src={member.imageSrc} \n                  alt={`${member.name} profile`} \n                  className=\"w-full h-full object-cover object-center\"\n                />\n              </div>\n              <div className=\"p-6 text-center\">\n                <h3 className=\"text-xl font-semibold text-[#0D47A1] mb-2\">{member.name}</h3>\n                <p className=\"text-base text-gray-700 mb-4\">{member.role}</p>\n                <p className=\"text-sm text-gray-600\">{member.description}</p>\n              </div>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "teamTitle1",
+            "propLabel": "Team Section Title",
+            "propType": "text",
+            "propValue": "Meet Our Automotive Experts"
+          },
+          {
+            "propName": "teamSubtitle1",
+            "propLabel": "Team Section Subtitle",
+            "propType": "text",
+            "propValue": "Passionate Professionals Dedicated to Your Driving Experience"
+          },
+          {
+            "propName": "teamMember1Name1",
+            "propLabel": "First Team Member Name",
+            "propType": "text",
+            "propValue": "John Anderson"
+          },
+          {
+            "propName": "teamMember1Role1",
+            "propLabel": "First Team Member Role",
+            "propType": "text",
+            "propValue": "Senior Vehicle Consultant"
+          },
+          {
+            "propName": "teamMember1ImageSrc1",
+            "propLabel": "First Team Member Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/9293dd77-4e79-4cc0-b5f7-54493814ae8d/TeamShowcaseSection/teamMember1ImageSrc1.png"
+          },
+          {
+            "propName": "teamMember1Description1",
+            "propLabel": "First Team Member Description",
+            "propType": "text",
+            "propValue": "With 15 years of automotive expertise, John specializes in finding the perfect vehicle match."
+          },
+          {
+            "propName": "teamMember2Name1",
+            "propLabel": "Second Team Member Name",
+            "propType": "text",
+            "propValue": "Sarah Martinez"
+          },
+          {
+            "propName": "teamMember2Role1",
+            "propLabel": "Second Team Member Role",
+            "propType": "text",
+            "propValue": "Finance & Leasing Specialist"
+          },
+          {
+            "propName": "teamMember2ImageSrc1",
+            "propLabel": "Second Team Member Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/24e54c3e-bfe1-4194-b0ae-ebaf92d4ca9a/TeamShowcaseSection/teamMember2ImageSrc1.png"
+          },
+          {
+            "propName": "teamMember2Description1",
+            "propLabel": "Second Team Member Description",
+            "propType": "text",
+            "propValue": "Expert in navigating complex automotive financing with personalized solutions."
+          },
+          {
+            "propName": "teamMember3Name1",
+            "propLabel": "Third Team Member Name",
+            "propType": "text",
+            "propValue": "Michael Chen"
+          },
+          {
+            "propName": "teamMember3Role1",
+            "propLabel": "Third Team Member Role",
+            "propType": "text",
+            "propValue": "Trade-In & Valuation Expert"
+          },
+          {
+            "propName": "teamMember3ImageSrc1",
+            "propLabel": "Third Team Member Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/ec59a859-61de-4a74-b5ca-00dcac400173/TeamShowcaseSection/teamMember3ImageSrc1.png"
+          },
+          {
+            "propName": "teamMember3Description1",
+            "propLabel": "Third Team Member Description",
+            "propType": "text",
+            "propValue": "Delivering transparent and competitive trade-in valuations for our customers."
+          }
+        ]
+      },
+      {
+        "id": "4029c261-d16e-4570-8cf0-ff976faeebd6",
+        "code": "({ \n  testimonial1Title, \n  testimonial1Description, \n  testimonial1AuthorName, \n  testimonial1AuthorRole,\n  testimonial1AvatarSrc,\n  testimonial2Title, \n  testimonial2Description, \n  testimonial2AuthorName, \n  testimonial2AuthorRole,\n  testimonial2AvatarSrc,\n  testimonial3Title, \n  testimonial3Description, \n  testimonial3AuthorName, \n  testimonial3AuthorRole,\n  testimonial3AvatarSrc\n}) => {\n  const testimonials = [\n    {\n      title: testimonial1Title,\n      description: testimonial1Description,\n      author: {\n        name: testimonial1AuthorName,\n        role: testimonial1AuthorRole,\n        avatar: testimonial1AvatarSrc\n      }\n    },\n    {\n      title: testimonial2Title,\n      description: testimonial2Description,\n      author: {\n        name: testimonial2AuthorName,\n        role: testimonial2AuthorRole,\n        avatar: testimonial2AvatarSrc\n      }\n    },\n    {\n      title: testimonial3Title,\n      description: testimonial3Description,\n      author: {\n        name: testimonial3AuthorName,\n        role: testimonial3AuthorRole,\n        avatar: testimonial3AvatarSrc\n      }\n    }\n  ];\n\n  const [currentSlide, setCurrentSlide] = React.useState(0);\n\n  const handlePrevSlide = () => {\n    setCurrentSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));\n  };\n\n  const handleNextSlide = () => {\n    setCurrentSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));\n  };\n\n  return (\n    <section className=\"w-full bg-white py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-6xl mx-auto flex flex-col items-center\">\n        <h2 className=\"text-2xl md:text-3xl lg:text-4xl font-semibold text-center text-[#0D47A1] mb-8\">\n          What Our Customers Say\n        </h2>\n        \n        <div className=\"relative w-full max-w-4xl\">\n          <div className=\"overflow-hidden\">\n            <motion.div \n              className=\"flex transition-transform duration-500\"\n              initial={{ opacity: 0 }}\n              animate={{ opacity: 1 }}\n              transition={{ duration: 0.5 }}\n            >\n              {testimonials.map((testimonial, index) => (\n                <div \n                  key={index} \n                  className={`\n                    flex-shrink-0 w-full \n                    ${index === currentSlide ? 'block' : 'hidden'}\n                    flex flex-col md:flex-row items-center justify-center text-center md:text-left\n                  `}\n                >\n                  <div className=\"w-32 h-32 mb-4 md:mb-0 md:mr-8 rounded-full overflow-hidden\">\n                    <img \n                      src={testimonial.author.avatar} \n                      alt={testimonial.author.name} \n                      className=\"w-full h-full object-cover\"\n                    />\n                  </div>\n                  \n                  <div className=\"max-w-2xl\">\n                    <p className=\"text-lg md:text-xl text-gray-700 italic mb-4\">\n                      \"{testimonial.description}\"\n                    </p>\n                    <div>\n                      <h3 className=\"text-lg font-semibold text-[#0D47A1]\">\n                        {testimonial.author.name}\n                      </h3>\n                      <p className=\"text-sm text-gray-500\">\n                        {testimonial.author.role}\n                      </p>\n                    </div>\n                  </div>\n                </div>\n              ))}\n            </motion.div>\n          </div>\n          \n          <div className=\"flex justify-center mt-8 space-x-4\">\n            <button \n              onClick={handlePrevSlide}\n              className=\"\n                bg-[#0D47A1] text-white p-2 rounded-full \n                hover:bg-[#F57C00] transition-colors duration-300\n                focus:outline-none focus:ring-2 focus:ring-[#4CAF50]\n              \"\n              aria-label=\"Previous Testimonial\"\n            >\n              <Icon icon=\"mdi:chevron-left\" className=\"w-6 h-6\" />\n            </button>\n            \n            <div className=\"flex space-x-2\">\n              {testimonials.map((_, index) => (\n                <button\n                  key={index}\n                  onClick={() => setCurrentSlide(index)}\n                  className={`\n                    w-3 h-3 rounded-full \n                    ${index === currentSlide ? 'bg-[#0D47A1]' : 'bg-gray-300'}\n                    hover:bg-[#F57C00] transition-colors duration-300\n                  `}\n                  aria-label={`Go to testimonial ${index + 1}`}\n                />\n              ))}\n            </div>\n            \n            <button \n              onClick={handleNextSlide}\n              className=\"\n                bg-[#0D47A1] text-white p-2 rounded-full \n                hover:bg-[#F57C00] transition-colors duration-300\n                focus:outline-none focus:ring-2 focus:ring-[#4CAF50]\n              \"\n              aria-label=\"Next Testimonial\"\n            >\n              <Icon icon=\"mdi:chevron-right\" className=\"w-6 h-6\" />\n            </button>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "testimonial1Title",
+            "propLabel": "First Testimonial Title",
+            "propType": "text",
+            "propValue": "Exceptional Car Service"
+          },
+          {
+            "propName": "testimonial1Description",
+            "propLabel": "First Testimonial Description",
+            "propType": "text",
+            "propValue": "Drivers Dream made my car buying experience seamless and stress-free. Their professionals helped me find the perfect vehicle for my needs."
+          },
+          {
+            "propName": "testimonial1AuthorName",
+            "propLabel": "First Testimonial Author Name",
+            "propType": "text",
+            "propValue": "Michael Rodriguez"
+          },
+          {
+            "propName": "testimonial1AuthorRole",
+            "propLabel": "First Testimonial Author Role",
+            "propType": "text",
+            "propValue": "Small Business Owner"
+          },
+          {
+            "propName": "testimonial1AvatarSrc",
+            "propLabel": "First Testimonial Avatar",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/7ad1f101-249b-4e6e-9306-be58542678b4/TestimonialSliderSection/testimonial1AvatarSrc.png"
+          },
+          {
+            "propName": "testimonial2Title",
+            "propLabel": "Second Testimonial Title",
+            "propType": "text",
+            "propValue": "Trade-In Made Easy"
+          },
+          {
+            "propName": "testimonial2Description",
+            "propLabel": "Second Testimonial Description",
+            "propType": "text",
+            "propValue": "The trade-in process was incredibly smooth. I got a fair value for my old car and upgraded to a newer model without any hassle."
+          },
+          {
+            "propName": "testimonial2AuthorName",
+            "propLabel": "Second Testimonial Author Name",
+            "propType": "text",
+            "propValue": "Sarah Thompson"
+          },
+          {
+            "propName": "testimonial2AuthorRole",
+            "propLabel": "Second Testimonial Author Role",
+            "propType": "text",
+            "propValue": "Marketing Executive"
+          },
+          {
+            "propName": "testimonial2AvatarSrc",
+            "propLabel": "Second Testimonial Avatar",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/01351c69-cb8f-40dd-b59b-322743c9d6ec/TestimonialSliderSection/testimonial2AvatarSrc.png"
+          },
+          {
+            "propName": "testimonial3Title",
+            "propLabel": "Third Testimonial Title",
+            "propType": "text",
+            "propValue": "Transparent Financing"
+          },
+          {
+            "propName": "testimonial3Description",
+            "propLabel": "Third Testimonial Description",
+            "propType": "text",
+            "propValue": "Drivers Dream simplified my car financing. Their team was transparent, helpful, and guided me through every step of the process."
+          },
+          {
+            "propName": "testimonial3AuthorName",
+            "propLabel": "Third Testimonial Author Name",
+            "propType": "text",
+            "propValue": "David Chen"
+          },
+          {
+            "propName": "testimonial3AuthorRole",
+            "propLabel": "Third Testimonial Author Role",
+            "propType": "text",
+            "propValue": "Tech Professional"
+          },
+          {
+            "propName": "testimonial3AvatarSrc",
+            "propLabel": "Third Testimonial Avatar",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/bcf57084-b08c-4dcb-92fe-3b5fb1a33031/TestimonialSliderSection/testimonial3AvatarSrc.png"
+          }
+        ]
+      },
+      {
+        "id": "cb6bdec6-bbf7-4057-bed1-9dcc9496648c",
+        "code": "({ \n  statsTitle1, \n  statsValue1, \n  statsIcon1, \n  statsTitle2, \n  statsValue2, \n  statsIcon2, \n  statsTitle3, \n  statsValue3, \n  statsIcon3, \n  statsTitle4, \n  statsValue4, \n  statsIcon4 \n}) => {\n  return (\n    <section className=\"w-full bg-white py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6\">\n        {/* Stats Card 1 */}\n        <div className=\"bg-[#F5F5F5] rounded-lg p-6 text-center transition-transform duration-300 hover:scale-105 hover:shadow-md\">\n          <div className=\"text-[#0D47A1] text-4xl mb-4 flex justify-center\">\n            <Icon icon={statsIcon1 || \"mdi:car-multiple\"} />\n          </div>\n          <h3 className=\"text-xl font-semibold text-gray-800 mb-2\">{statsTitle1 || \"Trade-in Vehicles\"}</h3>\n          <p className=\"text-3xl font-bold text-[#4CAF50]\">{statsValue1 || \"500+\"}</p>\n        </div>\n\n        {/* Stats Card 2 */}\n        <div className=\"bg-[#F5F5F5] rounded-lg p-6 text-center transition-transform duration-300 hover:scale-105 hover:shadow-md\">\n          <div className=\"text-[#F57C00] text-4xl mb-4 flex justify-center\">\n            <Icon icon={statsIcon2 || \"mdi:cash-multiple\"} />\n          </div>\n          <h3 className=\"text-xl font-semibold text-gray-800 mb-2\">{statsTitle2 || \"Finance Options\"}</h3>\n          <p className=\"text-3xl font-bold text-[#4CAF50]\">{statsValue2 || \"200+\"}</p>\n        </div>\n\n        {/* Stats Card 3 */}\n        <div className=\"bg-[#F5F5F5] rounded-lg p-6 text-center transition-transform duration-300 hover:scale-105 hover:shadow-md\">\n          <div className=\"text-[#2196F3] text-4xl mb-4 flex justify-center\">\n            <Icon icon={statsIcon3 || \"mdi:shield-check\"} />\n          </div>\n          <h3 className=\"text-xl font-semibold text-gray-800 mb-2\">{statsTitle3 || \"Extended Warranty\"}</h3>\n          <p className=\"text-3xl font-bold text-[#4CAF50]\">{statsValue3 || \"99%\"}</p>\n        </div>\n\n        {/* Stats Card 4 */}\n        <div className=\"bg-[#F5F5F5] rounded-lg p-6 text-center transition-transform duration-300 hover:scale-105 hover:shadow-md\">\n          <div className=\"text-[#4CAF50] text-4xl mb-4 flex justify-center\">\n            <Icon icon={statsIcon4 || \"mdi:car-convertible\"} />\n          </div>\n          <h3 className=\"text-xl font-semibold text-gray-800 mb-2\">{statsTitle4 || \"Used Cars\"}</h3>\n          <p className=\"text-3xl font-bold text-[#4CAF50]\">{statsValue4 || \"1000+\"}</p>\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "statsTitle1",
+            "propLabel": "First Stat Title",
+            "propType": "text",
+            "propValue": "Trade-in Vehicles"
+          },
+          {
+            "propName": "statsValue1",
+            "propLabel": "First Stat Value",
+            "propType": "text",
+            "propValue": "500+"
+          },
+          {
+            "propName": "statsIcon1",
+            "propLabel": "First Stat Icon",
+            "propType": "text",
+            "propValue": "mdi:car-multiple"
+          },
+          {
+            "propName": "statsTitle2",
+            "propLabel": "Second Stat Title",
+            "propType": "text",
+            "propValue": "Finance Options"
+          },
+          {
+            "propName": "statsValue2",
+            "propLabel": "Second Stat Value",
+            "propType": "text",
+            "propValue": "200+"
+          },
+          {
+            "propName": "statsIcon2",
+            "propLabel": "Second Stat Icon",
+            "propType": "text",
+            "propValue": "mdi:cash-multiple"
+          },
+          {
+            "propName": "statsTitle3",
+            "propLabel": "Third Stat Title",
+            "propType": "text",
+            "propValue": "Extended Warranty"
+          },
+          {
+            "propName": "statsValue3",
+            "propLabel": "Third Stat Value",
+            "propType": "text",
+            "propValue": "99%"
+          },
+          {
+            "propName": "statsIcon3",
+            "propLabel": "Third Stat Icon",
+            "propType": "text",
+            "propValue": "mdi:shield-check"
+          },
+          {
+            "propName": "statsTitle4",
+            "propLabel": "Fourth Stat Title",
+            "propType": "text",
+            "propValue": "Used Cars"
+          },
+          {
+            "propName": "statsValue4",
+            "propLabel": "Fourth Stat Value",
+            "propType": "text",
+            "propValue": "1000+"
+          },
+          {
+            "propName": "statsIcon4",
+            "propLabel": "Fourth Stat Icon",
+            "propType": "text",
+            "propValue": "mdi:car-convertible"
+          }
+        ]
+      },
+      {
+        "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+        "code": "({ \n  contactTitle1, \n  contactSubtitle1, \n  contactPhone1, \n  contactEmail1, \n  contactAddress1,\n  contactTitle2,\n  contactSubtitle2, \n  contactPhone2, \n  contactEmail2, \n  contactAddress2 \n}) => {\n  return (\n    <section className=\"w-full bg-white py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-6xl mx-auto grid md:grid-cols-2 gap-8\">\n        {/* First Contact Block */}\n        <div className=\"bg-[#F5F5F5] rounded-lg p-6 shadow-sm transition-all duration-300 hover:shadow-md\">\n          <div className=\"flex items-center mb-4\">\n            <div className=\"w-12 h-12 bg-[#0D47A1] text-white rounded-full flex items-center justify-center mr-4\">\n              <span className=\"icon-[mdi:phone]\"></span>\n            </div>\n            <div>\n              <h3 className=\"text-xl font-semibold text-[#0D47A1]\">\n                {contactTitle1 || 'Customer Support'}\n              </h3>\n              <p className=\"text-sm text-gray-600\">\n                {contactSubtitle1 || 'We are here to help'}\n              </p>\n            </div>\n          </div>\n          \n          <div className=\"space-y-3 pl-16\">\n            <div className=\"flex items-center\">\n              <span className=\"icon-[mdi:phone-outline] mr-2 text-[#4CAF50]\"></span>\n              <a \n                href={`tel:${contactPhone1 || '+1 (800) 123-4567'}`} \n                className=\"text-gray-800 hover:text-[#0D47A1] transition-colors\"\n              >\n                {contactPhone1 || '+1 (800) 123-4567'}\n              </a>\n            </div>\n            <div className=\"flex items-center\">\n              <span className=\"icon-[mdi:email-outline] mr-2 text-[#F57C00]\"></span>\n              <a \n                href={`mailto:${contactEmail1 || 'support@driversdream.com'}`} \n                className=\"text-gray-800 hover:text-[#0D47A1] transition-colors\"\n              >\n                {contactEmail1 || 'support@driversdream.com'}\n              </a>\n            </div>\n            <div className=\"flex items-center\">\n              <span className=\"icon-[mdi:map-marker-outline] mr-2 text-[#2196F3]\"></span>\n              <address className=\"not-italic text-gray-600\">\n                {contactAddress1 || '123 Automotive Lane, Car City, ST 12345'}\n              </address>\n            </div>\n          </div>\n        </div>\n\n        {/* Second Contact Block */}\n        <div className=\"bg-[#F5F5F5] rounded-lg p-6 shadow-sm transition-all duration-300 hover:shadow-md\">\n          <div className=\"flex items-center mb-4\">\n            <div className=\"w-12 h-12 bg-[#F57C00] text-white rounded-full flex items-center justify-center mr-4\">\n              <span className=\"icon-[mdi:business]\"></span>\n            </div>\n            <div>\n              <h3 className=\"text-xl font-semibold text-[#F57C00]\">\n                {contactTitle2 || 'Sales Department'}\n              </h3>\n              <p className=\"text-sm text-gray-600\">\n                {contactSubtitle2 || 'Let us help you find your dream car'}\n              </p>\n            </div>\n          </div>\n          \n          <div className=\"space-y-3 pl-16\">\n            <div className=\"flex items-center\">\n              <span className=\"icon-[mdi:phone-outline] mr-2 text-[#4CAF50]\"></span>\n              <a \n                href={`tel:${contactPhone2 || '+1 (888) 765-4321'}`} \n                className=\"text-gray-800 hover:text-[#F57C00] transition-colors\"\n              >\n                {contactPhone2 || '+1 (888) 765-4321'}\n              </a>\n            </div>\n            <div className=\"flex items-center\">\n              <span className=\"icon-[mdi:email-outline] mr-2 text-[#F57C00]\"></span>\n              <a \n                href={`mailto:${contactEmail2 || 'sales@driversdream.com'}`} \n                className=\"text-gray-800 hover:text-[#F57C00] transition-colors\"\n              >\n                {contactEmail2 || 'sales@driversdream.com'}\n              </a>\n            </div>\n            <div className=\"flex items-center\">\n              <span className=\"icon-[mdi:map-marker-outline] mr-2 text-[#2196F3]\"></span>\n              <address className=\"not-italic text-gray-600\">\n                {contactAddress2 || '456 Vehicle Street, Auto City, ST 54321'}\n              </address>\n            </div>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "contactTitle1",
+            "propLabel": "First Contact Title",
+            "propType": "text",
+            "propValue": "Customer Support"
+          },
+          {
+            "propName": "contactSubtitle1",
+            "propLabel": "First Contact Subtitle",
+            "propType": "text",
+            "propValue": "We are here to help"
+          },
+          {
+            "propName": "contactPhone1",
+            "propLabel": "First Contact Phone Number",
+            "propType": "text",
+            "propValue": "+1 (800) 123-4567"
+          },
+          {
+            "propName": "contactEmail1",
+            "propLabel": "First Contact Email",
+            "propType": "text",
+            "propValue": "support@driversdream.com"
+          },
+          {
+            "propName": "contactAddress1",
+            "propLabel": "First Contact Address",
+            "propType": "text",
+            "propValue": "123 Automotive Lane, Car City, ST 12345"
+          },
+          {
+            "propName": "contactTitle2",
+            "propLabel": "Second Contact Title",
+            "propType": "text",
+            "propValue": "Sales Department"
+          },
+          {
+            "propName": "contactSubtitle2",
+            "propLabel": "Second Contact Subtitle",
+            "propType": "text",
+            "propValue": "Let us help you find your dream car"
+          },
+          {
+            "propName": "contactPhone2",
+            "propLabel": "Second Contact Phone Number",
+            "propType": "text",
+            "propValue": "+1 (888) 765-4321"
+          },
+          {
+            "propName": "contactEmail2",
+            "propLabel": "Second Contact Email",
+            "propType": "text",
+            "propValue": "sales@driversdream.com"
+          },
+          {
+            "propName": "contactAddress2",
+            "propLabel": "Second Contact Address",
+            "propType": "text",
+            "propValue": "456 Vehicle Street, Auto City, ST 54321"
+          }
+        ]
+      },
+      {
+        "id": "24eb26f5-2724-49e3-989f-0825fb1239bf",
+        "code": "({ \n  logoSrc, \n  companyName, \n  copyright, \n  socialLink1, \n  socialLink2, \n  socialLink3, \n  footerLink1, \n  footerLink2, \n  footerLink3, \n  footerLink4,\n  footerDescription\n}) => {\n  const socialIcons = [\n    'mdi:facebook',\n    'mdi:twitter', \n    'mdi:linkedin'\n  ];\n  const currentYear = new Date().getFullYear();\n\n  return (\n    <footer className=\"w-full bg-[#F5F5F5] dark:bg-[#1E1E1E] py-12 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8\">\n        {/* Branding Section */}\n        <div className=\"flex flex-col space-y-4\">\n          <img \n            src={logoSrc} \n            alt={`${companyName} Logo`} \n            className=\"h-12 w-auto mb-4\"\n          />\n          <p className=\"text-sm text-gray-600 dark:text-gray-300 font-roboto\">\n            {footerDescription}\n          </p>\n          \n          {/* Social Links */}\n          <div className=\"flex space-x-4\">\n            {socialIcons.map((icon, index) => (\n              <a \n                key={icon}\n                href={[socialLink1, socialLink2, socialLink3][index]}\n                target=\"_blank\" \n                rel=\"noopener noreferrer\"\n                className=\"text-[#0D47A1] hover:text-[#F57C00] transition-colors duration-300\"\n              >\n                <Icon icon={icon} width={24} height={24} />\n              </a>\n            ))}\n          </div>\n        </div>\n\n        {/* Quick Links */}\n        <div className=\"flex flex-col space-y-4\">\n          <h4 className=\"text-lg font-inter font-semibold text-[#0D47A1] dark:text-white\">\n            Quick Links\n          </h4>\n          <nav className=\"space-y-2\">\n            {[footerLink1, footerLink2, footerLink3, footerLink4].map((link, index) => (\n              <a \n                key={`link-${index}`}\n                href=\"#\" \n                className=\"block text-sm text-gray-700 dark:text-gray-300 hover:text-[#F57C00] transition-colors duration-300\"\n              >\n                {link}\n              </a>\n            ))}\n          </nav>\n        </div>\n\n        {/* Contact Information */}\n        <div className=\"flex flex-col space-y-4\">\n          <h4 className=\"text-lg font-inter font-semibold text-[#0D47A1] dark:text-white\">\n            Contact Us\n          </h4>\n          <div className=\"space-y-2 text-sm text-gray-700 dark:text-gray-300\">\n            <p>Email: support@driversdream.com</p>\n            <p>Phone: (888) CARS-HELP</p>\n          </div>\n        </div>\n      </div>\n\n      {/* Copyright Section */}\n      <div className=\"mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 text-center\">\n        <p className=\"text-sm text-gray-600 dark:text-gray-400\">\n          {copyright || `© ${currentYear} ${companyName}. All Rights Reserved.`}\n        </p>\n      </div>\n    </footer>\n  );\n}",
+        "props": [
+          {
+            "propName": "logoSrc",
+            "propLabel": "Logo Image Source",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/427004cb-df55-42b8-97b6-663a65da275e/Footer/logoSrc.png"
+          },
+          {
+            "propName": "companyName",
+            "propLabel": "Company Name",
+            "propType": "text",
+            "propValue": "Drivers Dream"
+          },
+          {
+            "propName": "copyright",
+            "propLabel": "Copyright Text",
+            "propType": "text",
+            "propValue": ""
+          },
+          {
+            "propName": "socialLink1",
+            "propLabel": "Facebook Link",
+            "propType": "href",
+            "propValue": "https://facebook.com/driversdream"
+          },
+          {
+            "propName": "socialLink2",
+            "propLabel": "Twitter Link",
+            "propType": "href",
+            "propValue": "https://twitter.com/driversdream"
+          },
+          {
+            "propName": "socialLink3",
+            "propLabel": "LinkedIn Link",
+            "propType": "href",
+            "propValue": "https://linkedin.com/company/driversdream"
+          },
+          {
+            "propName": "footerLink1",
+            "propLabel": "First Footer Link",
+            "propType": "text",
+            "propValue": "Trade-in Services"
+          },
+          {
+            "propName": "footerLink2",
+            "propLabel": "Second Footer Link",
+            "propType": "text",
+            "propValue": "Car Finance"
+          },
+          {
+            "propName": "footerLink3",
+            "propLabel": "Third Footer Link",
+            "propType": "text",
+            "propValue": "Extended Warranty"
+          },
+          {
+            "propName": "footerLink4",
+            "propLabel": "Fourth Footer Link",
+            "propType": "text",
+            "propValue": "Used Cars"
+          },
+          {
+            "propName": "footerDescription",
+            "propLabel": "Footer Description",
+            "propType": "text",
+            "propValue": "Comprehensive car solutions provider offering trade-in, finance, and expert vehicle guidance for all your automotive needs."
+          }
+        ]
+      }
+    ]
+  }
+]

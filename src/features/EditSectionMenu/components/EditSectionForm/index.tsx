@@ -35,8 +35,8 @@ export default function EditSectionForm() {
             <form onSubmit={onSubmit}>
                 <Stack pt={12} gap={12}>
                     {fields?.map((field) => getField(field))}
-                    <Flex justify={'flex-end'}>
-                        <Button loading={form.formState.isSubmitting} type={'submit'}>
+                    <Flex py={12} className={'bg-white sticky bottom-0 left-0 z-100 border-t-1 border-slate-300'}>
+                        <Button w={'100%'} loading={form.formState.isSubmitting} type={'submit'}>
                             Save Changes
                         </Button>
                     </Flex>

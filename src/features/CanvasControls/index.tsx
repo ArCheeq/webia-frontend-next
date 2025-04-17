@@ -6,9 +6,21 @@ import EditSectionMenu from "@/features/EditSectionMenu";
 import ExportTemplateButton from "@/features/CanvasControls/components/ExportTemplate";
 import BreakpointButtons from "@/features/CanvasControls/components/BreakpointButtons";
 
+import { useStore } from "@/store";
+
 import styles from "./styles.module.css";
 
 export default function CanvasControls() {
+    const scale = useStore((state) => state.InteractionPane.scale);
+    const scalePercent = scale * 100;
+    let formattedScale;
+
+    if (scalePercent >= 1) {
+        formattedScale = Math.round(scalePercent);
+    } else {
+        formattedScale = scalePercent.toFixed(2);
+    }
+
     return (
         <Fragment>
             <Box className={styles.topLeft}>
@@ -33,17 +45,19 @@ export default function CanvasControls() {
             <Box className={styles.bottomLeft}>
                 <InfoSectionMenu />
             </Box>
-            <Box className={styles.bottomRight}>
-                <BreakpointButtons.Desktop />
-                <BreakpointButtons.Tablet />
-                <BreakpointButtons.Mobile />
-                <Divider ml={6} color={"#16161626"} orientation="vertical" />
-                <UnstyledButton px={12} color={"#e4e2df"}>
-                    <Text fz={14} fw={500} c={"#686868"}>
-                        75%
-                    </Text>
-                </UnstyledButton>
-            </Box>
+            <Tooltip withArrow label={"In Development (Resize)"}>
+                <Box className={styles.bottomRight}>
+                    <BreakpointButtons.Desktop />
+                    <BreakpointButtons.Tablet />
+                    <BreakpointButtons.Mobile />
+                    <Divider ml={6} color={"#16161626"} orientation="vertical" />
+                    <UnstyledButton px={12} color={"#e4e2df"}>
+                        <Text fz={14} fw={500} c={"#686868"}>
+                            {formattedScale}%
+                        </Text>
+                    </UnstyledButton>
+                </Box>
+            </Tooltip>
         </Fragment>
     );
 }

@@ -12,6 +12,7 @@ export default function DesktopBreakpointButton() {
 
     return (
         <ActionIcon
+            disabled
             variant={"filled"}
             aria-label="desktop-view"
             classNames={{ root: styles.actionIcon }}
