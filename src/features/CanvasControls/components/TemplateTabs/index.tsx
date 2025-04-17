@@ -8,14 +8,14 @@ import perfumeTemplate from "../../../../app/api/layout/layout1.json" assert { t
 import digitalTemplate from "../../../../app/api/layout/layout2.json" assert { type: "json" };
 import pizzaTemplate from "../../../../app/api/layout/layout3.json" assert { type: "json" };
 
-
 export default function TemplateTabs() {
-    const [activeTab, setActiveTab] = useState<string | null>('current');
+    const [activeLayout, setActiveLayout] = useState<string | null>('current');
     const setLayout = useStore((state) => state.AppLayout.setLayout);
+    const close = useStore((state) => state.EditSectionMenu.close);
 
     useEffect(() => {
-        console.log(activeTab);
-        switch (activeTab) {
+        close();
+        switch (activeLayout) {
             case "current":
                 setLayout(currentTemplate as IPage[]);
                 break;
@@ -28,15 +28,15 @@ export default function TemplateTabs() {
             case "pizza":
                 setLayout(pizzaTemplate as IPage[]);
         }
-    }, [activeTab]);
+    }, [activeLayout]);
 
     return (
         <Tabs
             variant={'pills'}
             color={'violet'}
             defaultValue={'current'}
-            value={activeTab}
-            onChange={setActiveTab}
+            value={activeLayout}
+            onChange={setActiveLayout}
         >
             <Tabs.List>
                 <Tabs.Tab value="current">Current Template</Tabs.Tab>
