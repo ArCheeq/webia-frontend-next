@@ -1,822 +1,834 @@
 [
   {
-    "id": "50c943c0-b350-4ef6-8063-0f1aae8872a6",
+    "id": "b86c6611-12a9-4045-ae2d-fc89d62fa95f",
     "name": "Home Page",
     "path": "homepage",
     "sections": [
       {
-        "id": "a39d4b16-f6f9-4dc9-adf3-d2a17deac992",
-        "code": "({ \n  logoSrc, \n  logoAlt, \n  title1Text, \n  title2Text, \n  navigationLink1Href, \n  navigationLink1Text,\n  navigationLink2Href, \n  navigationLink2Text,\n  navigationLink3Href, \n  navigationLink3Text,\n  cartIconHref,\n  userIconHref\n}) => {\n  return (\n    <header className=\"w-full bg-[#F5F5F5] dark:bg-[#1A1A1A] transition-colors duration-300\">\n      <div className=\"container mx-auto px-4 py-4 flex items-center justify-between\">\n        {/* Logo Section */}\n        <div className=\"flex items-center space-x-4\">\n          <a href=\"/\" className=\"flex items-center\">\n            <img \n              src={logoSrc || '/logo-scent-secrets.svg'} \n              alt={logoAlt || 'Scent Secrets Logo'} \n              className=\"h-10 w-auto\"\n            />\n            <span className=\"ml-2 text-[#8B4513] font-playfair font-bold text-xl hidden md:block\">\n              {title1Text || 'Scent'} {title2Text || 'Secrets'}\n            </span>\n          </a>\n        </div>\n\n        {/* Navigation */}\n        <nav className=\"hidden md:flex space-x-6 items-center\">\n          <a \n            href={navigationLink1Href || '/'} \n            className=\"text-[#1A1A1A] dark:text-[#F5F5F5] font-lato hover:text-[#5D3FD3] transition-colors duration-300\"\n          >\n            {navigationLink1Text || 'Fragrances'}\n          </a>\n          <a \n            href={navigationLink2Href || '/collection'} \n            className=\"text-[#1A1A1A] dark:text-[#F5F5F5] font-lato hover:text-[#5D3FD3] transition-colors duration-300\"\n          >\n            {navigationLink2Text || 'Collection'}\n          </a>\n          <a \n            href={navigationLink3Href || '/about'} \n            className=\"text-[#1A1A1A] dark:text-[#F5F5F5] font-lato hover:text-[#5D3FD3] transition-colors duration-300\"\n          >\n            {navigationLink3Text || 'About'}\n          </a>\n        </nav>\n\n        {/* Icons */}\n        <div className=\"flex items-center space-x-4\">\n          <a \n            href={cartIconHref || '/cart'} \n            className=\"text-[#8B4513] hover:text-[#5D3FD3] transition-colors duration-300\"\n            aria-label=\"Shopping Cart\"\n          >\n            <span className=\"sr-only\">Shopping Cart</span>\n            <div className=\"icon-[mdi:cart-outline] w-6 h-6\" />\n          </a>\n          <a \n            href={userIconHref || '/account'} \n            className=\"text-[#8B4513] hover:text-[#5D3FD3] transition-colors duration-300\"\n            aria-label=\"User Account\"\n          >\n            <span className=\"sr-only\">User Account</span>\n            <div className=\"icon-[mdi:account-circle-outline] w-6 h-6\" />\n          </a>\n\n          {/* Mobile Menu Toggle */}\n          <button \n            className=\"md:hidden text-[#8B4513] hover:text-[#5D3FD3] transition-colors duration-300\"\n            aria-label=\"Mobile Menu\"\n          >\n            <div className=\"icon-[mdi:menu] w-6 h-6\" />\n          </button>\n        </div>\n      </div>\n    </header>\n  );\n}",
+        "id": "3a950cc3-7fe2-47b5-b938-575bc3b897e8",
+        "code": "({ \n  logoSrc, \n  logoAlt, \n  navLink1Text, \n  navLink1Href, \n  navLink2Text, \n  navLink2Href, \n  navLink3Text, \n  navLink3Href, \n  ctaText, \n  ctaHref \n}) => {\n  const [isMenuOpen, setIsMenuOpen] = React.useState(false);\n\n  const toggleMenu = () => {\n    setIsMenuOpen(!isMenuOpen);\n  };\n\n  return (\n    <header className=\"w-full bg-[#FFFAF0] shadow-sm\">\n      <div className=\"container mx-auto px-4 py-4 flex justify-between items-center\">\n        {/* Logo */}\n        <a href=\"/\" className=\"flex items-center\">\n          <img \n            src={logoSrc} \n            alt={logoAlt} \n            className=\"h-12 w-auto object-contain\"\n          />\n        </a>\n\n        {/* Desktop Navigation */}\n        <nav className=\"hidden md:flex space-x-6 items-center\">\n          <a \n            href={navLink1Href} \n            className=\"text-[#2C2C2C] hover:text-[#D32F2F] transition-colors duration-300 font-body text-base\"\n          >\n            {navLink1Text}\n          </a>\n          <a \n            href={navLink2Href} \n            className=\"text-[#2C2C2C] hover:text-[#D32F2F] transition-colors duration-300 font-body text-base\"\n          >\n            {navLink2Text}\n          </a>\n          <a \n            href={navLink3Href} \n            className=\"text-[#2C2C2C] hover:text-[#D32F2F] transition-colors duration-300 font-body text-base\"\n          >\n            {navLink3Text}\n          </a>\n          <a \n            href={ctaHref} \n            className=\"bg-[#D32F2F] text-white px-4 py-2 rounded-md hover:bg-[#B71C1C] transition-colors duration-300 font-body\"\n          >\n            {ctaText}\n          </a>\n        </nav>\n\n        {/* Mobile Menu Toggle */}\n        <button \n          onClick={toggleMenu} \n          className=\"md:hidden z-50 focus:outline-none\"\n          aria-label=\"Toggle mobile menu\"\n        >\n          <span className=\"block w-6 h-0.5 bg-[#2C2C2C] mb-1\"></span>\n          <span className=\"block w-6 h-0.5 bg-[#2C2C2C] mb-1\"></span>\n          <span className=\"block w-6 h-0.5 bg-[#2C2C2C]\"></span>\n        </button>\n\n        {/* Mobile Menu Overlay */}\n        {isMenuOpen && (\n          <div \n            className=\"fixed inset-0 bg-[#FFFAF0] z-40 flex flex-col items-center justify-center space-y-6 md:hidden\"\n            aria-modal=\"true\"\n            role=\"dialog\"\n          >\n            <a \n              href={navLink1Href} \n              className=\"text-2xl text-[#2C2C2C] hover:text-[#D32F2F] transition-colors duration-300 font-heading\"\n              onClick={toggleMenu}\n            >\n              {navLink1Text}\n            </a>\n            <a \n              href={navLink2Href} \n              className=\"text-2xl text-[#2C2C2C] hover:text-[#D32F2F] transition-colors duration-300 font-heading\"\n              onClick={toggleMenu}\n            >\n              {navLink2Text}\n            </a>\n            <a \n              href={navLink3Href} \n              className=\"text-2xl text-[#2C2C2C] hover:text-[#D32F2F] transition-colors duration-300 font-heading\"\n              onClick={toggleMenu}\n            >\n              {navLink3Text}\n            </a>\n            <a \n              href={ctaHref} \n              className=\"bg-[#D32F2F] text-white px-6 py-3 rounded-lg text-xl hover:bg-[#B71C1C] transition-colors duration-300 font-heading\"\n              onClick={toggleMenu}\n            >\n              {ctaText}\n            </a>\n          </div>\n        )}\n      </div>\n    </header>\n  );\n}",
         "props": [
           {
             "propName": "logoSrc",
             "propLabel": "Logo Image Source",
             "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/5920bc15-5e7a-4be4-bd03-cd56087f2bd8/Header/logoSrc.png"
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/04d2770a-aaf0-4291-ba2a-4d0c34f46306/Header/logoSrc.png"
           },
           {
             "propName": "logoAlt",
             "propLabel": "Logo Alternative Text",
             "propType": "alt",
-            "propValue": "Scent Secrets Logo"
+            "propValue": "Italian Pizza Logo"
           },
           {
-            "propName": "title1Text",
-            "propLabel": "First Title Text",
-            "propType": "text",
-            "propValue": "Scent"
-          },
-          {
-            "propName": "title2Text",
-            "propLabel": "Second Title Text",
-            "propType": "text",
-            "propValue": "Secrets"
-          },
-          {
-            "propName": "navigationLink1Href",
-            "propLabel": "First Navigation Link URL",
-            "propType": "href",
-            "propValue": "/"
-          },
-          {
-            "propName": "navigationLink1Text",
+            "propName": "navLink1Text",
             "propLabel": "First Navigation Link Text",
             "propType": "text",
-            "propValue": "Fragrances"
+            "propValue": "Menu"
           },
           {
-            "propName": "navigationLink2Href",
-            "propLabel": "Second Navigation Link URL",
+            "propName": "navLink1Href",
+            "propLabel": "First Navigation Link URL",
             "propType": "href",
-            "propValue": "/collection"
+            "propValue": "/menu"
           },
           {
-            "propName": "navigationLink2Text",
+            "propName": "navLink2Text",
             "propLabel": "Second Navigation Link Text",
-            "propType": "text",
-            "propValue": "Collection"
-          },
-          {
-            "propName": "navigationLink3Href",
-            "propLabel": "Third Navigation Link URL",
-            "propType": "href",
-            "propValue": "/about"
-          },
-          {
-            "propName": "navigationLink3Text",
-            "propLabel": "Third Navigation Link Text",
             "propType": "text",
             "propValue": "About"
           },
           {
-            "propName": "cartIconHref",
-            "propLabel": "Cart Icon Link URL",
+            "propName": "navLink2Href",
+            "propLabel": "Second Navigation Link URL",
             "propType": "href",
-            "propValue": "/cart"
+            "propValue": "/about"
           },
           {
-            "propName": "userIconHref",
-            "propLabel": "User Icon Link URL",
+            "propName": "navLink3Text",
+            "propLabel": "Third Navigation Link Text",
+            "propType": "text",
+            "propValue": "Delivery"
+          },
+          {
+            "propName": "navLink3Href",
+            "propLabel": "Third Navigation Link URL",
             "propType": "href",
-            "propValue": "/account"
-          }
-        ]
-      },
-      {
-        "id": "05a67d23-adec-45be-a9a9-a5a98dbc7636",
-        "code": "({ title1, subtitle1, cta1, imageSrc1, imageAlt1 }) => {\n  const heroVariants = {\n    initial: { opacity: 0, y: 20 },\n    animate: { \n      opacity: 1, \n      y: 0, \n      transition: { \n        duration: 0.6, \n        ease: [0.4, 0, 0.2, 1] \n      } \n    }\n  };\n\n  return (\n    <section className=\"relative w-full min-h-screen flex items-center justify-center bg-[#F5F5F5] dark:bg-[#1A1A1A] overflow-hidden\">\n      <div className=\"container mx-auto px-4 md:px-8 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-center\">\n        <motion.div \n          variants={heroVariants}\n          initial=\"initial\"\n          animate=\"animate\"\n          className=\"space-y-6 text-left\"\n        >\n          <h1 className=\"text-[3.5rem] font-playfair font-bold text-[#8B4513] leading-tight tracking-wide\">\n            {title1}\n          </h1>\n          <p className=\"text-[1.125rem] font-lato text-[#1A1A1A] dark:text-[#F5F5F5] leading-relaxed\">\n            {subtitle1}\n          </p>\n          <a \n            href=\"#collections\" \n            className=\"inline-block px-6 py-3 bg-[#5D3FD3] text-white font-lato font-bold rounded-lg hover:bg-[#4A2FA3] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#5D3FD3] focus:ring-offset-2\"\n          >\n            {cta1}\n          </a>\n        </motion.div>\n        \n        <motion.div \n          variants={heroVariants}\n          initial=\"initial\"\n          animate=\"animate\"\n          className=\"relative w-full aspect-[4/3] overflow-hidden rounded-xl shadow-lg\"\n        >\n          <img \n            src={imageSrc1} \n            alt={imageAlt1}\n            className=\"absolute inset-0 w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500\"\n          />\n        </motion.div>\n      </div>\n    </section>\n  );\n}",
-        "props": [
-          {
-            "propName": "title1",
-            "propLabel": "Hero Title",
-            "propType": "text",
-            "propValue": "Discover Extraordinary Fragrances"
+            "propValue": "/delivery"
           },
           {
-            "propName": "subtitle1",
-            "propLabel": "Hero Subtitle",
-            "propType": "text",
-            "propValue": "Curate your personal collection of rare and luxurious scents from around the world"
-          },
-          {
-            "propName": "cta1",
+            "propName": "ctaText",
             "propLabel": "Call to Action Button Text",
             "propType": "text",
-            "propValue": "Explore Collection"
+            "propValue": "Order Now"
           },
           {
-            "propName": "imageSrc1",
-            "propLabel": "Hero Image Source",
-            "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/80009fce-0e95-487d-8eda-efd336ca4a4f/HeroSection/imageSrc1.png"
-          },
-          {
-            "propName": "imageAlt1",
-            "propLabel": "Hero Image Alternative Text",
-            "propType": "alt",
-            "propValue": "Luxurious Fragrance Collection"
+            "propName": "ctaHref",
+            "propLabel": "Call to Action Button URL",
+            "propType": "href",
+            "propValue": "/order"
           }
         ]
       },
       {
-        "id": "66d9a1d5-fa25-440e-9670-f7263d63f12b",
-        "code": "({ \n  featuresTitle1Text = 'Curated Luxury Fragrances', \n  featuresTitle2Text = 'Crafted for Discerning Connoisseurs',\n  featuresDescription1Text = 'Each fragrance is meticulously selected from the world\\'s most exclusive perfumeries.',\n  featuresDescription2Text = 'Experience rare scents that tell a unique story of artistry and tradition.',\n  featuresIcon1 = 'mdi:perfume', \n  featuresIcon2 = 'mdi:flask-outline',\n  featuresIcon3 = 'mdi:flower-outline',\n  feature1Title = 'Rare Collections',\n  feature2Title = 'Expert Curation',\n  feature3Title = 'Sensory Journey'\n}) => {\n  return (\n    <section className=\"w-full bg-[#F5F5F5] py-16 px-4 md:px-12 lg:px-24\">\n      <div className=\"max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center\">\n        <div className=\"space-y-6\">\n          <h2 className=\"font-playfair text-3xl md:text-4xl text-[#8B4513] font-bold mb-4\">\n            {featuresTitle1Text}\n          </h2>\n          <p className=\"font-lato text-lg text-gray-800 mb-6\">\n            {featuresDescription1Text}\n          </p>\n          <div className=\"grid md:grid-cols-3 gap-6\">\n            {[\n              { \n                icon: featuresIcon1, \n                title: feature1Title, \n                color: 'text-[#5D3FD3]' \n              },\n              { \n                icon: featuresIcon2, \n                title: feature2Title, \n                color: 'text-[#D2B48C]' \n              },\n              { \n                icon: featuresIcon3, \n                title: feature3Title, \n                color: 'text-[#2E8B57]' \n              }\n            ].map((feature, index) => (\n              <div \n                key={index} \n                className=\"text-center group transition-all duration-300 ease-in-out hover:scale-105\"\n              >\n                <div className={`text-5xl mb-4 ${feature.color} opacity-80 group-hover:opacity-100`}>\n                  <span className=\"iconify\" data-icon={feature.icon}></span>\n                </div>\n                <h3 className=\"font-lato text-lg font-semibold text-gray-800\">\n                  {feature.title}\n                </h3>\n              </div>\n            ))}\n          </div>\n        </div>\n        <div className=\"hidden md:block\">\n          <div className=\"relative bg-[#5D3FD3] bg-opacity-10 rounded-xl p-8\">\n            <h3 className=\"font-playfair text-2xl text-[#8B4513] mb-4\">\n              {featuresTitle2Text}\n            </h3>\n            <p className=\"font-lato text-base text-gray-700\">\n              {featuresDescription2Text}\n            </p>\n            <div className=\"absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4 rotate-12 opacity-20\">\n              <span \n                className=\"iconify text-[120px] text-[#5D3FD3]\" \n                data-icon=\"mdi:perfume-bottle\"\n              ></span>\n            </div>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "id": "4c8c633c-c584-4b03-aca8-b695f86bea0d",
+        "code": "({ \n  heroTitle1, \n  heroSubtitle1, \n  heroCta1Href, \n  heroCta1Text,\n  heroImageSrc1,\n  heroImageAlt1\n}) => {\n  return (\n    <section className=\"relative w-full bg-[#FFFAF0] overflow-hidden\">\n      <div className=\"container mx-auto px-4 lg:px-8 flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen\">\n        {/* Text Content */}\n        <div className=\"w-full lg:w-1/2 z-10 text-center lg:text-left py-16 lg:py-0\">\n          <h1 className=\"text-[#D32F2F] font-['Quattrocento'] text-4xl lg:text-5xl font-bold mb-6 leading-tight tracking-wide\">\n            {heroTitle1}\n          </h1>\n          <p className=\"text-[#2C2C2C] font-['Open_Sans'] text-lg lg:text-xl mb-8 leading-relaxed\">\n            {heroSubtitle1}\n          </p>\n          <a \n            href={heroCta1Href} \n            className=\"inline-block bg-[#D32F2F] text-white font-['Open_Sans'] font-semibold py-3 px-8 rounded-lg text-lg \n            hover:bg-[#B71C1C] transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none \n            focus:ring-2 focus:ring-[#F4A460] focus:ring-opacity-50\"\n          >\n            {heroCta1Text}\n          </a>\n        </div>\n\n        {/* Image Content */}\n        <div className=\"w-full lg:w-1/2 relative flex justify-center lg:justify-end mb-12 lg:mb-0\">\n          <div className=\"w-full max-w-xl aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg\">\n            <img \n              src={heroImageSrc1} \n              alt={heroImageAlt1}\n              className=\"object-cover w-full h-full transform transition-transform duration-500 hover:scale-105\"\n            />\n          </div>\n        </div>\n      </div>\n\n      {/* Decorative Background Elements */}\n      <div className=\"absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F4A460] to-transparent opacity-20\"></div>\n    </section>\n  );\n}",
         "props": [
           {
-            "propName": "featuresTitle1Text",
-            "propLabel": "First Section Title",
+            "propName": "heroTitle1",
+            "propLabel": "Hero Section Title",
             "propType": "text",
-            "propValue": "Curated Luxury Fragrances"
+            "propValue": "Authentic Italian Pizza, Delivered Fresh"
           },
           {
-            "propName": "featuresTitle2Text",
-            "propLabel": "Second Section Title",
+            "propName": "heroSubtitle1",
+            "propLabel": "Hero Section Subtitle",
             "propType": "text",
-            "propValue": "Crafted for Discerning Connoisseurs"
+            "propValue": "Experience the warmth of traditional Italian cuisine, crafted with passion and served straight to your table"
           },
           {
-            "propName": "featuresDescription1Text",
-            "propLabel": "First Description Paragraph",
-            "propType": "text",
-            "propValue": "Each fragrance is meticulously selected from the world's most exclusive perfumeries."
+            "propName": "heroCta1Href",
+            "propLabel": "Hero CTA Link",
+            "propType": "href",
+            "propValue": "/menu"
           },
           {
-            "propName": "featuresDescription2Text",
-            "propLabel": "Second Description Paragraph",
+            "propName": "heroCta1Text",
+            "propLabel": "Hero CTA Text",
             "propType": "text",
-            "propValue": "Experience rare scents that tell a unique story of artistry and tradition."
+            "propValue": "Order Now"
           },
           {
-            "propName": "featuresIcon1",
-            "propLabel": "First Feature Icon",
-            "propType": "text",
-            "propValue": "mdi:perfume"
-          },
-          {
-            "propName": "featuresIcon2",
-            "propLabel": "Second Feature Icon",
-            "propType": "text",
-            "propValue": "mdi:flask-outline"
-          },
-          {
-            "propName": "featuresIcon3",
-            "propLabel": "Third Feature Icon",
-            "propType": "text",
-            "propValue": "mdi:flower-outline"
-          },
-          {
-            "propName": "feature1Title",
-            "propLabel": "First Feature Title",
-            "propType": "text",
-            "propValue": "Rare Collections"
-          },
-          {
-            "propName": "feature2Title",
-            "propLabel": "Second Feature Title",
-            "propType": "text",
-            "propValue": "Expert Curation"
-          },
-          {
-            "propName": "feature3Title",
-            "propLabel": "Third Feature Title",
-            "propType": "text",
-            "propValue": "Sensory Journey"
-          }
-        ]
-      },
-      {
-        "id": "290740ed-7427-4990-8e3a-0caac550f317",
-        "code": "({ \n  galleryItems1imageSrc, \n  galleryItems1itemTitle, \n  galleryItems2imageSrc, \n  galleryItems2itemTitle, \n  galleryItems3imageSrc, \n  galleryItems3itemTitle, \n  sectionTitle, \n  sectionSubtitle \n}) => {\n  const productSectionItems = [\n    { \n      imageSrc: galleryItems1imageSrc, \n      itemTitle: galleryItems1itemTitle \n    },\n    { \n      imageSrc: galleryItems2imageSrc, \n      itemTitle: galleryItems2itemTitle \n    },\n    { \n      imageSrc: galleryItems3imageSrc, \n      itemTitle: galleryItems3itemTitle \n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-[#F5F5F5] py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-7xl mx-auto\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"font-playfair text-4xl text-[#8B4513] font-bold mb-4\">\n            {sectionTitle}\n          </h2>\n          <p className=\"font-lato text-xl text-[#1A1A1A] max-w-2xl mx-auto\">\n            {sectionSubtitle}\n          </p>\n        </div>\n        \n        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n          {productSectionItems.map((item, index) => (\n            <div \n              key={index} \n              className=\"bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105\"\n            >\n              <div className=\"relative pt-[120%] overflow-hidden\">\n                <img \n                  src={item.imageSrc} \n                  alt={item.itemTitle} \n                  className=\"absolute inset-0 w-full h-full object-cover\"\n                />\n              </div>\n              <div className=\"p-6\">\n                <h3 className=\"font-lato text-xl font-bold text-[#8B4513] mb-2\">\n                  {item.itemTitle}\n                </h3>\n                <a \n                  href=\"#\" \n                  className=\"inline-block text-[#5D3FD3] hover:underline font-lato text-base\"\n                >\n                  Explore Fragrance\n                  <span className=\"ml-2\">→</span>\n                </a>\n              </div>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
-        "props": [
-          {
-            "propName": "galleryItems1imageSrc",
-            "propLabel": "First Gallery Item Image",
+            "propName": "heroImageSrc1",
+            "propLabel": "Hero Background Image",
             "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/fe1ff3b3-5d5d-463d-a5c3-942afbc3d3f3/ProductsSection/galleryItems1imageSrc.png"
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/b6583d05-9117-4ecc-b4c6-3b528211e1c7/HeroSection/heroImageSrc1.png"
           },
           {
-            "propName": "galleryItems1itemTitle",
-            "propLabel": "First Gallery Item Title",
-            "propType": "text",
-            "propValue": "Vintage Essence Collection"
-          },
-          {
-            "propName": "galleryItems2imageSrc",
-            "propLabel": "Second Gallery Item Image",
-            "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/d4b4b262-de2b-407a-a2e9-5031cfd1bc9a/ProductsSection/galleryItems2imageSrc.png"
-          },
-          {
-            "propName": "galleryItems2itemTitle",
-            "propLabel": "Second Gallery Item Title",
-            "propType": "text",
-            "propValue": "Luxury Niche Parfumes"
-          },
-          {
-            "propName": "galleryItems3imageSrc",
-            "propLabel": "Third Gallery Item Image",
-            "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/75952860-fa29-40b4-8b1d-d0ed72cf7894/ProductsSection/galleryItems3imageSrc.png"
-          },
-          {
-            "propName": "galleryItems3itemTitle",
-            "propLabel": "Third Gallery Item Title",
-            "propType": "text",
-            "propValue": "Rare Artisan Blends"
-          },
-          {
-            "propName": "sectionTitle",
-            "propLabel": "Section Title",
-            "propType": "text",
-            "propValue": "Discover Our Curated Fragrances"
-          },
-          {
-            "propName": "sectionSubtitle",
-            "propLabel": "Section Subtitle",
-            "propType": "text",
-            "propValue": "Explore a world of exquisite scents, carefully selected to evoke memories and inspire emotions"
-          }
-        ]
-      },
-      {
-        "id": "aaa82afb-5e34-474f-aa83-96ab42d197ad",
-        "code": "({ \n  galleryItems1ImageSrc, \n  galleryItems1Title, \n  galleryItems1Description,\n  galleryItems2ImageSrc, \n  galleryItems2Title, \n  galleryItems2Description,\n  galleryItems3ImageSrc, \n  galleryItems3Title, \n  galleryItems3Description,\n  sectionTitle,\n  sectionSubtitle\n}) => {\n  const galleryItems = [\n    {\n      imageSrc: galleryItems1ImageSrc,\n      title: galleryItems1Title,\n      description: galleryItems1Description\n    },\n    {\n      imageSrc: galleryItems2ImageSrc,\n      title: galleryItems2Title,\n      description: galleryItems2Description\n    },\n    {\n      imageSrc: galleryItems3ImageSrc,\n      title: galleryItems3Title,\n      description: galleryItems3Description\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-[#F5F5F5] dark:bg-[#1A1A1A] py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-7xl mx-auto\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"font-playfair text-4xl text-[#8B4513] font-bold mb-4\">\n            {sectionTitle}\n          </h2>\n          <p className=\"font-lato text-xl text-[#1A1A1A] dark:text-[#F5F5F5] max-w-2xl mx-auto\">\n            {sectionSubtitle}\n          </p>\n        </div>\n        \n        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n          {galleryItems.map((item, index) => (\n            <div \n              key={index} \n              className=\"bg-white dark:bg-[#2A2A2A] rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105\"\n            >\n              <div className=\"relative aspect-square overflow-hidden\">\n                <img \n                  src={item.imageSrc} \n                  alt={item.title}\n                  className=\"w-full h-full object-cover transform transition-transform duration-300 hover:scale-110\"\n                />\n              </div>\n              <div className=\"p-6\">\n                <h3 className=\"font-playfair text-2xl text-[#8B4513] font-bold mb-3\">\n                  {item.title}\n                </h3>\n                <p className=\"font-lato text-[#1A1A1A] dark:text-[#F5F5F5]\">\n                  {item.description}\n                </p>\n              </div>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n};",
-        "props": [
-          {
-            "propName": "galleryItems1ImageSrc",
-            "propLabel": "First Gallery Item Image",
-            "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/dc80a52c-7254-437a-b9a9-6780bda148bf/GallerySection/galleryItems1ImageSrc.png"
-          },
-          {
-            "propName": "galleryItems1Title",
-            "propLabel": "First Gallery Item Title",
-            "propType": "text",
-            "propValue": "Vintage Essence Collection"
-          },
-          {
-            "propName": "galleryItems1Description",
-            "propLabel": "First Gallery Item Description",
-            "propType": "text",
-            "propValue": "Timeless fragrances that capture the elegance of bygone eras."
-          },
-          {
-            "propName": "galleryItems2ImageSrc",
-            "propLabel": "Second Gallery Item Image",
-            "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/0544eabd-54d2-4f0b-b608-dabf2ef79872/GallerySection/galleryItems2ImageSrc.png"
-          },
-          {
-            "propName": "galleryItems2Title",
-            "propLabel": "Second Gallery Item Title",
-            "propType": "text",
-            "propValue": "Niche Parfum Series"
-          },
-          {
-            "propName": "galleryItems2Description",
-            "propLabel": "Second Gallery Item Description",
-            "propType": "text",
-            "propValue": "Exclusive fragrances crafted by master perfumers from around the world."
-          },
-          {
-            "propName": "galleryItems3ImageSrc",
-            "propLabel": "Third Gallery Item Image",
-            "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/cc9aea3d-516d-4d84-a63c-a5275a42e2a4/GallerySection/galleryItems3ImageSrc.png"
-          },
-          {
-            "propName": "galleryItems3Title",
-            "propLabel": "Third Gallery Item Title",
-            "propType": "text",
-            "propValue": "Signature Luxury Collection"
-          },
-          {
-            "propName": "galleryItems3Description",
-            "propLabel": "Third Gallery Item Description",
-            "propType": "text",
-            "propValue": "Curated selection of the most exceptional and rare fragrances."
-          },
-          {
-            "propName": "sectionTitle",
-            "propLabel": "Section Title",
-            "propType": "text",
-            "propValue": "Discover Our Exclusive Collections"
-          },
-          {
-            "propName": "sectionSubtitle",
-            "propLabel": "Section Subtitle",
-            "propType": "text",
-            "propValue": "Immerse yourself in a world of olfactory artistry, where each fragrance tells a unique story of luxury and sophistication."
-          }
-        ]
-      },
-      {
-        "id": "490ce7e9-d80c-4bc6-a92e-c859764b6d48",
-        "code": "({ \n  galleryItems1ImageSrc, \n  galleryItems1Title, \n  galleryItems2ImageSrc, \n  galleryItems2Title, \n  galleryItems3ImageSrc, \n  galleryItems3Title, \n  sectionTitle, \n  sectionSubtitle \n}) => {\n  const socialProofItems = [\n    {\n      title: galleryItems1Title,\n      imageSrc: galleryItems1ImageSrc,\n      icon: 'fluent:star-24-filled'\n    },\n    {\n      title: galleryItems2Title,\n      imageSrc: galleryItems2ImageSrc,\n      icon: 'fluent:people-24-filled'\n    },\n    {\n      title: galleryItems3Title,\n      imageSrc: galleryItems3ImageSrc,\n      icon: 'fluent:trophy-24-filled'\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-[#F5F5F5] py-16 px-4\">\n      <div className=\"max-w-7xl mx-auto text-center\">\n        <h2 className=\"font-playfair text-4xl text-[#8B4513] mb-4\">\n          {sectionTitle}\n        </h2>\n        <p className=\"font-lato text-xl text-[#1A1A1A] mb-12\">\n          {sectionSubtitle}\n        </p>\n        \n        <div className=\"grid md:grid-cols-3 gap-8\">\n          {socialProofItems.map((item, index) => (\n            <React.Fragment key={index}>\n              <div className=\"bg-white rounded-lg shadow-md p-6 transform transition-all duration-300 hover:scale-105\">\n                <div className=\"flex justify-center mb-4\">\n                  <Icon \n                    icon={item.icon} \n                    className=\"text-[#5D3FD3] w-12 h-12 mb-4\"\n                  />\n                </div>\n                <img \n                  src={item.imageSrc} \n                  alt={item.title} \n                  className=\"w-full h-48 object-cover rounded-lg mb-4\"\n                />\n                <h3 className=\"font-lato text-lg font-bold text-[#8B4513]\">\n                  {item.title}\n                </h3>\n              </div>\n            </React.Fragment>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
-        "props": [
-          {
-            "propName": "galleryItems1ImageSrc",
-            "propLabel": "First Gallery Item Image",
-            "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/63746ec8-d9d4-489d-90b7-b951c59e5042/SocialProofSection/galleryItems1ImageSrc.png"
-          },
-          {
-            "propName": "galleryItems1Title",
-            "propLabel": "First Gallery Item Title",
-            "propType": "text",
-            "propValue": "Expert Curated"
-          },
-          {
-            "propName": "galleryItems2ImageSrc",
-            "propLabel": "Second Gallery Item Image",
-            "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/48b21a49-a943-44c2-b5c5-3fd7e021eafc/SocialProofSection/galleryItems2ImageSrc.png"
-          },
-          {
-            "propName": "galleryItems2Title",
-            "propLabel": "Second Gallery Item Title",
-            "propType": "text",
-            "propValue": "Customer Favorites"
-          },
-          {
-            "propName": "galleryItems3ImageSrc",
-            "propLabel": "Third Gallery Item Image",
-            "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/ea2c69ee-9ace-49e9-b383-8be8a5e74097/SocialProofSection/galleryItems3ImageSrc.png"
-          },
-          {
-            "propName": "galleryItems3Title",
-            "propLabel": "Third Gallery Item Title",
-            "propType": "text",
-            "propValue": "Award Winning"
-          },
-          {
-            "propName": "sectionTitle",
-            "propLabel": "Section Title",
-            "propType": "text",
-            "propValue": "Why Choose Scent Secrets"
-          },
-          {
-            "propName": "sectionSubtitle",
-            "propLabel": "Section Subtitle",
-            "propType": "text",
-            "propValue": "Discover the essence of luxury through our carefully curated fragrance collection"
-          }
-        ]
-      },
-      {
-        "id": "106e4139-5be6-47d2-903f-16cc3500cc67",
-        "code": "({ \n  title1Text = 'Discover the Art of Fragrance', \n  subtitle1Text = 'A Curated Journey Through Exceptional Perfumery',\n  description1Text = 'Scent Secrets celebrates the profound artistry of fragrance, offering an exclusive collection that transcends mere scent to become a sensory narrative.',\n  heroImage1Src = 'https://res.cloudinary.com/dummyimage/image/upload/v1697654321/scent-secrets/hero-fragrance.jpg',\n  heroImage1Alt = 'Luxurious Fragrance Collection',\n  ctaButtonText = 'Explore Our Collection',\n  featuresTitle1Text = 'Our Commitment to Excellence',\n  feature1Title = 'Rare Selections',\n  feature1Description = 'Meticulously sourced fragrances from boutique perfumeries worldwide',\n  feature2Title = 'Vintage Inspiration',\n  feature2Description = 'Celebrating timeless scents with modern sophistication',\n  feature3Title = 'Personalized Experience',\n  feature3Description = 'Tailored recommendations that tell your unique olfactory story'\n}) => {\n  const features = [\n    { title: feature1Title, description: feature1Description, icon: 'mdi:bottle-wine' },\n    { title: feature2Title, description: feature2Description, icon: 'mdi:clock-vintage' },\n    { title: feature3Title, description: feature3Description, icon: 'mdi:perfume' }\n  ];\n\n  return (\n    <section className=\"w-full bg-[#F5F5F5] dark:bg-[#1A1A1A] py-16 lg:py-24\">\n      <div className=\"container mx-auto px-4 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center\">\n        {/* Hero Content */}\n        <div className=\"space-y-6 lg:pr-12\">\n          <h1 className=\"text-[#8B4513] font-playfair text-3xl lg:text-4xl font-bold tracking-tight\">\n            {title1Text}\n          </h1>\n          <h2 className=\"text-[#5D3FD3] font-lato text-xl lg:text-2xl font-medium\">\n            {subtitle1Text}\n          </h2>\n          <p className=\"text-[#1A1A1A] dark:text-[#F5F5F5] font-lato text-base lg:text-lg leading-relaxed\">\n            {description1Text}\n          </p>\n          <a \n            href=\"/collection\" \n            className=\"inline-block bg-[#8B4513] text-white font-lato font-semibold px-6 py-3 rounded-lg hover:bg-[#5D3FD3] transition-colors duration-300 ease-in-out\"\n          >\n            {ctaButtonText}\n          </a>\n        </div>\n\n        {/* Hero Image */}\n        <div className=\"hidden lg:block rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105\">\n          <img \n            src={heroImage1Src} \n            alt={heroImage1Alt} \n            className=\"w-full h-full object-cover\"\n          />\n        </div>\n      </div>\n\n      {/* Features Section */}\n      <div className=\"container mx-auto px-4 lg:px-8 mt-16 lg:mt-24\">\n        <h3 className=\"text-center text-[#8B4513] font-playfair text-2xl lg:text-3xl font-bold mb-12\">\n          {featuresTitle1Text}\n        </h3>\n        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n          {features.map((feature, index) => (\n            <div \n              key={index} \n              className=\"bg-white dark:bg-[#2A2A2A] p-6 rounded-xl shadow-md text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg\"\n            >\n              <div className=\"mb-4 flex justify-center\">\n                <span className=\"text-[#5D3FD3] text-4xl\">\n                  <Icon icon={feature.icon} />\n                </span>\n              </div>\n              <h4 className=\"text-[#8B4513] font-lato text-xl font-semibold mb-3\">\n                {feature.title}\n              </h4>\n              <p className=\"text-[#1A1A1A] dark:text-[#F5F5F5] font-lato text-base\">\n                {feature.description}\n              </p>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n};",
-        "props": [
-          {
-            "propName": "title1Text",
-            "propLabel": "Main Title",
-            "propType": "text",
-            "propValue": "Discover the Art of Fragrance"
-          },
-          {
-            "propName": "subtitle1Text",
-            "propLabel": "Subtitle",
-            "propType": "text",
-            "propValue": "A Curated Journey Through Exceptional Perfumery"
-          },
-          {
-            "propName": "description1Text",
-            "propLabel": "Description",
-            "propType": "text",
-            "propValue": "Scent Secrets celebrates the profound artistry of fragrance, offering an exclusive collection that transcends mere scent to become a sensory narrative."
-          },
-          {
-            "propName": "heroImage1Src",
-            "propLabel": "Hero Image Source",
-            "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/517e0b2e-6037-4e6e-a9fb-fdd9fddd2ca5/AboutSection/heroImage1Src.png"
-          },
-          {
-            "propName": "heroImage1Alt",
+            "propName": "heroImageAlt1",
             "propLabel": "Hero Image Alt Text",
             "propType": "alt",
-            "propValue": "Luxurious Fragrance Collection"
-          },
-          {
-            "propName": "ctaButtonText",
-            "propLabel": "Call to Action Button Text",
-            "propType": "text",
-            "propValue": "Explore Our Collection"
-          },
-          {
-            "propName": "featuresTitle1Text",
-            "propLabel": "Features Section Title",
-            "propType": "text",
-            "propValue": "Our Commitment to Excellence"
-          },
+            "propValue": "Freshly baked Italian pizza with wood-fired crust"
+          }
+        ]
+      },
+      {
+        "id": "39fb22da-4dc2-41e1-94f4-9fa92e992351",
+        "code": "({ \n  feature1Title, \n  feature1Description, \n  feature2Title, \n  feature2Description, \n  feature3Title, \n  feature3Description, \n  feature1IconName,\n  feature2IconName, \n  feature3IconName \n}) => {\n  const features = [\n    {\n      title: feature1Title,\n      description: feature1Description,\n      icon: feature1IconName\n    },\n    {\n      title: feature2Title,\n      description: feature2Description,\n      icon: feature2IconName\n    },\n    {\n      title: feature3Title,\n      description: feature3Description,\n      icon: feature3IconName\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-[#FFFAF0] py-16 px-4\">\n      <div className=\"max-w-6xl mx-auto\">\n        <h2 className=\"text-center text-[2.75rem] font-quattrocento text-[#D32F2F] mb-12 font-semibold\">\n          Why Choose Italian Pizza\n        </h2>\n        <div className=\"grid md:grid-cols-3 gap-8\">\n          {features.map((feature, index) => (\n            <div \n              key={index} \n              className=\"bg-white rounded-lg shadow-md p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-lg\"\n            >\n              <div className=\"flex justify-center mb-4\">\n                <Icon \n                  icon={feature.icon} \n                  className=\"w-16 h-16 text-[#4CAF50]\" \n                />\n              </div>\n              <h3 className=\"text-xl font-quattrocento text-[#2C2C2C] mb-3 font-semibold\">\n                {feature.title}\n              </h3>\n              <p className=\"text-base text-[#2C2C2C] font-opensans\">\n                {feature.description}\n              </p>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
           {
             "propName": "feature1Title",
             "propLabel": "First Feature Title",
             "propType": "text",
-            "propValue": "Rare Selections"
+            "propValue": "Fresh Pizza"
           },
           {
             "propName": "feature1Description",
             "propLabel": "First Feature Description",
             "propType": "text",
-            "propValue": "Meticulously sourced fragrances from boutique perfumeries worldwide"
+            "propValue": "Handcrafted with the finest ingredients, our pizzas capture the authentic taste of Italy."
           },
           {
             "propName": "feature2Title",
             "propLabel": "Second Feature Title",
             "propType": "text",
-            "propValue": "Vintage Inspiration"
+            "propValue": "Fast Delivery"
           },
           {
             "propName": "feature2Description",
             "propLabel": "Second Feature Description",
             "propType": "text",
-            "propValue": "Celebrating timeless scents with modern sophistication"
+            "propValue": "Enjoy hot, delicious pizzas delivered straight to your doorstep in record time."
           },
           {
             "propName": "feature3Title",
             "propLabel": "Third Feature Title",
             "propType": "text",
-            "propValue": "Personalized Experience"
+            "propValue": "Italian Food"
           },
           {
             "propName": "feature3Description",
             "propLabel": "Third Feature Description",
             "propType": "text",
-            "propValue": "Tailored recommendations that tell your unique olfactory story"
+            "propValue": "Experience the rich culinary traditions of Italy with our genuine, home-style recipes."
+          },
+          {
+            "propName": "feature1IconName",
+            "propLabel": "First Feature Icon",
+            "propType": "text",
+            "propValue": "mdi:pizza"
+          },
+          {
+            "propName": "feature2IconName",
+            "propLabel": "Second Feature Icon",
+            "propType": "text",
+            "propValue": "mdi:delivery"
+          },
+          {
+            "propName": "feature3IconName",
+            "propLabel": "Third Feature Icon",
+            "propType": "text",
+            "propValue": "mdi:italian-cuisine"
           }
         ]
       },
       {
-        "id": "637b09e6-e9b5-4569-b439-cde8f7be96b9",
-        "code": "({ \n  galleryItems1Title = 'Curated Fragrance Collection', \n  galleryItems1Description = 'Discover rare and exclusive perfumes handpicked by experts', \n  galleryItems1IconName = 'mdi:perfume',\n  galleryItems2Title = 'Vintage Inspirations', \n  galleryItems2Description = 'Timeless scents that tell a story of olfactory artistry', \n  galleryItems2IconName = 'mdi:bottle-tonic-outline',\n  galleryItems3Title = 'Personalized Experience', \n  galleryItems3Description = 'Tailored fragrance recommendations for your unique taste', \n  galleryItems3IconName = 'mdi:flask-round-bottom',\n  galleryItems1ImageSrc = '/images/fragrance-collection.jpg',\n  galleryItems2ImageSrc = '/images/vintage-perfumes.jpg',\n  galleryItems3ImageSrc = '/images/personalized-scent.jpg'\n}) => {\n  const features = [\n    {\n      title: galleryItems1Title,\n      description: galleryItems1Description,\n      icon: galleryItems1IconName,\n      image: galleryItems1ImageSrc\n    },\n    {\n      title: galleryItems2Title,\n      description: galleryItems2Description,\n      icon: galleryItems2IconName,\n      image: galleryItems2ImageSrc\n    },\n    {\n      title: galleryItems3Title,\n      description: galleryItems3Description,\n      icon: galleryItems3IconName,\n      image: galleryItems3ImageSrc\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-soft-ivory dark:bg-deep-charcoal py-16 px-4\">\n      <div className=\"max-w-7xl mx-auto\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"text-3xl md:text-4xl font-playfair font-bold text-rich-mahogany dark:text-tan tracking-tight\">\n            Our Unique Offerings\n          </h2>\n          <p className=\"mt-4 text-lg text-deep-charcoal dark:text-soft-ivory font-lato max-w-2xl mx-auto\">\n            Embark on a sensory journey through our meticulously curated fragrance experiences\n          </p>\n        </div>\n        \n        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n          {features.map((feature, index) => (\n            <div \n              key={index} \n              className=\"group bg-white dark:bg-charcoal rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl\"\n            >\n              <div className=\"relative h-64 overflow-hidden\">\n                <img \n                  src={feature.image} \n                  alt={feature.title} \n                  className=\"w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110\"\n                />\n                <div className=\"absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300\"></div>\n              </div>\n              \n              <div className=\"p-6\">\n                <div className=\"flex items-center mb-4\">\n                  <div className=\"p-3 bg-deep-purple bg-opacity-10 rounded-full mr-4\">\n                    <Icon \n                      icon={feature.icon} \n                      className=\"w-8 h-8 text-deep-purple\"\n                    />\n                  </div>\n                  <h3 className=\"text-xl font-playfair font-bold text-rich-mahogany dark:text-tan\">\n                    {feature.title}\n                  </h3>\n                </div>\n                <p className=\"text-deep-charcoal dark:text-soft-ivory font-lato\">\n                  {feature.description}\n                </p>\n              </div>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "id": "0569dc65-7342-4fd8-be82-dd1f3180d272",
+        "code": "({ \n  sectionTitle1, \n  sectionSubtitle1, \n  galleryItems1imageSrc, \n  galleryItems1itemTitle, \n  galleryItems1itemDescription, \n  galleryItems2imageSrc, \n  galleryItems2itemTitle, \n  galleryItems2itemDescription, \n  galleryItems3imageSrc, \n  galleryItems3itemTitle, \n  galleryItems3itemDescription \n}) => {\n  const pizzaFeatures = [\n    {\n      icon: 'mdi:food-pizza',\n      title: galleryItems1itemTitle,\n      description: galleryItems1itemDescription,\n      image: galleryItems1imageSrc\n    },\n    {\n      icon: 'mdi:delivery',\n      title: galleryItems2itemTitle, \n      description: galleryItems2itemDescription,\n      image: galleryItems2imageSrc\n    },\n    {\n      icon: 'mdi:chef-hat',\n      title: galleryItems3itemTitle,\n      description: galleryItems3itemDescription, \n      image: galleryItems3imageSrc\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-[#FFFAF0] py-16 px-4 md:px-12 lg:px-24\">\n      <div className=\"max-w-7xl mx-auto text-center\">\n        <h2 className=\"text-[#D32F2F] font-quattrocento text-3xl md:text-4xl font-bold mb-4\">\n          {sectionTitle1}\n        </h2>\n        <p className=\"text-lg text-gray-700 mb-12 max-w-2xl mx-auto\">\n          {sectionSubtitle1}\n        </p>\n        \n        <div className=\"grid md:grid-cols-3 gap-8\">\n          {pizzaFeatures.map((feature, index) => (\n            <motion.div \n              key={index}\n              initial={{ opacity: 0, translateY: 20 }}\n              whileInView={{ opacity: 1, translateY: 0 }}\n              transition={{ duration: 0.5, delay: index * 0.2 }}\n              className=\"bg-white rounded-lg shadow-lg p-6 transform transition-all hover:scale-105\"\n            >\n              <div className=\"flex justify-center mb-4\">\n                <Icon \n                  icon={feature.icon} \n                  className=\"text-[#D32F2F] text-5xl mb-4\"\n                />\n              </div>\n              <h3 className=\"text-xl font-semibold text-[#2C2C2C] mb-3\">\n                {feature.title}\n              </h3>\n              <p className=\"text-gray-600\">\n                {feature.description}\n              </p>\n              {feature.image && (\n                <div className=\"mt-4 overflow-hidden rounded-lg\">\n                  <motion.img \n                    src={feature.image}\n                    alt={feature.title}\n                    className=\"w-full h-48 object-cover\"\n                    whileHover={{ scale: 1.1 }}\n                  />\n                </div>\n              )}\n            </motion.div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
         "props": [
           {
-            "propName": "galleryItems1Title",
-            "propLabel": "First Feature Title",
+            "propName": "sectionTitle1",
+            "propLabel": "Section Title",
             "propType": "text",
-            "propValue": "Curated Fragrance Collection"
+            "propValue": "Our Culinary Promise"
           },
           {
-            "propName": "galleryItems1Description",
-            "propLabel": "First Feature Description",
+            "propName": "sectionSubtitle1",
+            "propLabel": "Section Subtitle",
             "propType": "text",
-            "propValue": "Discover rare and exclusive perfumes handpicked by experts"
+            "propValue": "Delivering authentic Italian flavors with passion and tradition"
           },
           {
-            "propName": "galleryItems1IconName",
-            "propLabel": "First Feature Icon",
-            "propType": "text",
-            "propValue": "mdi:perfume"
-          },
-          {
-            "propName": "galleryItems1ImageSrc",
+            "propName": "galleryItems1imageSrc",
             "propLabel": "First Feature Image",
             "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/1b9b7e4d-3b88-44f6-83d1-c03f3b4c98ae/FeaturesGridSection/galleryItems1ImageSrc.png"
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/e11473a8-0439-4ed0-addd-86416be88494/ProductsSection/galleryItems1imageSrc.png"
           },
           {
-            "propName": "galleryItems2Title",
+            "propName": "galleryItems1itemTitle",
+            "propLabel": "First Feature Title",
+            "propType": "text",
+            "propValue": "Fresh Pizza"
+          },
+          {
+            "propName": "galleryItems1itemDescription",
+            "propLabel": "First Feature Description",
+            "propType": "text",
+            "propValue": "Handcrafted daily with the finest, freshest ingredients"
+          },
+          {
+            "propName": "galleryItems2imageSrc",
+            "propLabel": "Second Feature Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/5f0525e2-4766-4171-826d-9bc6be52c140/ProductsSection/galleryItems2imageSrc.png"
+          },
+          {
+            "propName": "galleryItems2itemTitle",
             "propLabel": "Second Feature Title",
             "propType": "text",
-            "propValue": "Vintage Inspirations"
+            "propValue": "Fast Delivery"
           },
           {
-            "propName": "galleryItems2Description",
+            "propName": "galleryItems2itemDescription",
             "propLabel": "Second Feature Description",
             "propType": "text",
-            "propValue": "Timeless scents that tell a story of olfactory artistry"
+            "propValue": "Hot, delicious pizza delivered straight to your doorstep"
           },
           {
-            "propName": "galleryItems2IconName",
-            "propLabel": "Second Feature Icon",
+            "propName": "galleryItems3imageSrc",
+            "propLabel": "Third Feature Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/70acce61-6502-4b5b-85ad-c63b49969458/ProductsSection/galleryItems3imageSrc.png"
+          },
+          {
+            "propName": "galleryItems3itemTitle",
+            "propLabel": "Third Feature Title",
             "propType": "text",
-            "propValue": "mdi:bottle-tonic-outline"
+            "propValue": "Authentic Italian Food"
+          },
+          {
+            "propName": "galleryItems3itemDescription",
+            "propLabel": "Third Feature Description",
+            "propType": "text",
+            "propValue": "Traditional recipes passed down through generations"
+          }
+        ]
+      },
+      {
+        "id": "04ea1e1a-af23-4c2f-8938-3214449e3809",
+        "code": "({ \n  galleryItems1ImageSrc, \n  galleryItems1Title, \n  galleryItems2ImageSrc, \n  galleryItems2Title, \n  galleryItems3ImageSrc, \n  galleryItems3Title, \n  sectionTitle, \n  sectionSubtitle \n}) => {\n  const galleryItems = [\n    { \n      imageSrc: galleryItems1ImageSrc, \n      title: galleryItems1Title \n    },\n    { \n      imageSrc: galleryItems2ImageSrc, \n      title: galleryItems2Title \n    },\n    { \n      imageSrc: galleryItems3ImageSrc, \n      title: galleryItems3Title \n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-[#FFFAF0] py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-7xl mx-auto text-center mb-12\">\n        <h2 className=\"font-quattrocento text-4xl text-[#D32F2F] font-bold mb-4\">\n          {sectionTitle}\n        </h2>\n        <p className=\"font-openSans text-xl text-[#2C2C2C] max-w-2xl mx-auto\">\n          {sectionSubtitle}\n        </p>\n      </div>\n      \n      <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto\">\n        {galleryItems.map((item, index) => (\n          <div \n            key={index} \n            className=\"group overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl\"\n          >\n            <div className=\"relative aspect-w-16 aspect-h-9 overflow-hidden\">\n              <img \n                src={item.imageSrc} \n                alt={item.title} \n                className=\"absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-300\"\n              />\n            </div>\n            <div className=\"p-4 bg-white\">\n              <h3 className=\"font-quattrocento text-xl text-[#D32F2F] font-semibold\">\n                {item.title}\n              </h3>\n            </div>\n          </div>\n        ))}\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "galleryItems1ImageSrc",
+            "propLabel": "First Gallery Item Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/80a6723a-799d-44e5-876b-733bb3949021/GallerySection/galleryItems1ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems1Title",
+            "propLabel": "First Gallery Item Title",
+            "propType": "text",
+            "propValue": "Classic Margherita"
           },
           {
             "propName": "galleryItems2ImageSrc",
-            "propLabel": "Second Feature Image",
+            "propLabel": "Second Gallery Item Image",
             "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/ec9ec513-7d73-4768-a495-f3b315e2e2a8/FeaturesGridSection/galleryItems2ImageSrc.png"
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/3d0876e6-3067-434b-83cf-2688f087667a/GallerySection/galleryItems2ImageSrc.png"
           },
           {
-            "propName": "galleryItems3Title",
-            "propLabel": "Third Feature Title",
+            "propName": "galleryItems2Title",
+            "propLabel": "Second Gallery Item Title",
             "propType": "text",
-            "propValue": "Personalized Experience"
-          },
-          {
-            "propName": "galleryItems3Description",
-            "propLabel": "Third Feature Description",
-            "propType": "text",
-            "propValue": "Tailored fragrance recommendations for your unique taste"
-          },
-          {
-            "propName": "galleryItems3IconName",
-            "propLabel": "Third Feature Icon",
-            "propType": "text",
-            "propValue": "mdi:flask-round-bottom"
+            "propValue": "Wood-Fired Special"
           },
           {
             "propName": "galleryItems3ImageSrc",
-            "propLabel": "Third Feature Image",
+            "propLabel": "Third Gallery Item Image",
             "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/255b40af-e9ec-4901-a273-d85520b67082/FeaturesGridSection/galleryItems3ImageSrc.png"
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/fcfd92cf-d0b7-483f-8f34-874e9d6cbd6b/GallerySection/galleryItems3ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems3Title",
+            "propLabel": "Third Gallery Item Title",
+            "propType": "text",
+            "propValue": "Veggie Delight"
+          },
+          {
+            "propName": "sectionTitle",
+            "propLabel": "Gallery Section Title",
+            "propType": "text",
+            "propValue": "Our Delicious Pizzas"
+          },
+          {
+            "propName": "sectionSubtitle",
+            "propLabel": "Gallery Section Subtitle",
+            "propType": "text",
+            "propValue": "Discover our authentic Italian pizzas, crafted with love and the freshest ingredients"
           }
         ]
       },
       {
-        "id": "1f940328-1d44-4e9f-a136-2435d4c35cc4",
-        "code": "({ \n  teamTitle1, \n  teamTitle2, \n  teamDescription1, \n  teamDescription2, \n  team1ImageSrc, \n  team2ImageSrc, \n  team1ImageAlt, \n  team2ImageAlt \n}) => {\n  const teamMembers = [\n    {\n      name: teamTitle1,\n      role: teamDescription1,\n      image: team1ImageSrc\n    },\n    {\n      name: teamTitle2, \n      role: teamDescription2,\n      image: team2ImageSrc\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-[#F5F5F5] py-16 px-4 md:px-12 lg:px-24\">\n      <div className=\"max-w-7xl mx-auto\">\n        <h2 className=\"text-center font-playfair text-3xl md:text-4xl text-[#8B4513] mb-12 font-bold\">\n          Meet Our Fragrance Experts\n        </h2>\n        <div className=\"grid md:grid-cols-2 gap-8 items-center\">\n          {teamMembers.map((member, index) => (\n            <div \n              key={index}\n              className=\"bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105\"\n            >\n              <div className=\"relative\">\n                <img \n                  src={member.image} \n                  alt={index === 0 ? team1ImageAlt : team2ImageAlt}\n                  className=\"w-full h-80 object-cover\"\n                />\n                <div className=\"absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4\">\n                  <h3 className=\"text-xl font-bold font-playfair\">{member.name}</h3>\n                  <p className=\"text-sm font-lato\">{member.role}</p>\n                </div>\n              </div>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
-        "props": [
-          {
-            "propName": "teamTitle1",
-            "propLabel": "First Team Member Name",
-            "propType": "text",
-            "propValue": "Isabella Beaumont"
-          },
-          {
-            "propName": "teamTitle2",
-            "propLabel": "Second Team Member Name",
-            "propType": "text",
-            "propValue": "Alexandre Laurent"
-          },
-          {
-            "propName": "teamDescription1",
-            "propLabel": "First Team Member Role",
-            "propType": "text",
-            "propValue": "Master Perfumer & Fragrance Curator"
-          },
-          {
-            "propName": "teamDescription2",
-            "propLabel": "Second Team Member Role",
-            "propType": "text",
-            "propValue": "Heritage Collection Specialist"
-          },
-          {
-            "propName": "team1ImageSrc",
-            "propLabel": "First Team Member Image",
-            "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/be92743a-d42e-4f9b-9260-6cae7617e6b7/TeamShowcaseSection/team1ImageSrc.png"
-          },
-          {
-            "propName": "team2ImageSrc",
-            "propLabel": "Second Team Member Image",
-            "propType": "src",
-            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/6539dbdf-774c-454e-a981-3351acfcb3c9/TeamShowcaseSection/team2ImageSrc.png"
-          },
-          {
-            "propName": "team1ImageAlt",
-            "propLabel": "First Team Member Image Alt Text",
-            "propType": "alt",
-            "propValue": "Isabella Beaumont, Master Perfumer at Scent Secrets"
-          },
-          {
-            "propName": "team2ImageAlt",
-            "propLabel": "Second Team Member Image Alt Text",
-            "propType": "alt",
-            "propValue": "Alexandre Laurent, Heritage Collection Specialist at Scent Secrets"
-          }
-        ]
-      },
-      {
-        "id": "8ac15914-b6d1-47fc-9e49-fb47f880c9e6",
-        "code": "({ \n  testimonial1Title, \n  testimonial1Text, \n  testimonial1AuthorName, \n  testimonial1AuthorRole,\n  testimonial2Title, \n  testimonial2Text, \n  testimonial2AuthorName, \n  testimonial2AuthorRole,\n  testimonial3Title, \n  testimonial3Text, \n  testimonial3AuthorName, \n  testimonial3AuthorRole\n}) => {\n  return (\n    <section className=\"w-full bg-[#F5F5F5] dark:bg-[#1A1A1A] py-16 px-4\">\n      <div className=\"max-w-6xl mx-auto\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"font-playfair text-3xl md:text-4xl text-[#8B4513] font-bold mb-4\">\n            What Our Fragrance Connoisseurs Say\n          </h2>\n          <p className=\"font-lato text-lg text-[#1A1A1A] dark:text-[#F5F5F5] max-w-2xl mx-auto\">\n            Discover the transformative experiences of our most discerning clients\n          </p>\n        </div>\n        \n        <div className=\"grid md:grid-cols-3 gap-8\">\n          {[\n            { \n              title: testimonial1Title, \n              text: testimonial1Text, \n              authorName: testimonial1AuthorName, \n              authorRole: testimonial1AuthorRole \n            },\n            { \n              title: testimonial2Title, \n              text: testimonial2Text, \n              authorName: testimonial2AuthorName, \n              authorRole: testimonial2AuthorRole \n            },\n            { \n              title: testimonial3Title, \n              text: testimonial3Text, \n              authorName: testimonial3AuthorName, \n              authorRole: testimonial3AuthorRole \n            }\n          ].map((testimonial, index) => (\n            <div \n              key={index} \n              className=\"bg-white dark:bg-[#2A2A2A] rounded-lg shadow-lg p-6 transform transition-all duration-300 hover:scale-105\"\n            >\n              <div className=\"mb-4\">\n                <span className=\"text-[#5D3FD3] text-4xl font-bold font-playfair\">\"</span>\n                <h3 className=\"text-xl font-playfair text-[#8B4513] mb-2\">\n                  {testimonial.title}\n                </h3>\n                <p className=\"text-[#1A1A1A] dark:text-[#F5F5F5] font-lato mb-4 italic\">\n                  {testimonial.text}\n                </p>\n              </div>\n              <div className=\"border-t border-[#D2B48C] pt-4\">\n                <p className=\"font-lato font-bold text-[#8B4513]\">\n                  {testimonial.authorName}\n                </p>\n                <p className=\"text-sm text-[#5D3FD3] font-lato\">\n                  {testimonial.authorRole}\n                </p>\n              </div>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "id": "3c272bae-1cb5-4e2c-8939-cb200fbdd667",
+        "code": "({ \n  testimonial1Title, \n  testimonial1Text, \n  testimonial1AuthorName, \n  testimonial1AuthorLocation,\n  testimonial1ImageSrc,\n  testimonial2Title, \n  testimonial2Text, \n  testimonial2AuthorName, \n  testimonial2AuthorLocation,\n  testimonial2ImageSrc,\n  testimonial3Title, \n  testimonial3Text, \n  testimonial3AuthorName, \n  testimonial3AuthorLocation,\n  testimonial3ImageSrc\n}) => {\n  const testimonials = [\n    {\n      title: testimonial1Title,\n      text: testimonial1Text,\n      author: testimonial1AuthorName,\n      location: testimonial1AuthorLocation,\n      imageSrc: testimonial1ImageSrc\n    },\n    {\n      title: testimonial2Title,\n      text: testimonial2Text,\n      author: testimonial2AuthorName,\n      location: testimonial2AuthorLocation,\n      imageSrc: testimonial2ImageSrc\n    },\n    {\n      title: testimonial3Title,\n      text: testimonial3Text,\n      author: testimonial3AuthorName,\n      location: testimonial3AuthorLocation,\n      imageSrc: testimonial3ImageSrc\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-[#FFFAF0] py-16 px-4\">\n      <div className=\"max-w-6xl mx-auto\">\n        <h2 className=\"text-center text-[2.75rem] font-quattrocento text-[#D32F2F] mb-12 font-semibold\">\n          What Our Customers Say\n        </h2>\n        \n        <div className=\"grid md:grid-cols-3 gap-8\">\n          {testimonials.map((testimonial, index) => (\n            <div \n              key={index} \n              className=\"bg-white rounded-lg shadow-md p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-lg\"\n            >\n              <div className=\"flex items-center mb-4\">\n                <img \n                  src={testimonial.imageSrc} \n                  alt={`${testimonial.author} profile`}\n                  className=\"w-16 h-16 rounded-full mr-4 object-cover\"\n                />\n                <div>\n                  <h4 className=\"text-lg font-semibold text-[#2C2C2C]\">\n                    {testimonial.author}\n                  </h4>\n                  <p className=\"text-sm text-gray-600\">\n                    {testimonial.location}\n                  </p>\n                </div>\n              </div>\n              \n              <blockquote className=\"italic text-[#2C2C2C] mb-4\">\n                \"{testimonial.text}\"\n              </blockquote>\n              \n              <div className=\"text-[#D32F2F] font-semibold\">\n                {testimonial.title}\n              </div>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  )\n}",
         "props": [
           {
             "propName": "testimonial1Title",
             "propLabel": "First Testimonial Title",
             "propType": "text",
-            "propValue": "A Sensory Journey Like No Other"
+            "propValue": "Authentic Italian Flavors"
           },
           {
             "propName": "testimonial1Text",
             "propLabel": "First Testimonial Text",
             "propType": "text",
-            "propValue": "Scent Secrets transformed my understanding of fragrance. Each scent tells a story, and their curated collection is nothing short of magical."
+            "propValue": "Every bite reminds me of my grandmother's cooking in Naples. Truly authentic and delicious!"
           },
           {
             "propName": "testimonial1AuthorName",
             "propLabel": "First Testimonial Author Name",
             "propType": "text",
-            "propValue": "Elizabeth Beaumont"
+            "propValue": "Maria Rossi"
           },
           {
-            "propName": "testimonial1AuthorRole",
-            "propLabel": "First Testimonial Author Role",
+            "propName": "testimonial1AuthorLocation",
+            "propLabel": "First Testimonial Author Location",
             "propType": "text",
-            "propValue": "Fragrance Collector"
+            "propValue": "San Francisco, CA"
+          },
+          {
+            "propName": "testimonial1ImageSrc",
+            "propLabel": "First Testimonial Author Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/42ba331c-47de-49e3-b41e-900bbbdc9c0d/SocialProofSection/testimonial1ImageSrc.png"
           },
           {
             "propName": "testimonial2Title",
             "propLabel": "Second Testimonial Title",
             "propType": "text",
-            "propValue": "Rare Finds, Exquisite Memories"
+            "propValue": "Fast and Fresh Delivery"
           },
           {
             "propName": "testimonial2Text",
             "propLabel": "Second Testimonial Text",
             "propType": "text",
-            "propValue": "Their vintage collection is unparalleled. Each fragrance is a time capsule of emotion and craftsmanship."
+            "propValue": "The fastest delivery I've ever experienced, and the pizza was still piping hot and incredibly fresh!"
           },
           {
             "propName": "testimonial2AuthorName",
             "propLabel": "Second Testimonial Author Name",
             "propType": "text",
-            "propValue": "Marcus Sinclair"
+            "propValue": "John Smith"
           },
           {
-            "propName": "testimonial2AuthorRole",
-            "propLabel": "Second Testimonial Author Role",
+            "propName": "testimonial2AuthorLocation",
+            "propLabel": "Second Testimonial Author Location",
             "propType": "text",
-            "propValue": "Perfume Historian"
+            "propValue": "New York, NY"
+          },
+          {
+            "propName": "testimonial2ImageSrc",
+            "propLabel": "Second Testimonial Author Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/504bf31a-e1cd-403e-a16b-bcf3e841dc48/SocialProofSection/testimonial2ImageSrc.png"
           },
           {
             "propName": "testimonial3Title",
             "propLabel": "Third Testimonial Title",
             "propType": "text",
-            "propValue": "Beyond Mere Fragrance"
+            "propValue": "Best Italian Food in Town"
           },
           {
             "propName": "testimonial3Text",
             "propLabel": "Third Testimonial Text",
             "propType": "text",
-            "propValue": "Scent Secrets doesn't just sell perfumes; they curate experiences that resonate with the soul."
+            "propValue": "As someone who's traveled through Italy, this is the closest to authentic Italian cuisine I've found in the US."
           },
           {
             "propName": "testimonial3AuthorName",
             "propLabel": "Third Testimonial Author Name",
             "propType": "text",
-            "propValue": "Catherine Laurent"
+            "propValue": "Sarah Johnson"
           },
           {
-            "propName": "testimonial3AuthorRole",
-            "propLabel": "Third Testimonial Author Role",
+            "propName": "testimonial3AuthorLocation",
+            "propLabel": "Third Testimonial Author Location",
             "propType": "text",
-            "propValue": "Luxury Lifestyle Curator"
+            "propValue": "Chicago, IL"
+          },
+          {
+            "propName": "testimonial3ImageSrc",
+            "propLabel": "Third Testimonial Author Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/7bff73be-f94c-4fe2-bb4c-9a230e98c130/SocialProofSection/testimonial3ImageSrc.png"
           }
         ]
       },
       {
-        "id": "fb9fe403-8cf5-4296-9d10-b4edc597dbc6",
-        "code": "({ \n  statsTitle1 = 'Exclusive Fragrances', \n  statsValue1 = '250+', \n  statsDescription1 = 'Rare and curated collections',\n  statsTitle2 = 'Global Sourcing', \n  statsValue2 = '15+', \n  statsDescription2 = 'Countries of fragrance origin',\n  statsTitle3 = 'Heritage Brands', \n  statsValue3 = '50', \n  statsDescription3 = 'Vintage parfumeries represented'\n}) => {\n  return (\n    <section className=\"w-full bg-[#F5F5F5] py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8\">\n        {[\n          { title: statsTitle1, value: statsValue1, description: statsDescription1 },\n          { title: statsTitle2, value: statsValue2, description: statsDescription2 },\n          { title: statsTitle3, value: statsValue3, description: statsDescription3 }\n        ].map((stat, index) => (\n          <div \n            key={index} \n            className=\"bg-white rounded-lg shadow-md p-6 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl\"\n          >\n            <h3 className=\"text-[#8B4513] font-playfair text-2xl font-bold mb-4\">\n              {stat.title}\n            </h3>\n            <div className=\"text-5xl font-bold text-[#5D3FD3] mb-4\">\n              {stat.value}\n            </div>\n            <p className=\"text-[#1A1A1A] font-lato text-base\">\n              {stat.description}\n            </p>\n          </div>\n        ))}\n      </div>\n    </section>\n  );\n}",
+        "id": "d950fda5-382a-4703-958a-f60facdb76c5",
+        "code": "({ \n  title1Text, \n  subtitle1Text, \n  description1Text, \n  aboutImage1Src, \n  aboutImage1Alt,\n  mission1Text,\n  values1Text,\n  team1Text\n}) => {\n  return (\n    <section className=\"w-full bg-[#FFFAF0] py-16 px-4 md:px-12 lg:px-24\">\n      <div className=\"max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center\">\n        {/* Text Content */}\n        <div className=\"space-y-6\">\n          <h2 className=\"text-[#D32F2F] font-['Quattrocento'] text-3xl md:text-4xl font-bold\">\n            {title1Text}\n          </h2>\n          <h3 className=\"text-[#2C2C2C] font-['Open Sans'] text-xl font-semibold\">\n            {subtitle1Text}\n          </h3>\n          <p className=\"text-[#2C2C2C] font-['Open Sans'] text-base leading-relaxed\">\n            {description1Text}\n          </p>\n          \n          {/* Mission Section */}\n          <div className=\"bg-[#F4A460] bg-opacity-10 p-6 rounded-lg\">\n            <h4 className=\"text-[#D32F2F] font-['Quattrocento'] text-xl font-semibold mb-4\">\n              Our Mission\n            </h4>\n            <p className=\"text-[#2C2C2C] font-['Open Sans']\">\n              {mission1Text}\n            </p>\n          </div>\n        </div>\n\n        {/* Image Section */}\n        <div className=\"flex justify-center items-center\">\n          <div className=\"relative group overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105\">\n            <img \n              src={aboutImage1Src} \n              alt={aboutImage1Alt}\n              className=\"w-full h-auto object-cover rounded-lg\"\n            />\n            <div className=\"absolute inset-0 bg-[#D32F2F] opacity-0 group-hover:opacity-20 transition-opacity duration-300\"></div>\n          </div>\n        </div>\n      </div>\n\n      {/* Values & Team Section */}\n      <div className=\"max-w-7xl mx-auto mt-16 space-y-8\">\n        <div className=\"text-center\">\n          <h3 className=\"text-[#D32F2F] font-['Quattrocento'] text-3xl font-bold mb-6\">\n            Our Values\n          </h3>\n          <p className=\"text-[#2C2C2C] font-['Open Sans'] max-w-4xl mx-auto\">\n            {values1Text}\n          </p>\n        </div>\n        \n        <div className=\"text-center mt-12\">\n          <h3 className=\"text-[#D32F2F] font-['Quattrocento'] text-3xl font-bold mb-6\">\n            Our Team\n          </h3>\n          <p className=\"text-[#2C2C2C] font-['Open Sans'] max-w-4xl mx-auto\">\n            {team1Text}\n          </p>\n        </div>\n      </div>\n    </section>\n  );\n}",
         "props": [
           {
-            "propName": "statsTitle1",
-            "propLabel": "First Stat Title",
+            "propName": "title1Text",
+            "propLabel": "About Us Title",
             "propType": "text",
-            "propValue": "Exclusive Fragrances"
+            "propValue": "Authentic Italian Pizza, Generations in the Making"
           },
           {
-            "propName": "statsValue1",
-            "propLabel": "First Stat Value",
+            "propName": "subtitle1Text",
+            "propLabel": "About Us Subtitle",
             "propType": "text",
-            "propValue": "250+"
+            "propValue": "A Family Legacy of Culinary Passion"
           },
           {
-            "propName": "statsDescription1",
-            "propLabel": "First Stat Description",
+            "propName": "description1Text",
+            "propLabel": "About Description",
             "propType": "text",
-            "propValue": "Rare and curated collections"
+            "propValue": "Our story began generations ago in a small village in Italy, where family recipes were treasured and shared with love. Today, we continue that tradition, bringing the warmth and flavor of authentic Italian cuisine to your table."
           },
           {
-            "propName": "statsTitle2",
-            "propLabel": "Second Stat Title",
-            "propType": "text",
-            "propValue": "Global Sourcing"
+            "propName": "aboutImage1Src",
+            "propLabel": "About Section Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/86441fcb-756c-48a8-9120-d1045ab6314e/AboutSection/aboutImage1Src.png"
           },
           {
-            "propName": "statsValue2",
-            "propLabel": "Second Stat Value",
-            "propType": "text",
-            "propValue": "15+"
+            "propName": "aboutImage1Alt",
+            "propLabel": "About Image Description",
+            "propType": "alt",
+            "propValue": "Traditional Italian Pizzeria Interior"
           },
           {
-            "propName": "statsDescription2",
-            "propLabel": "Second Stat Description",
+            "propName": "mission1Text",
+            "propLabel": "Mission Statement",
             "propType": "text",
-            "propValue": "Countries of fragrance origin"
+            "propValue": "To preserve and share the authentic flavors of Italian cuisine, celebrating family traditions and creating memorable dining experiences that transport our guests to the heart of Italy."
           },
           {
-            "propName": "statsTitle3",
-            "propLabel": "Third Stat Title",
+            "propName": "values1Text",
+            "propLabel": "Company Values",
             "propType": "text",
-            "propValue": "Heritage Brands"
+            "propValue": "We believe in quality ingredients, time-honored recipes, and the power of food to bring people together. Our commitment is to authenticity, passion, and creating moments of joy around the table."
           },
           {
-            "propName": "statsValue3",
-            "propLabel": "Third Stat Value",
+            "propName": "team1Text",
+            "propLabel": "Team Description",
             "propType": "text",
-            "propValue": "50"
-          },
-          {
-            "propName": "statsDescription3",
-            "propLabel": "Third Stat Description",
-            "propType": "text",
-            "propValue": "Vintage parfumeries represented"
+            "propValue": "Our team is a close-knit family of culinary experts, passionate chefs, and hospitality professionals who share a deep love for Italian cuisine and creating unforgettable dining experiences."
           }
         ]
       },
       {
-        "id": "6e5b7fd5-e29e-4df5-9329-fae264115122",
-        "code": "({ \n  companyName1Text = 'Scent Secrets', \n  addressLine11Text = '123 Luxury Lane', \n  addressLine21Text = 'Paris, France 75001', \n  phoneNumber1Text = '+33 (0)1 23 45 67 89', \n  email1Text = 'contact@scentsecrets.com',\n  socialMediaLink1Href = 'https://instagram.com/scentsecrets',\n  socialMediaLink2Href = 'https://facebook.com/scentsecrets',\n  socialMediaLink3Href = 'https://twitter.com/scentsecrets'\n}) => {\n  const socialIcons = [\n    'mdi:instagram',\n    'mdi:facebook',\n    'mdi:twitter'\n  ];\n\n  return (\n    <section className=\"w-full bg-[#F5F5F5] dark:bg-[#1A1A1A] py-12 px-4 lg:px-16\">\n      <div className=\"max-w-6xl mx-auto grid md:grid-cols-2 gap-8\">\n        {/* Contact Information */}\n        <div className=\"space-y-6\">\n          <h2 className=\"font-playfair text-3xl font-bold text-[#8B4513] dark:text-[#D2B48C]\">\n            {companyName1Text}\n          </h2>\n          <div className=\"text-[#1A1A1A] dark:text-[#F5F5F5] font-lato space-y-2\">\n            <p>{addressLine11Text}</p>\n            <p>{addressLine21Text}</p>\n            <p className=\"mt-4\">\n              <span className=\"font-semibold\">Phone:</span> {phoneNumber1Text}\n            </p>\n            <p>\n              <span className=\"font-semibold\">Email:</span> {email1Text}\n            </p>\n          </div>\n        </div>\n\n        {/* Social Media Links */}\n        <div className=\"flex flex-col justify-center items-start space-y-4\">\n          <h3 className=\"font-playfair text-2xl font-bold text-[#5D3FD3]\">\n            Connect With Us\n          </h3>\n          <div className=\"flex space-x-6\">\n            {[socialMediaLink1Href, socialMediaLink2Href, socialMediaLink3Href].map((link, index) => (\n              <a \n                key={link} \n                href={link} \n                target=\"_blank\" \n                rel=\"noopener noreferrer\"\n                className=\"text-[#8B4513] dark:text-[#D2B48C] hover:text-[#5D3FD3] dark:hover:text-[#5D3FD3] transition-colors duration-300\"\n                aria-label={`Follow us on ${['Instagram', 'Facebook', 'Twitter'][index]}`}\n              >\n                <Icon \n                  icon={socialIcons[index]} \n                  width=\"32\" \n                  height=\"32\" \n                />\n              </a>\n            ))}\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "id": "018a8f7b-f9f5-4107-806d-99b0695e1274",
+        "code": "({ \n  featureItem1Title, \n  featureItem1Description, \n  featureItem1IconName,\n  featureItem2Title, \n  featureItem2Description, \n  featureItem2IconName,\n  featureItem3Title, \n  featureItem3Description, \n  featureItem3IconName \n}) => {\n  const featureItems = [\n    {\n      title: featureItem1Title,\n      description: featureItem1Description,\n      icon: featureItem1IconName\n    },\n    {\n      title: featureItem2Title,\n      description: featureItem2Description,\n      icon: featureItem2IconName\n    },\n    {\n      title: featureItem3Title,\n      description: featureItem3Description,\n      icon: featureItem3IconName\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-[#FFFAF0] py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-6xl mx-auto\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"text-2xl md:text-3xl lg:text-4xl font-quattrocento font-bold text-[#D32F2F] mb-4\">\n            Our Signature Offerings\n          </h2>\n          <p className=\"text-base md:text-lg text-[#2C2C2C] max-w-2xl mx-auto\">\n            Discover the authentic Italian pizza experience that brings tradition to your table\n          </p>\n        </div>\n        \n        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n          {featureItems.map((item, index) => (\n            <div \n              key={index} \n              className=\"bg-white rounded-lg shadow-md p-6 text-center transition-all duration-300 hover:shadow-lg hover:scale-105\"\n            >\n              <div className=\"flex justify-center mb-4\">\n                <Icon \n                  icon={item.icon} \n                  className=\"w-12 h-12 text-[#F4A460]\" \n                />\n              </div>\n              <h3 className=\"text-xl font-quattrocento font-semibold text-[#D32F2F] mb-3\">\n                {item.title}\n              </h3>\n              <p className=\"text-base text-[#2C2C2C] leading-relaxed\">\n                {item.description}\n              </p>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
         "props": [
           {
-            "propName": "companyName1Text",
-            "propLabel": "Company Name",
+            "propName": "featureItem1Title",
+            "propLabel": "First Feature Title",
             "propType": "text",
-            "propValue": "Scent Secrets"
+            "propValue": "Fresh Pizza"
           },
           {
-            "propName": "addressLine11Text",
-            "propLabel": "Address Line 1",
+            "propName": "featureItem1Description",
+            "propLabel": "First Feature Description",
             "propType": "text",
-            "propValue": "123 Luxury Lane"
+            "propValue": "Handcrafted pizzas made with the freshest ingredients, baked to perfection in our traditional wood-fired oven"
           },
           {
-            "propName": "addressLine21Text",
-            "propLabel": "Address Line 2",
+            "propName": "featureItem1IconName",
+            "propLabel": "First Feature Icon",
             "propType": "text",
-            "propValue": "Paris, France 75001"
+            "propValue": "mdi:pizza"
           },
           {
-            "propName": "phoneNumber1Text",
-            "propLabel": "Phone Number",
+            "propName": "featureItem2Title",
+            "propLabel": "Second Feature Title",
             "propType": "text",
-            "propValue": "+33 (0)1 23 45 67 89"
+            "propValue": "Fast Delivery"
           },
           {
-            "propName": "email1Text",
-            "propLabel": "Contact Email",
+            "propName": "featureItem2Description",
+            "propLabel": "Second Feature Description",
             "propType": "text",
-            "propValue": "contact@scentsecrets.com"
+            "propValue": "Quick and reliable delivery that brings the authentic taste of Italy straight to your doorstep"
           },
           {
-            "propName": "socialMediaLink1Href",
-            "propLabel": "Instagram Link",
-            "propType": "href",
-            "propValue": "https://instagram.com/scentsecrets"
+            "propName": "featureItem2IconName",
+            "propLabel": "Second Feature Icon",
+            "propType": "text",
+            "propValue": "mdi:motorcycle"
           },
           {
-            "propName": "socialMediaLink2Href",
-            "propLabel": "Facebook Link",
-            "propType": "href",
-            "propValue": "https://facebook.com/scentsecrets"
+            "propName": "featureItem3Title",
+            "propLabel": "Third Feature Title",
+            "propType": "text",
+            "propValue": "Italian Food"
           },
           {
-            "propName": "socialMediaLink3Href",
-            "propLabel": "Twitter Link",
-            "propType": "href",
-            "propValue": "https://twitter.com/scentsecrets"
+            "propName": "featureItem3Description",
+            "propLabel": "Third Feature Description",
+            "propType": "text",
+            "propValue": "Authentic recipes passed down through generations, bringing the true essence of Italian culinary tradition"
+          },
+          {
+            "propName": "featureItem3IconName",
+            "propLabel": "Third Feature Icon",
+            "propType": "text",
+            "propValue": "mdi:chef-hat"
           }
         ]
       },
       {
-        "id": "f810e326-9fd5-49ee-9d81-2dcdf7957b28",
-        "code": "({ \n  companyName = 'Scent Secrets', \n  copyrightYear = '2024',\n  socialLinks1Href = 'https://instagram.com/scentsecrets',\n  socialLinks2Href = 'https://facebook.com/scentsecrets', \n  socialLinks3Href = 'https://twitter.com/scentsecrets',\n  footerDescription = 'Discover our carefully curated selection of the finest luxury fragrances available today.',\n  contactEmail = 'contact@scentsecrets.com',\n}) => {\n  const socialIcons = [\n    'mdi:instagram',\n    'mdi:facebook',\n    'mdi:twitter'\n  ];\n\n  const footerLinks = [\n    { title: 'About Us', href: '/about' },\n    { title: 'Collections', href: '/collections' },\n    { title: 'Shop', href: '/shop' },\n    { title: 'Contact', href: '/contact' }\n  ];\n\n  return (\n    <footer className=\"w-full bg-[#1A1A1A] text-[#F5F5F5] py-12\">\n      <div className=\"container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8\">\n        {/* Company Info */}\n        <div className=\"space-y-4\">\n          <h3 className=\"font-playfair text-2xl font-bold\">{companyName}</h3>\n          <p className=\"font-lato text-sm opacity-75\">{footerDescription}</p>\n          <a \n            href={`mailto:${contactEmail}`} \n            className=\"block text-[#D2B48C] hover:underline transition-colors duration-300\"\n          >\n            {contactEmail}\n          </a>\n        </div>\n\n        {/* Quick Links */}\n        <div className=\"space-y-4\">\n          <h4 className=\"font-playfair text-xl font-bold\">Quick Links</h4>\n          <nav>\n            <ul className=\"space-y-2\">\n              {footerLinks.map((link, index) => (\n                <li key={index}>\n                  <a \n                    href={link.href} \n                    className=\"font-lato text-sm hover:text-[#D2B48C] transition-colors duration-300\"\n                  >\n                    {link.title}\n                  </a>\n                </li>\n              ))}\n            </ul>\n          </nav>\n        </div>\n\n        {/* Social Links */}\n        <div className=\"space-y-4\">\n          <h4 className=\"font-playfair text-xl font-bold\">Connect With Us</h4>\n          <div className=\"flex space-x-4\">\n            {[socialLinks1Href, socialLinks2Href, socialLinks3Href].map((href, index) => (\n              <a \n                key={index} \n                href={href} \n                target=\"_blank\" \n                rel=\"noopener noreferrer\"\n                className=\"text-2xl hover:text-[#5D3FD3] transition-colors duration-300\"\n              >\n                <Icon icon={socialIcons[index]} />\n              </a>\n            ))}\n          </div>\n        </div>\n      </div>\n\n      {/* Copyright */}\n      <div className=\"border-t border-[#D2B48C]/20 mt-8 pt-6 text-center\">\n        <p className=\"font-lato text-sm opacity-75\">\n          © {copyrightYear} {companyName}. All Rights Reserved.\n        </p>\n      </div>\n    </footer>\n  );\n}",
+        "id": "c447f3f4-8420-40c7-82cb-598ee8ca909a",
+        "code": "({ \n  team1imageSrc, \n  team1name, \n  team1role, \n  team2imageSrc, \n  team2name, \n  team2role, \n  team3imageSrc, \n  team3name, \n  team3role, \n  sectionTitle, \n  sectionSubtitle \n}) => {\n  const teamMembers = [\n    { \n      imageSrc: team1imageSrc, \n      name: team1name, \n      role: team1role \n    },\n    { \n      imageSrc: team2imageSrc, \n      name: team2name, \n      role: team2role \n    },\n    { \n      imageSrc: team3imageSrc, \n      name: team3name, \n      role: team3role \n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-[#FFFAF0] py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-6xl mx-auto text-center mb-12\">\n        <h2 className=\"font-quattrocento text-4xl font-bold text-[#D32F2F] mb-4\">\n          {sectionTitle}\n        </h2>\n        <p className=\"font-openSans text-xl text-[#2C2C2C] max-w-2xl mx-auto\">\n          {sectionSubtitle}\n        </p>\n      </div>\n      \n      <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto\">\n        {teamMembers.map((member, index) => (\n          <div \n            key={index} \n            className=\"bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105\"\n          >\n            <div className=\"aspect-square w-full overflow-hidden\">\n              <img \n                src={member.imageSrc} \n                alt={member.name} \n                className=\"w-full h-full object-cover\"\n              />\n            </div>\n            <div className=\"p-6 text-center\">\n              <h3 className=\"font-quattrocento text-2xl font-semibold text-[#D32F2F] mb-2\">\n                {member.name}\n              </h3>\n              <p className=\"font-openSans text-[#2C2C2C] text-lg\">\n                {member.role}\n              </p>\n            </div>\n          </div>\n        ))}\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "team1imageSrc",
+            "propLabel": "First Team Member Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/cbcfb434-41b1-415d-a841-545a4b79902e/TeamShowcaseSection/team1imageSrc.png"
+          },
+          {
+            "propName": "team1name",
+            "propLabel": "First Team Member Name",
+            "propType": "text",
+            "propValue": "Mario Rossi"
+          },
+          {
+            "propName": "team1role",
+            "propLabel": "First Team Member Role",
+            "propType": "text",
+            "propValue": "Head Chef"
+          },
+          {
+            "propName": "team2imageSrc",
+            "propLabel": "Second Team Member Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/8f7d9658-672a-4bff-a247-2bffc5f8775c/TeamShowcaseSection/team2imageSrc.png"
+          },
+          {
+            "propName": "team2name",
+            "propLabel": "Second Team Member Name",
+            "propType": "text",
+            "propValue": "Anna Bianchi"
+          },
+          {
+            "propName": "team2role",
+            "propLabel": "Second Team Member Role",
+            "propType": "text",
+            "propValue": "Sous Chef"
+          },
+          {
+            "propName": "team3imageSrc",
+            "propLabel": "Third Team Member Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/fb922d4c-a58f-4407-9712-ee331fe5f034/TeamShowcaseSection/team3imageSrc.png"
+          },
+          {
+            "propName": "team3name",
+            "propLabel": "Third Team Member Name",
+            "propType": "text",
+            "propValue": "Luigi Verdi"
+          },
+          {
+            "propName": "team3role",
+            "propLabel": "Third Team Member Role",
+            "propType": "text",
+            "propValue": "Pizza Master"
+          },
+          {
+            "propName": "sectionTitle",
+            "propLabel": "Section Title",
+            "propType": "text",
+            "propValue": "Meet Our Culinary Team"
+          },
+          {
+            "propName": "sectionSubtitle",
+            "propLabel": "Section Subtitle",
+            "propType": "text",
+            "propValue": "Our passionate chefs bring authentic Italian flavors to life with generations of family recipes and culinary expertise."
+          }
+        ]
+      },
+      {
+        "id": "bc137517-8f27-4073-a58b-2ea54883425b",
+        "code": "({ \n  testimonial1Text, \n  testimonial1AuthorName, \n  testimonial1AuthorTitle,\n  testimonial1ImageSrc,\n  testimonial2Text, \n  testimonial2AuthorName, \n  testimonial2AuthorTitle,\n  testimonial2ImageSrc,\n  testimonial3Text, \n  testimonial3AuthorName, \n  testimonial3AuthorTitle,\n  testimonial3ImageSrc\n}) => {\n  const testimonials = [\n    {\n      text: testimonial1Text,\n      author: testimonial1AuthorName,\n      title: testimonial1AuthorTitle,\n      image: testimonial1ImageSrc\n    },\n    {\n      text: testimonial2Text,\n      author: testimonial2AuthorName,\n      title: testimonial2AuthorTitle,\n      image: testimonial2ImageSrc\n    },\n    {\n      text: testimonial3Text,\n      author: testimonial3AuthorName,\n      title: testimonial3AuthorTitle,\n      image: testimonial3ImageSrc\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-[#FFFAF0] py-16 px-4\">\n      <div className=\"max-w-6xl mx-auto\">\n        <h2 className=\"text-center text-3xl md:text-4xl font-quattrocento text-[#D32F2F] mb-12 font-bold\">\n          What Our Customers Say\n        </h2>\n        \n        <div className=\"grid md:grid-cols-3 gap-8\">\n          {testimonials.map((testimonial, index) => (\n            <div \n              key={index} \n              className=\"bg-white rounded-lg shadow-lg p-6 transform transition-all duration-300 hover:scale-105\"\n            >\n              <div className=\"flex items-center mb-4\">\n                {testimonial.image && (\n                  <img \n                    src={testimonial.image} \n                    alt={`${testimonial.author} profile`}\n                    className=\"w-16 h-16 rounded-full mr-4 object-cover\"\n                  />\n                )}\n                <div>\n                  <h3 className=\"font-quattrocento text-xl font-semibold text-[#2C2C2C]\">\n                    {testimonial.author}\n                  </h3>\n                  <p className=\"text-sm text-[#4A4A4A]\">\n                    {testimonial.title}\n                  </p>\n                </div>\n              </div>\n              <blockquote className=\"italic text-[#2C2C2C] text-base leading-relaxed\">\n                \"{testimonial.text}\"\n              </blockquote>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "testimonial1Text",
+            "propLabel": "First Testimonial Text",
+            "propType": "text",
+            "propValue": "The most authentic Italian pizza I've ever tasted outside of Italy! Every bite brings me back to my grandmother's kitchen."
+          },
+          {
+            "propName": "testimonial1AuthorName",
+            "propLabel": "First Testimonial Author Name",
+            "propType": "text",
+            "propValue": "Maria Rossi"
+          },
+          {
+            "propName": "testimonial1AuthorTitle",
+            "propLabel": "First Testimonial Author Title",
+            "propType": "text",
+            "propValue": "Local Food Critic"
+          },
+          {
+            "propName": "testimonial1ImageSrc",
+            "propLabel": "First Testimonial Author Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/852f1222-0e15-4643-900c-461cc71ce154/TestimonialSliderSection/testimonial1ImageSrc.png"
+          },
+          {
+            "propName": "testimonial2Text",
+            "propLabel": "Second Testimonial Text",
+            "propType": "text",
+            "propValue": "Fast delivery, incredible flavor. Their wood-fired pizzas are a game-changer for quick, gourmet meals at home."
+          },
+          {
+            "propName": "testimonial2AuthorName",
+            "propLabel": "Second Testimonial Author Name",
+            "propType": "text",
+            "propValue": "Giovanni Moretti"
+          },
+          {
+            "propName": "testimonial2AuthorTitle",
+            "propLabel": "Second Testimonial Author Title",
+            "propType": "text",
+            "propValue": "Food Blogger"
+          },
+          {
+            "propName": "testimonial2ImageSrc",
+            "propLabel": "Second Testimonial Author Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/270fa8a7-d863-43c5-ad93-b31460680a40/TestimonialSliderSection/testimonial2ImageSrc.png"
+          },
+          {
+            "propName": "testimonial3Text",
+            "propLabel": "Third Testimonial Text",
+            "propType": "text",
+            "propValue": "As an Italian living abroad, this is the closest I've come to home-style cooking. Absolutely magnificent!"
+          },
+          {
+            "propName": "testimonial3AuthorName",
+            "propLabel": "Third Testimonial Author Name",
+            "propType": "text",
+            "propValue": "Sofia Bianchi"
+          },
+          {
+            "propName": "testimonial3AuthorTitle",
+            "propLabel": "Third Testimonial Author Title",
+            "propType": "text",
+            "propValue": "Italian Expat"
+          },
+          {
+            "propName": "testimonial3ImageSrc",
+            "propLabel": "Third Testimonial Author Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/b3aa6ca1-0dbd-4446-90af-93b130bce6d8/TestimonialSliderSection/testimonial3ImageSrc.png"
+          }
+        ]
+      },
+      {
+        "id": "9adf14b7-f0ba-465a-8082-98d1db977dea",
+        "code": "({ \n  stat1Title, \n  stat1Value, \n  stat2Title, \n  stat2Value, \n  stat3Title, \n  stat3Value,\n  backgroundTitle,\n  backgroundDescription\n}) => {\n  const statsData = [\n    { \n      icon: 'mdi:pizza', \n      title: stat1Title, \n      value: stat1Value \n    },\n    { \n      icon: 'mdi:truck-fast', \n      title: stat2Title, \n      value: stat2Value \n    },\n    { \n      icon: 'mdi:chef-hat', \n      title: stat3Title, \n      value: stat3Value \n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-warm-cream text-rich-red py-16 md:py-24\">\n      <div className=\"container mx-auto px-4 max-w-6xl\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"text-3xl md:text-4xl font-heading font-bold text-rich-red mb-4\">\n            {backgroundTitle}\n          </h2>\n          <p className=\"text-lg md:text-xl text-warm-sand max-w-2xl mx-auto\">\n            {backgroundDescription}\n          </p>\n        </div>\n        \n        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n          {statsData.map((stat, index) => (\n            <motion.div \n              key={index}\n              initial={{ opacity: 0, translateY: 20 }}\n              whileInView={{ opacity: 1, translateY: 0 }}\n              transition={{ \n                duration: 0.5, \n                delay: index * 0.2,\n                ease: [0.4, 0, 0.2, 1] \n              }}\n              className=\"bg-white rounded-lg shadow-md p-6 text-center transform transition-all hover:scale-105 hover:shadow-lg\"\n            >\n              <div className=\"flex justify-center mb-4\">\n                <Icon \n                  icon={stat.icon} \n                  className=\"w-12 h-12 text-rich-red\"\n                />\n              </div>\n              <h3 className=\"text-xl font-semibold text-rich-red mb-2\">\n                {stat.title}\n              </h3>\n              <p className=\"text-3xl font-bold text-warm-sand\">\n                {stat.value}\n              </p>\n            </motion.div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "stat1Title",
+            "propLabel": "First Statistic Title",
+            "propType": "text",
+            "propValue": "Fresh Pizzas"
+          },
+          {
+            "propName": "stat1Value",
+            "propLabel": "First Statistic Value",
+            "propType": "text",
+            "propValue": "100+"
+          },
+          {
+            "propName": "stat2Title",
+            "propLabel": "Second Statistic Title",
+            "propType": "text",
+            "propValue": "Delivery Speed"
+          },
+          {
+            "propName": "stat2Value",
+            "propLabel": "Second Statistic Value",
+            "propType": "text",
+            "propValue": "30 min"
+          },
+          {
+            "propName": "stat3Title",
+            "propLabel": "Third Statistic Title",
+            "propType": "text",
+            "propValue": "Satisfied Customers"
+          },
+          {
+            "propName": "stat3Value",
+            "propLabel": "Third Statistic Value",
+            "propType": "text",
+            "propValue": "1000+"
+          },
+          {
+            "propName": "backgroundTitle",
+            "propLabel": "Section Title",
+            "propType": "text",
+            "propValue": "Our Italian Pizza Experience"
+          },
+          {
+            "propName": "backgroundDescription",
+            "propLabel": "Section Description",
+            "propType": "text",
+            "propValue": "Discover the passion behind our authentic Italian pizzas, delivering traditional flavors with modern excellence."
+          }
+        ]
+      },
+      {
+        "id": "4cd658ef-e3c0-4095-a6f5-23487af2ad8e",
+        "code": "({ \n  contactTitle1, \n  contactSubtitle1, \n  contactAddressLine1, \n  contactAddressLine2,\n  contactPhoneNumber1,\n  contactEmailAddress1,\n  contactMapSrc1\n}) => {\n  return (\n    <section className=\"w-full bg-[#FFFAF0] py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center\">\n        {/* Contact Information */}\n        <div className=\"space-y-6\">\n          <h2 className=\"text-[#D32F2F] font-serif text-3xl md:text-4xl font-bold tracking-tight\">\n            {contactTitle1}\n          </h2>\n          <p className=\"text-gray-700 text-lg font-sans leading-relaxed\">\n            {contactSubtitle1}\n          </p>\n          \n          <div className=\"space-y-4 text-gray-600\">\n            <div className=\"flex items-center space-x-3\">\n              <div className=\"iconify text-[#D32F2F] text-2xl\" data-icon=\"mdi:map-marker\"></div>\n              <span className=\"font-sans text-base\">\n                {contactAddressLine1}\n              </span>\n            </div>\n            <div className=\"flex items-center space-x-3\">\n              <div className=\"iconify text-[#D32F2F] text-2xl\" data-icon=\"mdi:map-marker\"></div>\n              <span className=\"font-sans text-base\">\n                {contactAddressLine2}\n              </span>\n            </div>\n            \n            <div className=\"flex items-center space-x-3\">\n              <div className=\"iconify text-[#D32F2F] text-2xl\" data-icon=\"mdi:phone\"></div>\n              <a \n                href={`tel:${contactPhoneNumber1}`} \n                className=\"font-sans text-base hover:text-[#F4A460] transition-colors\"\n              >\n                {contactPhoneNumber1}\n              </a>\n            </div>\n            \n            <div className=\"flex items-center space-x-3\">\n              <div className=\"iconify text-[#D32F2F] text-2xl\" data-icon=\"mdi:email\"></div>\n              <a \n                href={`mailto:${contactEmailAddress1}`} \n                className=\"font-sans text-base hover:text-[#F4A460] transition-colors\"\n              >\n                {contactEmailAddress1}\n              </a>\n            </div>\n          </div>\n        </div>\n        \n        {/* Google Maps Embedded */}\n        <div className=\"w-full h-[400px] rounded-lg overflow-hidden shadow-lg\">\n          <iframe \n            src={contactMapSrc1} \n            width=\"100%\" \n            height=\"100%\" \n            style={{border: 0}} \n            allowFullScreen=\"\" \n            loading=\"lazy\" \n            referrerPolicy=\"no-referrer-when-downgrade\"\n            className=\"hover:scale-105 transition-transform duration-300\"\n          ></iframe>\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "contactTitle1",
+            "propLabel": "Contact Title",
+            "propType": "text",
+            "propValue": "Contact Italian Pizza"
+          },
+          {
+            "propName": "contactSubtitle1",
+            "propLabel": "Contact Subtitle",
+            "propType": "text",
+            "propValue": "Get in touch with us for authentic Italian pizza and warm hospitality"
+          },
+          {
+            "propName": "contactAddressLine1",
+            "propLabel": "First Address Line",
+            "propType": "text",
+            "propValue": "123 Tuscan Street, Little Italy"
+          },
+          {
+            "propName": "contactAddressLine2",
+            "propLabel": "Second Address Line",
+            "propType": "text",
+            "propValue": "New York, NY 10001"
+          },
+          {
+            "propName": "contactPhoneNumber1",
+            "propLabel": "Contact Phone Number",
+            "propType": "text",
+            "propValue": "(555) 123-4567"
+          },
+          {
+            "propName": "contactEmailAddress1",
+            "propLabel": "Contact Email Address",
+            "propType": "text",
+            "propValue": "hello@italianpizza.com"
+          },
+          {
+            "propName": "contactMapSrc1",
+            "propLabel": "Google Maps Embed Source",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/8f4784aa-a64f-420a-a436-3be681110f2c/ContactInformationSection/contactMapSrc1.png"
+          }
+        ]
+      },
+      {
+        "id": "4406df16-baf2-4a86-9d75-4895cd9797f5",
+        "code": "({ \n  companyName = 'Italian Pizza', \n  socialLinks1Href = 'https://facebook.com/italianpizza', \n  socialLinks2Href = 'https://instagram.com/italianpizza', \n  socialLinks3Href = 'https://twitter.com/italianpizza',\n  contactEmail = 'info@italianpizza.com',\n  contactPhone = '+1 (555) 123-4567',\n  addressLine1 = '123 Rustic Street',\n  addressLine2 = 'Tuscan Quarter, Food City',\n  copyrightText = '© 2023 Italian Pizza. All Rights Reserved.',\n  newsletterPlaceholder = 'Enter your email',\n  newsletterButtonText = 'Subscribe'\n}) => {\n  return (\n    <footer className=\"w-full bg-[#2C2C2C] text-[#FFFAF0] py-16\">\n      <div className=\"container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8\">\n        {/* Company Info */}\n        <div className=\"space-y-4\">\n          <h4 className=\"text-xl font-quattrocento font-semibold mb-4\">\n            {companyName}\n          </h4>\n          <address className=\"not-italic text-sm\">\n            <p>{addressLine1}</p>\n            <p>{addressLine2}</p>\n            <div className=\"mt-2\">\n              <a href={`mailto:${contactEmail}`} className=\"hover:text-[#F4A460] transition-colors\">\n                {contactEmail}\n              </a>\n              <p className=\"mt-1\">{contactPhone}</p>\n            </div>\n          </address>\n        </div>\n\n        {/* Quick Links */}\n        <div className=\"space-y-4\">\n          <h4 className=\"text-xl font-quattrocento font-semibold mb-4\">\n            Quick Links\n          </h4>\n          <nav>\n            <ul className=\"space-y-2\">\n              <li><a href=\"/\" className=\"hover:text-[#F4A460] transition-colors\">Home</a></li>\n              <li><a href=\"/menu\" className=\"hover:text-[#F4A460] transition-colors\">Menu</a></li>\n              <li><a href=\"/about\" className=\"hover:text-[#F4A460] transition-colors\">About Us</a></li>\n              <li><a href=\"/contact\" className=\"hover:text-[#F4A460] transition-colors\">Contact</a></li>\n            </ul>\n          </nav>\n        </div>\n\n        {/* Newsletter & Social */}\n        <div className=\"space-y-4\">\n          <h4 className=\"text-xl font-quattrocento font-semibold mb-4\">\n            Stay Connected\n          </h4>\n          \n          {/* Newsletter */}\n          <div className=\"flex\">\n            <input \n              type=\"email\" \n              placeholder={newsletterPlaceholder}\n              className=\"flex-grow bg-[#2C2C2C] border border-[#F4A460] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#4CAF50]\"\n            />\n            <button \n              className=\"bg-[#D32F2F] text-white px-4 py-2 text-sm hover:bg-[#B71C1C] transition-colors\"\n            >\n              {newsletterButtonText}\n            </button>\n          </div>\n\n          {/* Social Links */}\n          <div className=\"flex space-x-4 mt-4\">\n            <a \n              href={socialLinks1Href} \n              target=\"_blank\" \n              rel=\"noopener noreferrer\" \n              className=\"text-2xl hover:text-[#F4A460] transition-colors\"\n            >\n              <i className=\"mdi:facebook\"></i>\n            </a>\n            <a \n              href={socialLinks2Href} \n              target=\"_blank\" \n              rel=\"noopener noreferrer\" \n              className=\"text-2xl hover:text-[#F4A460] transition-colors\"\n            >\n              <i className=\"mdi:instagram\"></i>\n            </a>\n            <a \n              href={socialLinks3Href} \n              target=\"_blank\" \n              rel=\"noopener noreferrer\" \n              className=\"text-2xl hover:text-[#F4A460] transition-colors\"\n            >\n              <i className=\"mdi:twitter\"></i>\n            </a>\n          </div>\n        </div>\n\n        {/* Copyright */}\n        <div className=\"col-span-full text-center mt-8 border-t border-[#F4A460] pt-4\">\n          <p className=\"text-sm\">\n            {copyrightText}\n          </p>\n        </div>\n      </div>\n    </footer>\n  );\n}",
         "props": [
           {
             "propName": "companyName",
             "propLabel": "Company Name",
             "propType": "text",
-            "propValue": "Scent Secrets"
-          },
-          {
-            "propName": "copyrightYear",
-            "propLabel": "Copyright Year",
-            "propType": "text",
-            "propValue": "2024"
+            "propValue": "Italian Pizza"
           },
           {
             "propName": "socialLinks1Href",
-            "propLabel": "Instagram Link",
+            "propLabel": "Facebook Link",
             "propType": "href",
-            "propValue": "https://instagram.com/scentsecrets"
+            "propValue": "https://facebook.com/italianpizza"
           },
           {
             "propName": "socialLinks2Href",
-            "propLabel": "Facebook Link",
+            "propLabel": "Instagram Link",
             "propType": "href",
-            "propValue": "https://facebook.com/scentsecrets"
+            "propValue": "https://instagram.com/italianpizza"
           },
           {
             "propName": "socialLinks3Href",
             "propLabel": "Twitter Link",
             "propType": "href",
-            "propValue": "https://twitter.com/scentsecrets"
-          },
-          {
-            "propName": "footerDescription",
-            "propLabel": "Footer Description",
-            "propType": "text",
-            "propValue": "Discover our carefully curated selection of the finest luxury fragrances available today."
+            "propValue": "https://twitter.com/italianpizza"
           },
           {
             "propName": "contactEmail",
             "propLabel": "Contact Email",
             "propType": "text",
-            "propValue": "contact@scentsecrets.com"
+            "propValue": "info@italianpizza.com"
+          },
+          {
+            "propName": "contactPhone",
+            "propLabel": "Contact Phone",
+            "propType": "text",
+            "propValue": "+1 (555) 123-4567"
+          },
+          {
+            "propName": "addressLine1",
+            "propLabel": "Address Line 1",
+            "propType": "text",
+            "propValue": "123 Rustic Street"
+          },
+          {
+            "propName": "addressLine2",
+            "propLabel": "Address Line 2",
+            "propType": "text",
+            "propValue": "Tuscan Quarter, Food City"
+          },
+          {
+            "propName": "copyrightText",
+            "propLabel": "Copyright Text",
+            "propType": "text",
+            "propValue": "© 2023 Italian Pizza. All Rights Reserved."
+          },
+          {
+            "propName": "newsletterPlaceholder",
+            "propLabel": "Newsletter Placeholder",
+            "propType": "text",
+            "propValue": "Enter your email"
+          },
+          {
+            "propName": "newsletterButtonText",
+            "propLabel": "Newsletter Button Text",
+            "propType": "text",
+            "propValue": "Subscribe"
           }
         ]
       }

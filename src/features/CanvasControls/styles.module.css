@@ -21,6 +21,17 @@
     gap: 12px;
 }
 
+.topCenter {
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: #e4e2df;
+    border-radius: 6px;
+    padding: 6px;
+}
+
 .bottomLeft {
     position: fixed;
     bottom: 12px;

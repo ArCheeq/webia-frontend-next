@@ -3,6 +3,7 @@ import { Avatar, Box, Button, Divider, Text, Tooltip, UnstyledButton } from "@ma
 
 import InfoSectionMenu from "@/features/InfoSectionMenu";
 import EditSectionMenu from "@/features/EditSectionMenu";
+import TemplateTabs from "@/features/CanvasControls/components/TemplateTabs";
 import ExportTemplateButton from "@/features/CanvasControls/components/ExportTemplate";
 import BreakpointButtons from "@/features/CanvasControls/components/BreakpointButtons";
 
@@ -26,6 +27,11 @@ export default function CanvasControls() {
             <Box className={styles.topLeft}>
                 <Tooltip label="Edit" withArrow position={"right"}>
                     <EditSectionMenu />
+                </Tooltip>
+            </Box>
+            <Box className={styles.topCenter}>
+                <Tooltip label={'Templates'} withArrow position={'bottom-start'}>
+                    <TemplateTabs />
                 </Tooltip>
             </Box>
             <Box className={styles.topRight}>
