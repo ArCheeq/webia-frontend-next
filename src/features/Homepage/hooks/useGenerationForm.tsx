@@ -36,9 +36,9 @@ export function useGenerationForm() {
     const form = useForm<GenerationSchema>({
         resolver: zodResolver(generationSchema),
         defaultValues: {
-            name: 'Scent Secrets',
-            short_description: 'Discover our carefully curated selection of the finest luxury fragrances available today.   ',
-            key_points: ["Luxury Fragrances", "Vintage Fragrances", "Niche Parfumes"],
+            name: '',
+            short_description: '',
+            key_points: [],
         }
     });
 
