@@ -1,0 +1,777 @@
+[
+  {
+    "id": "b24a5a6a-06ff-4121-af9d-bb98a8634246",
+    "name": "Home Page",
+    "path": "homepage",
+    "sections": [
+      {
+        "id": "b8803810-5f23-421a-93f8-d3a5497b7c71",
+        "code": "({ \n  logoSrc, \n  logoAlt, \n  companyName, \n  primaryCtaText, \n  primaryCtaHref,\n  secondaryCtaText, \n  secondaryCtaHref \n}) => {\n  const navItems = [\n    { name: 'Services', href: '/services' },\n    { name: 'About', href: '/about' },\n    { name: 'Contact', href: '/contact' }\n  ];\n\n  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);\n\n  return (\n    <header className=\"w-full bg-white shadow-sm\">\n      <div className=\"container mx-auto px-4 py-4 flex items-center justify-between\">\n        {/* Logo */}\n        <div className=\"flex items-center\">\n          <a href=\"/\" className=\"flex items-center space-x-2\">\n            <img \n              src={logoSrc} \n              alt={logoAlt} \n              className=\"h-10 w-auto\" \n            />\n            <span className=\"text-xl font-semibold text-blue-600\">{companyName}</span>\n          </a>\n        </div>\n\n        {/* Desktop Navigation */}\n        <nav className=\"hidden md:flex items-center space-x-6\">\n          {navItems.map((item) => (\n            <a \n              key={item.name}\n              href={item.href} \n              className=\"text-gray-700 hover:text-blue-600 transition-colors duration-300\"\n            >\n              {item.name}\n            </a>\n          ))}\n          <div className=\"flex space-x-4\">\n            <a \n              href={secondaryCtaHref} \n              className=\"px-4 py-2 text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 transition-colors\"\n            >\n              {secondaryCtaText}\n            </a>\n            <a \n              href={primaryCtaHref} \n              className=\"px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors\"\n            >\n              {primaryCtaText}\n            </a>\n          </div>\n        </nav>\n\n        {/* Mobile Menu Toggle */}\n        <div className=\"md:hidden\">\n          <button \n            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}\n            className=\"text-gray-700 focus:outline-none\"\n            aria-label=\"Toggle mobile menu\"\n          >\n            {isMobileMenuOpen ? (\n              <span className=\"text-2xl\">×</span>\n            ) : (\n              <span className=\"text-2xl\">☰</span>\n            )}\n          </button>\n        </div>\n      </div>\n\n      {/* Mobile Menu */}\n      {isMobileMenuOpen && (\n        <div className=\"md:hidden bg-white\">\n          <div className=\"px-4 pt-2 pb-4 space-y-2\">\n            {navItems.map((item) => (\n              <a \n                key={item.name}\n                href={item.href} \n                className=\"block py-2 text-gray-700 hover:bg-blue-50 rounded\"\n              >\n                {item.name}\n              </a>\n            ))}\n            <div className=\"flex flex-col space-y-2 pt-2\">\n              <a \n                href={secondaryCtaHref} \n                className=\"w-full text-center py-2 text-blue-600 border border-blue-600 rounded-md\"\n              >\n                {secondaryCtaText}\n              </a>\n              <a \n                href={primaryCtaHref} \n                className=\"w-full text-center py-2 bg-blue-600 text-white rounded-md\"\n              >\n                {primaryCtaText}\n              </a>\n            </div>\n          </div>\n        </div>\n      )}\n    </header>\n  );\n}",
+        "props": [
+          {
+            "propName": "logoSrc",
+            "propLabel": "Logo Image Source",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/22113fbd-f702-492d-ae7f-2457c3ed60c9/Header/logoSrc.png"
+          },
+          {
+            "propName": "logoAlt",
+            "propLabel": "Logo Alternative Text",
+            "propType": "alt",
+            "propValue": "Smile Optic Logo"
+          },
+          {
+            "propName": "companyName",
+            "propLabel": "Company Name",
+            "propType": "text",
+            "propValue": "Smile Optic"
+          },
+          {
+            "propName": "primaryCtaText",
+            "propLabel": "Primary Call to Action Text",
+            "propType": "text",
+            "propValue": "Book Eye Test"
+          },
+          {
+            "propName": "primaryCtaHref",
+            "propLabel": "Primary Call to Action Link",
+            "propType": "href",
+            "propValue": "/book-eye-test"
+          },
+          {
+            "propName": "secondaryCtaText",
+            "propLabel": "Secondary Call to Action Text",
+            "propType": "text",
+            "propValue": "Our Services"
+          },
+          {
+            "propName": "secondaryCtaHref",
+            "propLabel": "Secondary Call to Action Link",
+            "propType": "href",
+            "propValue": "/services"
+          }
+        ]
+      },
+      {
+        "id": "f2519118-680e-4954-b9fe-7dd971e846f0",
+        "code": "({ \n  headline1Text, \n  headline2Text, \n  ctaButtonText, \n  ctaButtonHref, \n  heroImageSrc, \n  heroImageAlt, \n  subheadlineText \n}) => {\n  return (\n    <section className=\"w-full flex flex-col lg:flex-row items-center justify-center py-16 lg:py-24 bg-white dark:bg-[#1A1A2E] space-y-8 lg:space-y-0 lg:space-x-12 px-4 md:px-8\">\n      <div className=\"flex flex-col items-center lg:items-start text-center lg:text-left max-w-xl space-y-6\">\n        <div className=\"space-y-4\">\n          <h1 className=\"text-3xl md:text-4xl lg:text-5xl font-inter font-bold text-[#0073E6] tracking-tight\">\n            {headline1Text}\n          </h1>\n          <h2 className=\"text-2xl md:text-3xl lg:text-4xl font-inter font-semibold text-gray-800 dark:text-white\">\n            {headline2Text}\n          </h2>\n          <p className=\"text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed\">\n            {subheadlineText}\n          </p>\n        </div>\n        \n        <a \n          href={ctaButtonHref} \n          className=\"inline-flex items-center justify-center px-6 py-3 bg-[#0073E6] hover:bg-[#0060C3] focus:outline-none focus:ring-2 focus:ring-[#2ECC71] text-white font-roboto font-medium rounded-lg transition-colors duration-300 ease-in-out shadow-md hover:shadow-lg\"\n        >\n          {ctaButtonText}\n          <span className=\"ml-2\">→</span>\n        </a>\n      </div>\n      \n      <div className=\"w-full max-w-md lg:max-w-lg relative group\">\n        <div className=\"absolute inset-0 bg-[#2ECC71] opacity-20 rounded-2xl -rotate-6 group-hover:rotate-0 transition-transform duration-300 ease-in-out\"></div>\n        <img \n          src={heroImageSrc} \n          alt={heroImageAlt} \n          className=\"w-full h-auto rounded-2xl shadow-2xl transform transition-transform duration-300 ease-in-out group-hover:scale-[1.02]\"\n        />\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "headline1Text",
+            "propLabel": "First Headline Text",
+            "propType": "text",
+            "propValue": "No Appointment Necessary"
+          },
+          {
+            "propName": "headline2Text",
+            "propLabel": "Second Headline Text",
+            "propType": "text",
+            "propValue": "Professional Eye Care Made Easy"
+          },
+          {
+            "propName": "subheadlineText",
+            "propLabel": "Subheadline Description",
+            "propType": "text",
+            "propValue": "We'll be happy to advise you and conduct a professional eye test. Best of all, the eye test is free!"
+          },
+          {
+            "propName": "ctaButtonText",
+            "propLabel": "Call to Action Button Text",
+            "propType": "text",
+            "propValue": "Book Your Free Eye Test"
+          },
+          {
+            "propName": "ctaButtonHref",
+            "propLabel": "Call to Action Button Link",
+            "propType": "href",
+            "propValue": "/book-test"
+          },
+          {
+            "propName": "heroImageSrc",
+            "propLabel": "Hero Section Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/66a8e075-579f-4926-b997-1744fcaa8391/HeroSection/heroImageSrc.png"
+          },
+          {
+            "propName": "heroImageAlt",
+            "propLabel": "Hero Image Alternative Text",
+            "propType": "alt",
+            "propValue": "Professional eye test at Smile Optic"
+          }
+        ]
+      },
+      {
+        "id": "a4d19371-a604-46b4-92cc-c3a3066768f3",
+        "code": "({ \n  feature1Title, \n  feature1Description, \n  feature2Title, \n  feature2Description, \n  feature3Title, \n  feature3Description, \n  feature4Title, \n  feature4Description \n}) => {\n  const features = [\n    {\n      icon: 'mdi:glasses',\n      title: feature1Title,\n      description: feature1Description\n    },\n    {\n      icon: 'mdi:timer',\n      title: feature2Title, \n      description: feature2Description\n    },\n    {\n      icon: 'mdi:star-outline',\n      title: feature3Title,\n      description: feature3Description\n    },\n    {\n      icon: 'mdi:check-circle-outline',\n      title: feature4Title,\n      description: feature4Description\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-white py-16 px-4\">\n      <div className=\"max-w-6xl mx-auto\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"text-2xl md:text-3xl font-bold text-blue-600 mb-4\">\n            Our Key Features\n          </h2>\n          <p className=\"text-gray-600 max-w-2xl mx-auto\">\n            Experience professional eye care that combines luxury, efficiency, and precision\n          </p>\n        </div>\n        \n        <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6\">\n          {features.map((feature, index) => (\n            <div \n              key={index} \n              className=\"bg-white border border-gray-100 rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105\"\n            >\n              <div className=\"mb-4 flex justify-center\">\n                <div className=\"bg-blue-50 text-blue-600 p-3 rounded-full inline-block\">\n                  <Icon icon={feature.icon} width={32} height={32} />\n                </div>\n              </div>\n              <h3 className=\"text-lg font-semibold text-gray-800 mb-2\">\n                {feature.title}\n              </h3>\n              <p className=\"text-gray-600 text-sm\">\n                {feature.description}\n              </p>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "feature1Title",
+            "propLabel": "First Feature Title",
+            "propType": "text",
+            "propValue": "No Appointment Needed"
+          },
+          {
+            "propName": "feature1Description",
+            "propLabel": "First Feature Description",
+            "propType": "text",
+            "propValue": "Walk in anytime for a professional eye test without scheduling ahead"
+          },
+          {
+            "propName": "feature2Title",
+            "propLabel": "Second Feature Title",
+            "propType": "text",
+            "propValue": "Fast Alignment"
+          },
+          {
+            "propName": "feature2Description",
+            "propLabel": "Second Feature Description",
+            "propType": "text",
+            "propValue": "Quick and precise frame fitting with cutting-edge technology"
+          },
+          {
+            "propName": "feature3Title",
+            "propLabel": "Third Feature Title",
+            "propType": "text",
+            "propValue": "Luxury Brands"
+          },
+          {
+            "propName": "feature3Description",
+            "propLabel": "Third Feature Description",
+            "propType": "text",
+            "propValue": "Curated selection of premium eyewear from top international designers"
+          },
+          {
+            "propName": "feature4Title",
+            "propLabel": "Fourth Feature Title",
+            "propType": "text",
+            "propValue": "Professional Care"
+          },
+          {
+            "propName": "feature4Description",
+            "propLabel": "Fourth Feature Description",
+            "propType": "text",
+            "propValue": "Expert optometrists providing personalized and comprehensive eye care"
+          }
+        ]
+      },
+      {
+        "id": "77562d54-f85d-45fa-885b-2152c7939198",
+        "code": "({ \n  title1,\n  subtitle1, \n  description1,\n  pricingCard1Title,\n  pricingCard1Price,\n  pricingCard1Features1,\n  pricingCard1Features2,\n  pricingCard1Features3,\n  pricingCard1ButtonText,\n  pricingCard2Title,\n  pricingCard2Price,\n  pricingCard2Features1,\n  pricingCard2Features2,\n  pricingCard2Features3,\n  pricingCard2ButtonText,\n  pricingCard3Title,\n  pricingCard3Price,\n  pricingCard3Features1,\n  pricingCard3Features2,\n  pricingCard3Features3,\n  pricingCard3ButtonText\n}) => {\n  const pricingCards = [\n    {\n      title: pricingCard1Title,\n      price: pricingCard1Price,\n      features: [\n        pricingCard1Features1,\n        pricingCard1Features2, \n        pricingCard1Features3\n      ],\n      buttonText: pricingCard1ButtonText\n    },\n    {\n      title: pricingCard2Title,\n      price: pricingCard2Price,\n      features: [\n        pricingCard2Features1,\n        pricingCard2Features2,\n        pricingCard2Features3\n      ],\n      buttonText: pricingCard2ButtonText\n    },\n    {\n      title: pricingCard3Title,\n      price: pricingCard3Price,\n      features: [\n        pricingCard3Features1,\n        pricingCard3Features2,\n        pricingCard3Features3\n      ],\n      buttonText: pricingCard3ButtonText\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-white py-16 px-4 lg:px-24\">\n      <div className=\"max-w-7xl mx-auto text-center\">\n        <h2 className=\"text-3xl md:text-4xl font-bold text-[#0073E6] mb-4\">\n          {title1}\n        </h2>\n        <p className=\"text-lg text-gray-600 mb-12\">\n          {subtitle1}\n        </p>\n        <p className=\"text-base text-gray-500 mb-12\">\n          {description1}\n        </p>\n\n        <div className=\"grid md:grid-cols-3 gap-8\">\n          {pricingCards.map((card, index) => (\n            <div \n              key={index} \n              className=\"bg-white border border-gray-200 rounded-2xl p-6 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl\"\n            >\n              <h3 className=\"text-xl font-semibold text-[#0073E6] mb-4\">\n                {card.title}\n              </h3>\n              <div className=\"text-4xl font-bold text-[#2ECC71] mb-6\">\n                {card.price}\n              </div>\n              <ul className=\"mb-8 space-y-4 text-gray-600\">\n                {card.features.map((feature, featureIndex) => (\n                  <li key={featureIndex} className=\"flex items-center\">\n                    <svg \n                      xmlns=\"http://www.w3.org/2000/svg\" \n                      className=\"h-5 w-5 text-[#2ECC71] mr-2\" \n                      viewBox=\"0 0 20 20\" \n                      fill=\"currentColor\"\n                    >\n                      <path \n                        fillRule=\"evenodd\" \n                        d=\"M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z\" \n                        clipRule=\"evenodd\" \n                      />\n                    </svg>\n                    {feature}\n                  </li>\n                ))}\n              </ul>\n              <button \n                className=\"w-full bg-[#0073E6] text-white py-3 rounded-lg font-semibold \n                           transition-all duration-300 hover:bg-[#005AB3] \n                           focus:outline-none focus:ring-2 focus:ring-[#2ECC71]\"\n              >\n                {card.buttonText}\n              </button>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "title1",
+            "propLabel": "Section Title",
+            "propType": "text",
+            "propValue": "Our Pricing Plans"
+          },
+          {
+            "propName": "subtitle1",
+            "propLabel": "Section Subtitle",
+            "propType": "text",
+            "propValue": "Professional Eye Care Without Complexity"
+          },
+          {
+            "propName": "description1",
+            "propLabel": "Section Description",
+            "propType": "text",
+            "propValue": "Choose a plan that fits your eye care needs. No appointments necessary, professional service guaranteed."
+          },
+          {
+            "propName": "pricingCard1Title",
+            "propLabel": "First Card Title",
+            "propType": "text",
+            "propValue": "Basic Exam"
+          },
+          {
+            "propName": "pricingCard1Price",
+            "propLabel": "First Card Price",
+            "propType": "text",
+            "propValue": "Free"
+          },
+          {
+            "propName": "pricingCard1Features1",
+            "propLabel": "First Card Feature 1",
+            "propType": "text",
+            "propValue": "Quick Vision Assessment"
+          },
+          {
+            "propName": "pricingCard1Features2",
+            "propLabel": "First Card Feature 2",
+            "propType": "text",
+            "propValue": "Basic Eye Health Check"
+          },
+          {
+            "propName": "pricingCard1Features3",
+            "propLabel": "First Card Feature 3",
+            "propType": "text",
+            "propValue": "No Appointment Needed"
+          },
+          {
+            "propName": "pricingCard1ButtonText",
+            "propLabel": "First Card Button Text",
+            "propType": "text",
+            "propValue": "Start Basic Exam"
+          },
+          {
+            "propName": "pricingCard2Title",
+            "propLabel": "Second Card Title",
+            "propType": "text",
+            "propValue": "Comprehensive Check"
+          },
+          {
+            "propName": "pricingCard2Price",
+            "propLabel": "Second Card Price",
+            "propType": "text",
+            "propValue": "$49.99"
+          },
+          {
+            "propName": "pricingCard2Features1",
+            "propLabel": "Second Card Feature 1",
+            "propType": "text",
+            "propValue": "Detailed Vision Analysis"
+          },
+          {
+            "propName": "pricingCard2Features2",
+            "propLabel": "Second Card Feature 2",
+            "propType": "text",
+            "propValue": "Advanced Eye Health Screening"
+          },
+          {
+            "propName": "pricingCard2Features3",
+            "propLabel": "Second Card Feature 3",
+            "propType": "text",
+            "propValue": "Luxury Brand Consultation"
+          },
+          {
+            "propName": "pricingCard2ButtonText",
+            "propLabel": "Second Card Button Text",
+            "propType": "text",
+            "propValue": "Book Comprehensive Check"
+          },
+          {
+            "propName": "pricingCard3Title",
+            "propLabel": "Third Card Title",
+            "propType": "text",
+            "propValue": "Premium Care"
+          },
+          {
+            "propName": "pricingCard3Price",
+            "propLabel": "Third Card Price",
+            "propType": "text",
+            "propValue": "$99.99"
+          },
+          {
+            "propName": "pricingCard3Features1",
+            "propLabel": "Third Card Feature 1",
+            "propType": "text",
+            "propValue": "Full Diagnostic Exam"
+          },
+          {
+            "propName": "pricingCard3Features2",
+            "propLabel": "Third Card Feature 2",
+            "propType": "text",
+            "propValue": "Custom Lens Consultation"
+          },
+          {
+            "propName": "pricingCard3Features3",
+            "propLabel": "Third Card Feature 3",
+            "propType": "text",
+            "propValue": "Priority Service"
+          },
+          {
+            "propName": "pricingCard3ButtonText",
+            "propLabel": "Third Card Button Text",
+            "propType": "text",
+            "propValue": "Select Premium Care"
+          }
+        ]
+      },
+      {
+        "id": "707572f7-f3f0-479b-a74f-72e219411df5",
+        "code": "({ \n  galleryItems1ImageSrc, \n  galleryItems1Title, \n  galleryItems1Description,\n  galleryItems2ImageSrc, \n  galleryItems2Title, \n  galleryItems2Description,\n  galleryItems3ImageSrc, \n  galleryItems3Title, \n  galleryItems3Description,\n  sectionTitle \n}) => {\n  const galleryItems = [\n    {\n      imageSrc: galleryItems1ImageSrc,\n      title: galleryItems1Title,\n      description: galleryItems1Description\n    },\n    {\n      imageSrc: galleryItems2ImageSrc,\n      title: galleryItems2Title,\n      description: galleryItems2Description\n    },\n    {\n      imageSrc: galleryItems3ImageSrc,\n      title: galleryItems3Title,\n      description: galleryItems3Description\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-white py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-7xl mx-auto\">\n        <h2 className=\"text-center text-3xl font-semibold text-[#0073E6] mb-12\">\n          {sectionTitle}\n        </h2>\n        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n          {galleryItems.map((item, index) => (\n            <div \n              key={index} \n              className=\"bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02]\"\n            >\n              <div className=\"relative pt-[66.66%] overflow-hidden\">\n                <img \n                  src={item.imageSrc} \n                  alt={item.title} \n                  className=\"absolute inset-0 w-full h-full object-cover\"\n                />\n              </div>\n              <div className=\"p-6\">\n                <h3 className=\"text-xl font-semibold text-[#1A1A2E] mb-4\">\n                  {item.title}\n                </h3>\n                <p className=\"text-base text-gray-600\">\n                  {item.description}\n                </p>\n              </div>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "galleryItems1ImageSrc",
+            "propLabel": "First Gallery Item Image Source",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/87978276-58ce-4692-b351-17dcfcdf9cb0/GallerySection/galleryItems1ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems1Title",
+            "propLabel": "First Gallery Item Title",
+            "propType": "text",
+            "propValue": "Professional Eye Test"
+          },
+          {
+            "propName": "galleryItems1Description",
+            "propLabel": "First Gallery Item Description",
+            "propType": "text",
+            "propValue": "Quick and precise eye examination using state-of-the-art technology"
+          },
+          {
+            "propName": "galleryItems2ImageSrc",
+            "propLabel": "Second Gallery Item Image Source",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/8223e8d4-4b63-4fd1-8655-fb82c040858f/GallerySection/galleryItems2ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems2Title",
+            "propLabel": "Second Gallery Item Title",
+            "propType": "text",
+            "propValue": "Luxury Eyewear Collection"
+          },
+          {
+            "propName": "galleryItems2Description",
+            "propLabel": "Second Gallery Item Description",
+            "propType": "text",
+            "propValue": "Exclusive range of top designer brands and premium eyewear"
+          },
+          {
+            "propName": "galleryItems3ImageSrc",
+            "propLabel": "Third Gallery Item Image Source",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/73e8e6e5-5d72-48b6-8e53-9420191d3d7d/GallerySection/galleryItems3ImageSrc.png"
+          },
+          {
+            "propName": "galleryItems3Title",
+            "propLabel": "Third Gallery Item Title",
+            "propType": "text",
+            "propValue": "Fast Alignment Service"
+          },
+          {
+            "propName": "galleryItems3Description",
+            "propLabel": "Third Gallery Item Description",
+            "propType": "text",
+            "propValue": "Rapid and accurate lens fitting with minimal wait time"
+          },
+          {
+            "propName": "sectionTitle",
+            "propLabel": "Section Title",
+            "propType": "text",
+            "propValue": "Our Signature Services"
+          }
+        ]
+      },
+      {
+        "id": "27093271-d0b8-4a9b-82e8-bd7907bab571",
+        "code": "({ \n  title1, \n  subtitle1, \n  description1, \n  title2, \n  subtitle2, \n  description2, \n  title3, \n  subtitle3, \n  description3,\n  imageSrc1,\n  imageSrc2,\n  imageSrc3\n}) => {\n  return (\n    <section className=\"w-full bg-white py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-7xl mx-auto grid md:grid-cols-3 gap-8\">\n        {/* Feature 1 */}\n        <div className=\"flex flex-col items-center text-center space-y-4 group\">\n          <div className=\"w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-300\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" className=\"h-12 w-12 text-blue-600\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n              <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\" />\n            </svg>\n          </div>\n          <h3 className=\"text-xl font-semibold text-gray-800\">{title1}</h3>\n          <p className=\"text-gray-600 text-base\">{description1}</p>\n        </div>\n\n        {/* Feature 2 */}\n        <div className=\"flex flex-col items-center text-center space-y-4 group\">\n          <div className=\"w-24 h-24 bg-green-50 rounded-full flex items-center justify-center group-hover:bg-green-100 transition-colors duration-300\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" className=\"h-12 w-12 text-green-600\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n              <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z\" />\n            </svg>\n          </div>\n          <h3 className=\"text-xl font-semibold text-gray-800\">{title2}</h3>\n          <p className=\"text-gray-600 text-base\">{description2}</p>\n        </div>\n\n        {/* Feature 3 */}\n        <div className=\"flex flex-col items-center text-center space-y-4 group\">\n          <div className=\"w-24 h-24 bg-coral-50 rounded-full flex items-center justify-center group-hover:bg-coral-100 transition-colors duration-300\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" className=\"h-12 w-12 text-coral-600\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n              <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\" />\n            </svg>\n          </div>\n          <h3 className=\"text-xl font-semibold text-gray-800\">{title3}</h3>\n          <p className=\"text-gray-600 text-base\">{description3}</p>\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "title1",
+            "propLabel": "First Feature Title",
+            "propType": "text",
+            "propValue": "No Appointment Needed"
+          },
+          {
+            "propName": "subtitle1",
+            "propLabel": "First Feature Subtitle",
+            "propType": "text",
+            "propValue": "Quick Service"
+          },
+          {
+            "propName": "description1",
+            "propLabel": "First Feature Description",
+            "propType": "text",
+            "propValue": "Walk in anytime for a professional eye test without scheduling ahead."
+          },
+          {
+            "propName": "title2",
+            "propLabel": "Second Feature Title",
+            "propType": "text",
+            "propValue": "Luxury Brands"
+          },
+          {
+            "propName": "subtitle2",
+            "propLabel": "Second Feature Subtitle",
+            "propType": "text",
+            "propValue": "Premium Eyewear"
+          },
+          {
+            "propName": "description2",
+            "propLabel": "Second Feature Description",
+            "propType": "text",
+            "propValue": "Curated selection of high-end designer eyewear from top global brands."
+          },
+          {
+            "propName": "title3",
+            "propLabel": "Third Feature Title",
+            "propType": "text",
+            "propValue": "Fast Alignment"
+          },
+          {
+            "propName": "subtitle3",
+            "propLabel": "Third Feature Subtitle",
+            "propType": "text",
+            "propValue": "Precision Fitting"
+          },
+          {
+            "propName": "description3",
+            "propLabel": "Third Feature Description",
+            "propType": "text",
+            "propValue": "Rapid and accurate frame and lens fitting using advanced technology."
+          }
+        ]
+      },
+      {
+        "id": "e00ef7e4-bf00-4c8e-820a-419343e33c92",
+        "code": "({ \n  teamTitle1, \n  teamTitle2,\n  teamSubtitle1,\n  teamSubtitle2,\n  team1ImageSrc, \n  team2ImageSrc,\n  team1Name,\n  team2Name,\n  team1Role,\n  team2Role,\n  team1Description,\n  team2Description\n}) => {\n  const teamMembers = [\n    {\n      name: team1Name,\n      role: team1Role,\n      description: team1Description,\n      imageSrc: team1ImageSrc\n    },\n    {\n      name: team2Name, \n      role: team2Role,\n      description: team2Description,\n      imageSrc: team2ImageSrc\n    }\n  ];\n\n  return (\n    <section className=\"w-full bg-white py-16 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-6xl mx-auto\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"text-2xl md:text-3xl lg:text-4xl font-semibold text-blue-600 mb-4\">\n            {teamTitle1} {teamTitle2}\n          </h2>\n          <p className=\"text-base md:text-lg text-gray-600 max-w-2xl mx-auto\">\n            {teamSubtitle1} {teamSubtitle2}\n          </p>\n        </div>\n        \n        <div className=\"grid md:grid-cols-2 gap-8 items-start\">\n          {teamMembers.map((member, index) => (\n            <div \n              key={index} \n              className=\"bg-white shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl\"\n            >\n              <div className=\"relative\">\n                <img \n                  src={member.imageSrc} \n                  alt={`${member.name} profile`}\n                  className=\"w-full h-64 object-cover object-center\"\n                />\n                <div className=\"absolute inset-0 bg-blue-600 opacity-0 hover:opacity-20 transition-opacity duration-300\"></div>\n              </div>\n              \n              <div className=\"p-6\">\n                <h3 className=\"text-xl font-semibold text-gray-900 mb-2\">\n                  {member.name}\n                </h3>\n                <h4 className=\"text-base text-blue-600 mb-4\">\n                  {member.role}\n                </h4>\n                <p className=\"text-gray-600\">\n                  {member.description}\n                </p>\n              </div>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "teamTitle1",
+            "propLabel": "Team Section Primary Title",
+            "propType": "text",
+            "propValue": "Meet Our Expert"
+          },
+          {
+            "propName": "teamTitle2",
+            "propLabel": "Team Section Secondary Title",
+            "propType": "text",
+            "propValue": "Optical Professionals"
+          },
+          {
+            "propName": "teamSubtitle1",
+            "propLabel": "Team Section Primary Subtitle",
+            "propType": "text",
+            "propValue": "Our dedicated team combines precision and care"
+          },
+          {
+            "propName": "teamSubtitle2",
+            "propLabel": "Team Section Secondary Subtitle",
+            "propType": "text",
+            "propValue": "to provide you with the best eye care experience."
+          },
+          {
+            "propName": "team1ImageSrc",
+            "propLabel": "First Team Member Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/258b9381-dd9c-4030-a871-ed5f08d69f06/TeamShowcaseSection/team1ImageSrc.png"
+          },
+          {
+            "propName": "team2ImageSrc",
+            "propLabel": "Second Team Member Image",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/49e679b5-6336-4994-a66c-80d1da19e9a7/TeamShowcaseSection/team2ImageSrc.png"
+          },
+          {
+            "propName": "team1Name",
+            "propLabel": "First Team Member Name",
+            "propType": "text",
+            "propValue": "Dr. Emily Rodriguez"
+          },
+          {
+            "propName": "team2Name",
+            "propLabel": "Second Team Member Name",
+            "propType": "text",
+            "propValue": "Michael Chen"
+          },
+          {
+            "propName": "team1Role",
+            "propLabel": "First Team Member Role",
+            "propType": "text",
+            "propValue": "Lead Optometrist"
+          },
+          {
+            "propName": "team2Role",
+            "propLabel": "Second Team Member Role",
+            "propType": "text",
+            "propValue": "Senior Eyewear Consultant"
+          },
+          {
+            "propName": "team1Description",
+            "propLabel": "First Team Member Description",
+            "propType": "text",
+            "propValue": "With over 10 years of experience, Dr. Rodriguez specializes in comprehensive eye examinations and advanced optical solutions."
+          },
+          {
+            "propName": "team2Description",
+            "propLabel": "Second Team Member Description",
+            "propType": "text",
+            "propValue": "Michael brings expertise in luxury eyewear brands and personalized style consultations."
+          }
+        ]
+      },
+      {
+        "id": "96227749-285e-4daa-94cf-593d23f7304f",
+        "code": "({ \n  testimonial1Title, \n  testimonial1Description, \n  testimonial1AuthorName, \n  testimonial1AuthorRole,\n  testimonial1AvatarSrc,\n  testimonial2Title, \n  testimonial2Description, \n  testimonial2AuthorName, \n  testimonial2AuthorRole,\n  testimonial2AvatarSrc,\n  testimonial3Title, \n  testimonial3Description, \n  testimonial3AuthorName, \n  testimonial3AuthorRole,\n  testimonial3AvatarSrc \n}) => {\n  const testimonials = [\n    {\n      title: testimonial1Title,\n      description: testimonial1Description,\n      authorName: testimonial1AuthorName,\n      authorRole: testimonial1AuthorRole,\n      avatarSrc: testimonial1AvatarSrc\n    },\n    {\n      title: testimonial2Title,\n      description: testimonial2Description,\n      authorName: testimonial2AuthorName,\n      authorRole: testimonial2AuthorRole,\n      avatarSrc: testimonial2AvatarSrc\n    },\n    {\n      title: testimonial3Title,\n      description: testimonial3Description,\n      authorName: testimonial3AuthorName,\n      authorRole: testimonial3AuthorRole,\n      avatarSrc: testimonial3AvatarSrc\n    }\n  ];\n\n  const [currentSlide, setCurrentSlide] = React.useState(0);\n\n  const handlePrevSlide = () => {\n    setCurrentSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));\n  };\n\n  const handleNextSlide = () => {\n    setCurrentSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));\n  };\n\n  return (\n    <section className=\"w-full py-16 bg-white dark:bg-gray-900 flex flex-col items-center\">\n      <div className=\"max-w-4xl mx-auto px-4 text-center\">\n        <div className=\"relative w-full\">\n          <div className=\"overflow-hidden relative\">\n            <div \n              className=\"flex transition-transform duration-500 ease-in-out\"\n              style={{ transform: `translateX(-${currentSlide * 100}%)` }}\n            >\n              {testimonials.map((testimonial, index) => (\n                <div \n                  key={index} \n                  className=\"w-full flex-shrink-0 flex flex-col items-center justify-center\"\n                >\n                  <div className=\"max-w-2xl text-center\">\n                    <h3 className=\"text-2xl font-semibold text-gray-800 dark:text-white mb-4\">\n                      {testimonial.title}\n                    </h3>\n                    <p className=\"text-lg text-gray-600 dark:text-gray-300 mb-6 italic\">\n                      \"{testimonial.description}\"\n                    </p>\n                    <div className=\"flex items-center justify-center space-x-4\">\n                      <img \n                        src={testimonial.avatarSrc} \n                        alt={`${testimonial.authorName}'s avatar`}\n                        className=\"w-16 h-16 rounded-full object-cover\"\n                      />\n                      <div>\n                        <p className=\"text-lg font-semibold text-gray-800 dark:text-white\">\n                          {testimonial.authorName}\n                        </p>\n                        <p className=\"text-sm text-gray-600 dark:text-gray-400\">\n                          {testimonial.authorRole}\n                        </p>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n              ))}\n            </div>\n          </div>\n          \n          <div className=\"absolute top-1/2 left-0 right-0 flex justify-between transform -translate-y-1/2\">\n            <button \n              onClick={handlePrevSlide}\n              className=\"text-blue-600 hover:text-blue-800 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md\"\n              aria-label=\"Previous Testimonial\"\n            >\n              <Icon icon=\"mdi:chevron-left\" width={24} height={24} />\n            </button>\n            <button \n              onClick={handleNextSlide}\n              className=\"text-blue-600 hover:text-blue-800 p-2 rounded-full bg-white/80 dark:bg-gray-800/80 shadow-md\"\n              aria-label=\"Next Testimonial\"\n            >\n              <Icon icon=\"mdi:chevron-right\" width={24} height={24} />\n            </button>\n          </div>\n          \n          <div className=\"mt-8 flex justify-center space-x-2\">\n            {testimonials.map((_, index) => (\n              <button\n                key={index}\n                onClick={() => setCurrentSlide(index)}\n                className={`w-3 h-3 rounded-full ${\n                  currentSlide === index \n                    ? 'bg-blue-600' \n                    : 'bg-gray-300 dark:bg-gray-600'\n                }`}\n                aria-label={`Go to slide ${index + 1}`}\n              />\n            ))}\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "testimonial1Title",
+            "propLabel": "First Testimonial Title",
+            "propType": "text",
+            "propValue": "Exceptional Eye Care Experience"
+          },
+          {
+            "propName": "testimonial1Description",
+            "propLabel": "First Testimonial Description",
+            "propType": "text",
+            "propValue": "Smile Optic transformed my eye care journey. Fast, professional, and incredibly welcoming!"
+          },
+          {
+            "propName": "testimonial1AuthorName",
+            "propLabel": "First Testimonial Author Name",
+            "propType": "text",
+            "propValue": "Emily Johnson"
+          },
+          {
+            "propName": "testimonial1AuthorRole",
+            "propLabel": "First Testimonial Author Role",
+            "propType": "text",
+            "propValue": "Marketing Professional"
+          },
+          {
+            "propName": "testimonial1AvatarSrc",
+            "propLabel": "First Testimonial Avatar",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/9a6abbc2-21bc-48c7-be8e-537f0661b3b1/TestimonialSliderSection/testimonial1AvatarSrc.png"
+          },
+          {
+            "propName": "testimonial2Title",
+            "propLabel": "Second Testimonial Title",
+            "propType": "text",
+            "propValue": "No Appointment Needed, No Stress!"
+          },
+          {
+            "propName": "testimonial2Description",
+            "propLabel": "Second Testimonial Description",
+            "propType": "text",
+            "propValue": "The convenience of walking in and getting immediate, high-quality eye care is unmatched."
+          },
+          {
+            "propName": "testimonial2AuthorName",
+            "propLabel": "Second Testimonial Author Name",
+            "propType": "text",
+            "propValue": "Michael Chen"
+          },
+          {
+            "propName": "testimonial2AuthorRole",
+            "propLabel": "Second Testimonial Author Role",
+            "propType": "text",
+            "propValue": "Software Engineer"
+          },
+          {
+            "propName": "testimonial2AvatarSrc",
+            "propLabel": "Second Testimonial Avatar",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/6d8d4fd0-51da-4536-8836-df8e6124f7fd/TestimonialSliderSection/testimonial2AvatarSrc.png"
+          },
+          {
+            "propName": "testimonial3Title",
+            "propLabel": "Third Testimonial Title",
+            "propType": "text",
+            "propValue": "Premium Brands, Personal Care"
+          },
+          {
+            "propName": "testimonial3Description",
+            "propLabel": "Third Testimonial Description",
+            "propType": "text",
+            "propValue": "The range of luxury eyewear brands combined with professional service is truly impressive."
+          },
+          {
+            "propName": "testimonial3AuthorName",
+            "propLabel": "Third Testimonial Author Name",
+            "propType": "text",
+            "propValue": "Sarah Rodriguez"
+          },
+          {
+            "propName": "testimonial3AuthorRole",
+            "propLabel": "Third Testimonial Author Role",
+            "propType": "text",
+            "propValue": "Fashion Designer"
+          },
+          {
+            "propName": "testimonial3AvatarSrc",
+            "propLabel": "Third Testimonial Avatar",
+            "propType": "src",
+            "propValue": "https://generated-images-test.fsn1.your-objectstorage.com/6de021bd-bb9d-46be-98d0-ef8ad67ce7ec/TestimonialSliderSection/testimonial3AvatarSrc.png"
+          }
+        ]
+      },
+      {
+        "id": "43fd2a62-0bf6-4aef-b249-7f823cfc0ee4",
+        "code": "({ \n  stat1Title, \n  stat1Value, \n  stat2Title, \n  stat2Value, \n  stat3Title, \n  stat3Value, \n  backgroundTitle \n}) => {\n  return (\n    <section className=\"w-full bg-white dark:bg-[#1A1A2E] py-16 md:py-24 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-7xl mx-auto\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"text-2xl md:text-3xl lg:text-4xl font-semibold text-[#0073E6] mb-4\">\n            {backgroundTitle || \"Our Performance Impact\"}\n          </h2>\n          <p className=\"text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto\">\n            Delivering exceptional eye care with measurable results\n          </p>\n        </div>\n        \n        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8\">\n          {[\n            { title: stat1Title, value: stat1Value },\n            { title: stat2Title, value: stat2Value },\n            { title: stat3Title, value: stat3Value }\n          ].map((stat, index) => (\n            <div \n              key={index} \n              className=\"bg-[#F8F9FA] dark:bg-[#16213E] rounded-lg p-6 text-center transition-transform duration-300 hover:scale-[1.02] hover:shadow-md\"\n            >\n              <div className=\"text-4xl md:text-5xl font-bold text-[#0073E6] mb-4\">\n                {stat.value || \"0\"}\n              </div>\n              <div className=\"text-base md:text-lg text-gray-700 dark:text-gray-200\">\n                {stat.title || \"Unnamed Statistic\"}\n              </div>\n            </div>\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
+        "props": [
+          {
+            "propName": "stat1Title",
+            "propLabel": "First Statistic Title",
+            "propType": "text",
+            "propValue": "Free Eye Tests"
+          },
+          {
+            "propName": "stat1Value",
+            "propLabel": "First Statistic Value",
+            "propType": "text",
+            "propValue": "500+"
+          },
+          {
+            "propName": "stat2Title",
+            "propLabel": "Second Statistic Title",
+            "propType": "text",
+            "propValue": "Happy Customers"
+          },
+          {
+            "propName": "stat2Value",
+            "propLabel": "Second Statistic Value",
+            "propType": "text",
+            "propValue": "5000+"
+          },
+          {
+            "propName": "stat3Title",
+            "propLabel": "Third Statistic Title",
+            "propType": "text",
+            "propValue": "Luxury Brands"
+          },
+          {
+            "propName": "stat3Value",
+            "propLabel": "Third Statistic Value",
+            "propType": "text",
+            "propValue": "50+"
+          },
+          {
+            "propName": "backgroundTitle",
+            "propLabel": "Section Background Title",
+            "propType": "text",
+            "propValue": "Our Performance Impact"
+          }
+        ]
+      },
+      {
+        "id": "839a7bfa-00dc-4673-be2e-9d9998b35cd2",
+        "code": "({ \n  companyName1Text = 'Smile Optic', \n  addressLine1Text = '123 Optical Street, City, State 12345', \n  phoneNumber1Text = '+1 (555) 123-4567', \n  emailAddress1Text = 'contact@smileoptic.com',\n  workingHours1Text = 'Mon-Fri: 9 AM - 6 PM, Sat: 10 AM - 4 PM',\n  socialMediaFacebook1Href = 'https://facebook.com/smileoptic',\n  socialMediaTwitter1Href = 'https://twitter.com/smileoptic',\n  socialMediaInstagram1Href = 'https://instagram.com/smileoptic'\n}) => {\n  return (\n    <section className=\"w-full bg-white py-12 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-6xl mx-auto grid md:grid-cols-2 gap-8\">\n        {/* Contact Information Column */}\n        <div className=\"space-y-6\">\n          <h2 className=\"text-2xl md:text-3xl font-bold text-blue-600 mb-4\">\n            {companyName1Text}\n          </h2>\n          \n          <div className=\"space-y-3 text-gray-700\">\n            <div className=\"flex items-center space-x-3\">\n              <div className=\"text-blue-500\">\n                <svg xmlns=\"http://www.w3.org/2000/svg\" className=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                  <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\" />\n                  <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\" />\n                </svg>\n              </div>\n              <p className=\"text-base\">{addressLine1Text}</p>\n            </div>\n            \n            <div className=\"flex items-center space-x-3\">\n              <div className=\"text-blue-500\">\n                <svg xmlns=\"http://www.w3.org/2000/svg\" className=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                  <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z\" />\n                </svg>\n              </div>\n              <p className=\"text-base\">{phoneNumber1Text}</p>\n            </div>\n            \n            <div className=\"flex items-center space-x-3\">\n              <div className=\"text-blue-500\">\n                <svg xmlns=\"http://www.w3.org/2000/svg\" className=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                  <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z\" />\n                </svg>\n              </div>\n              <p className=\"text-base\">{emailAddress1Text}</p>\n            </div>\n            \n            <div className=\"flex items-center space-x-3\">\n              <div className=\"text-blue-500\">\n                <svg xmlns=\"http://www.w3.org/2000/svg\" className=\"h-6 w-6\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\n                  <path strokeLinecap=\"round\" strokeLinejoin=\"round\" strokeWidth={2} d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\" />\n                </svg>\n              </div>\n              <p className=\"text-base\">{workingHours1Text}</p>\n            </div>\n          </div>\n        </div>\n        \n        {/* Social Media and Additional Links Column */}\n        <div className=\"space-y-6\">\n          <h3 className=\"text-xl md:text-2xl font-semibold text-blue-600 mb-4\">\n            Connect With Us\n          </h3>\n          \n          <div className=\"flex space-x-4\">\n            <a \n              href={socialMediaFacebook1Href} \n              target=\"_blank\" \n              rel=\"noopener noreferrer\" \n              className=\"text-blue-600 hover:text-blue-800 transition-colors duration-300\"\n            >\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n                <path d=\"M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z\"/>\n              </svg>\n            </a>\n            \n            <a \n              href={socialMediaTwitter1Href} \n              target=\"_blank\" \n              rel=\"noopener noreferrer\" \n              className=\"text-blue-400 hover:text-blue-600 transition-colors duration-300\"\n            >\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n                <path d=\"M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.511.286 1.11.461 1.741.486a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.286-.1-.571-.1-.867a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z\"/>\n              </svg>\n            </a>\n            \n            <a \n              href={socialMediaInstagram1Href} \n              target=\"_blank\" \n              rel=\"noopener noreferrer\" \n              className=\"text-pink-500 hover:text-pink-700 transition-colors duration-300\"\n            >\n              <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n                <path d=\"M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248zm0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008z\"/>\n                <path d=\"M17.884 7.207A1.719 1.719 0 0 1 16.165 5.5a1.708 1.708 0 0 1 1.719-1.717c.946 0 1.717.766 1.717 1.717s-.77 1.707-1.717 1.707zM19.803 9.294a5.576 5.576 0 0 0-.372-1.984 3.769 3.769 0 0 0-.884-1.347 3.789 3.789 0 0 0-1.347-.885 5.614 5.614 0 0 0-1.985-.371c-.861-.042-1.135-.052-3.321-.052s-2.461 0-3.321.052a5.615 5.615 0 0 0-1.985.371 3.792 3.792 0 0 0-1.347.885c-.421.42-.724.963-.884 1.347a5.576 5.576 0 0 0-.372 1.984c-.042.861-.052 1.135-.052 3.321s0 2.461.052 3.321c.019.708.156 1.404.372 1.985.16.384.463.927.884 1.347.42.421.963.724 1.347.884.581.216 1.278.353 1.985.372.861.042 1.135.052 3.321.052s2.461 0 3.321-.052a5.615 5.615 0 0 0 1.985-.372 3.797 3.797 0 0 0 1.347-.884c.421-.42.724-.963.884-1.347.216-.581.353-1.277.372-1.985.042-.861.052-1.135.052-3.321s0-2.461-.052-3.321zm-1.452 6.578a4.104 4.104 0 0 1-.26 1.362 2.362 2.362 0 0 1-.557.84 2.386 2.386 0 0 1-.84.558 4.104 4.104 0 0 1-1.362.26c-.861.04-1.118.05-3.294.05s-2.432 0-3.294-.05a4.104 4.104 0 0 1-1.362-.26 2.386 2.386 0 0 1-.84-.558 2.362 2.362 0 0 1-.557-.84 4.104 4.104 0 0 1-.26-1.362c-.04-.861-.05-1.118-.05-3.294s0-2.432.05-3.294a4.104 4.104 0 0 1 .26-1.362 2.362 2.362 0 0 1 .557-.84c.232-.232.516-.4.84-.558a4.104 4.104 0 0 1 1.362-.26c.861-.04 1.118-.05 3.294-.05s2.432 0 3.294.05a4.104 4.104 0 0 1 1.362.26 2.386 2.386 0 0 1 .84.558c.232.232.4.516.557.84a4.104 4.104 0 0 1 .26 1.362c.04.861.05 1.118.05 3.294s0 2.432-.05 3.294z\"/>\n              </svg>\n            </a>\n          </div>\n          \n          {/* Quick Links */}\n          <div className=\"space-y-2\">\n            <h4 className=\"text-lg font-semibold text-blue-600 mb-2\">Quick Links</h4>\n            <div className=\"flex flex-col space-y-2\">\n              <a href=\"#\" className=\"text-gray-600 hover:text-blue-600 transition-colors duration-300\">Book Free Eye Test</a>\n              <a href=\"#\" className=\"text-gray-600 hover:text-blue-600 transition-colors duration-300\">Our Services</a>\n              <a href=\"#\" className=\"text-gray-600 hover:text-blue-600 transition-colors duration-300\">Insurance Information</a>\n            </div>\n          </div>\n        </div>\n      </div>\n    </section>\n  )\n}",
+        "props": [
+          {
+            "propName": "companyName1Text",
+            "propLabel": "Company Name",
+            "propType": "text",
+            "propValue": "Smile Optic"
+          },
+          {
+            "propName": "addressLine1Text",
+            "propLabel": "Company Address",
+            "propType": "text",
+            "propValue": "123 Optical Street, City, State 12345"
+          },
+          {
+            "propName": "phoneNumber1Text",
+            "propLabel": "Phone Number",
+            "propType": "text",
+            "propValue": "+1 (555) 123-4567"
+          },
+          {
+            "propName": "emailAddress1Text",
+            "propLabel": "Email Address",
+            "propType": "text",
+            "propValue": "contact@smileoptic.com"
+          },
+          {
+            "propName": "workingHours1Text",
+            "propLabel": "Working Hours",
+            "propType": "text",
+            "propValue": "Mon-Fri: 9 AM - 6 PM, Sat: 10 AM - 4 PM"
+          },
+          {
+            "propName": "socialMediaFacebook1Href",
+            "propLabel": "Facebook Profile URL",
+            "propType": "href",
+            "propValue": "https://facebook.com/smileoptic"
+          },
+          {
+            "propName": "socialMediaTwitter1Href",
+            "propLabel": "Twitter Profile URL",
+            "propType": "href",
+            "propValue": "https://twitter.com/smileoptic"
+          },
+          {
+            "propName": "socialMediaInstagram1Href",
+            "propLabel": "Instagram Profile URL",
+            "propType": "href",
+            "propValue": "https://instagram.com/smileoptic"
+          }
+        ]
+      },
+      {
+        "id": "ab372c81-8273-43ad-910d-eb64c40a19ee",
+        "code": "({ \n  title1Text, \n  title2Text, \n  description1Text, \n  description2Text, \n  link1Href, \n  link2Href, \n  link3Href, \n  link4Href, \n  newsletterPlaceholderText, \n  newsletterButtonText,\n  socialLink1Href,\n  socialLink2Href,\n  socialLink3Href\n}) => {\n  const currentYear = new Date().getFullYear();\n  const socialIcons = [\n    'mdi:facebook',\n    'mdi:twitter',\n    'mdi:instagram'\n  ];\n\n  return (\n    <footer className=\"w-full bg-[#1A1A2E] text-white py-12 px-4 md:px-8 lg:px-16\">\n      <div className=\"max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8\">\n        {/* Company Info Column */}\n        <div className=\"space-y-4\">\n          <h4 className=\"text-lg font-semibold text-white\">{title1Text}</h4>\n          <p className=\"text-sm text-gray-300\">{description1Text}</p>\n        </div>\n\n        {/* Quick Links Column */}\n        <div>\n          <h4 className=\"text-lg font-semibold mb-4\">{title2Text}</h4>\n          <nav className=\"space-y-2\">\n            <a href={link1Href} className=\"block text-sm text-gray-300 hover:text-[#0073E6] transition-colors\">Services</a>\n            <a href={link2Href} className=\"block text-sm text-gray-300 hover:text-[#0073E6] transition-colors\">About Us</a>\n            <a href={link3Href} className=\"block text-sm text-gray-300 hover:text-[#0073E6] transition-colors\">Contact</a>\n            <a href={link4Href} className=\"block text-sm text-gray-300 hover:text-[#0073E6] transition-colors\">FAQ</a>\n          </nav>\n        </div>\n\n        {/* Contact Column */}\n        <div>\n          <h4 className=\"text-lg font-semibold mb-4\">Contact</h4>\n          <div className=\"space-y-2 text-sm text-gray-300\">\n            <p>Email: support@smileoptic.com</p>\n            <p>Phone: +1 (555) 123-4567</p>\n            <div className=\"flex space-x-4 pt-4\">\n              {socialIcons.map((icon, index) => (\n                <a \n                  key={icon} \n                  href={[socialLink1Href, socialLink2Href, socialLink3Href][index]} \n                  className=\"text-white hover:text-[#0073E6] transition-colors\"\n                >\n                  <span className=\"sr-only\">{icon.split(':')[1]} link</span>\n                </a>\n              ))}\n            </div>\n          </div>\n        </div>\n\n        {/* Newsletter Column */}\n        <div>\n          <h4 className=\"text-lg font-semibold mb-4\">Newsletter</h4>\n          <div className=\"flex\">\n            <input \n              type=\"email\" \n              placeholder={newsletterPlaceholderText} \n              className=\"w-full px-3 py-2 text-sm text-gray-800 rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#0073E6]\"\n            />\n            <button \n              className=\"bg-[#0073E6] text-white px-4 py-2 text-sm rounded-r-md hover:bg-[#0059B3] transition-colors\"\n            >\n              {newsletterButtonText}\n            </button>\n          </div>\n        </div>\n      </div>\n\n      {/* Copyright Section */}\n      <div className=\"border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400\">\n        © {currentYear} Smile Optic. All Rights Reserved.\n      </div>\n    </footer>\n  );\n}",
+        "props": [
+          {
+            "propName": "title1Text",
+            "propLabel": "Company Column Title",
+            "propType": "text",
+            "propValue": "Smile Optic"
+          },
+          {
+            "propName": "title2Text",
+            "propLabel": "Quick Links Column Title",
+            "propType": "text",
+            "propValue": "Quick Links"
+          },
+          {
+            "propName": "description1Text",
+            "propLabel": "Company Description",
+            "propType": "text",
+            "propValue": "No appointment necessary. Professional eye tests with luxury brands and fast alignment."
+          },
+          {
+            "propName": "description2Text",
+            "propLabel": "Additional Description",
+            "propType": "text",
+            "propValue": ""
+          },
+          {
+            "propName": "link1Href",
+            "propLabel": "Services Link",
+            "propType": "href",
+            "propValue": "/services"
+          },
+          {
+            "propName": "link2Href",
+            "propLabel": "About Us Link",
+            "propType": "href",
+            "propValue": "/about"
+          },
+          {
+            "propName": "link3Href",
+            "propLabel": "Contact Link",
+            "propType": "href",
+            "propValue": "/contact"
+          },
+          {
+            "propName": "link4Href",
+            "propLabel": "FAQ Link",
+            "propType": "href",
+            "propValue": "/faq"
+          },
+          {
+            "propName": "newsletterPlaceholderText",
+            "propLabel": "Newsletter Input Placeholder",
+            "propType": "text",
+            "propValue": "Enter your email"
+          },
+          {
+            "propName": "newsletterButtonText",
+            "propLabel": "Newsletter Button Text",
+            "propType": "text",
+            "propValue": "Subscribe"
+          },
+          {
+            "propName": "socialLink1Href",
+            "propLabel": "Facebook Link",
+            "propType": "href",
+            "propValue": "https://facebook.com/smileoptic"
+          },
+          {
+            "propName": "socialLink2Href",
+            "propLabel": "Twitter Link",
+            "propType": "href",
+            "propValue": "https://twitter.com/smileoptic"
+          },
+          {
+            "propName": "socialLink3Href",
+            "propLabel": "Instagram Link",
+            "propType": "href",
+            "propValue": "https://instagram.com/smileoptic"
+          }
+        ]
+      }
+    ]
+  }
+]
